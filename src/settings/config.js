@@ -1,4 +1,7 @@
-import { PAGE, ACTION, TRANSITION } from './constant';
+import { createContext } from 'react';
+import { ACTION, PAGE, TRANSITION } from './constant';
+
+export const Context = createContext();
 
 export const initialState = {
 	[ACTION.page]: PAGE.landing,

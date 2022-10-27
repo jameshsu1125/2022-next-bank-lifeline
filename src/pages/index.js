@@ -1,17 +1,28 @@
-import { memo, useEffect, useMemo, useReducer } from 'react';
+import { lazy, memo, Suspense, useContext, useMemo, useReducer } from 'react';
 import { createRoot } from 'react-dom/client';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { initialState, reducer } from '../settings/config';
+import { Context, initialState, reducer } from '../settings/config';
+import { ACTION, PAGE } from '../settings/constant';
 import '../settings/global.less';
-import { Context } from './context';
 
 const Pages = memo(() => {
-	useEffect(() => {}, []);
-	return (
-		<Routes>
-			<Route path='/' element={<div />} />
-		</Routes>
-	);
+	const [context] = useContext(Context);
+	const page = context[ACTION.page];
+
+	const Page = useMemo(() => {
+		const [target] = Object.values(PAGE).filter((data) => data === page);
+		const Element = lazy(() => import(`.${target}/`));
+
+		if (target) {
+			return (
+				<Suspense fallback='loading'>
+					<Element />
+				</Suspense>
+			);
+		}
+		return '';
+	}, [page]);
+
+	return <div className='w-full'>{Page}</div>;
 });
 
 const App = () => {
@@ -20,9 +31,7 @@ const App = () => {
 	return (
 		<div className='App'>
 			<Context.Provider {...{ value }}>
-				<BrowserRouter>
-					<Pages />
-				</BrowserRouter>
+				<Pages />
 			</Context.Provider>
 		</div>
 	);
