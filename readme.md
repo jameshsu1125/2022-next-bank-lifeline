@@ -12,7 +12,7 @@
   </a>
   <h3 align="center">NEXT BANK</h3>
   <p align="center">
-    Short description   
+    你的後天生命線 
   </p>
 </p>
 
@@ -60,36 +60,6 @@ $ npm run build
 - `public` folder will copy to `/dist`
 - `src` folder is reactJs entry point. default file is named as `index.js`
 - `template` folder is html template for each entry points.
-
-```text
-📦package
- ┣ 📂public
- ┣ 📂src
- ┃ ┣ 📂components
- ┃ ┣ 📂hooks
- ┃ ┣ 📂index
- ┃ ┣ 📂pages
- ┃ ┣ 📂setting
- ┃ ┗ 📜index.js
- ┣ 📂template
- ┃ ┣ 📜template.html
- ┃ ┗ 📜template.meta.js
- ┣ 📜.babelrc
- ┣ 📜.browserslistrc
- ┣ 📜.env.defaults
- ┣ 📜.eslintignore
- ┣ 📜.eslintrc.json
- ┣ 📜.gitattributes
- ┣ 📜.gitignore
- ┣ 📜.prettierignore
- ┣ 📜.prettierrc
- ┣ 📜LICENSE
- ┣ 📜package.json
- ┣ 📜postcss.config.js
- ┣ 📜readme.md
- ┣ 📜tailwind.config.js
- ┗ 📜webpack.config.js
-```
 
 ## Bugs and feature requests
 

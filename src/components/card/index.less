@@ -1,0 +1,18 @@
+.Card {
+	position: relative;
+	padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
+	width: @width;
+	background-image: url(@img);
+	background-size: 100%;
+
+	@width: 100%;
+	@img: './img/bg.svg';
+
+	& > div {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+	}
+}

@@ -1,2 +1,14 @@
 .Container {
+	& > div {
+		position: relative;
+		&::before {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			background-image: url('./img/dots.svg');
+			background-size: (100% / 11);
+			content: '';
+			pointer-events: none;
+		}
+	}
 }
