@@ -10,7 +10,7 @@
   <a href="https://github.com/jameshsu1125">
     <img src="https://user-images.githubusercontent.com/70932507/188534539-a68734ac-9330-4fe0-bc49-5fa85116493e.png" alt="Logo" width=72 height=72>
   </a>
-  <h3 align="center">Logo</h3>
+  <h3 align="center">NEXT BANK</h3>
   <p align="center">
     Short description   
   </p>
