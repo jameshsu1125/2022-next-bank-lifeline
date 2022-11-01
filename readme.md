@@ -7,7 +7,7 @@
 [![NPM](https://img.shields.io/badge/DEV-Jameshsu1125-9cf?style=for-the-badge)](https://www.npmjs.com/~jameshsu1125)
 
 <p align="center">
-  <a href="https://github.com/jameshsu1125">
+  <a href="https://jameshsu1125.github.io/2022-next-bank-lifeline/">
     <img src="https://user-images.githubusercontent.com/70932507/198228609-6571e5c2-39d5-4ff2-8fdb-ffb5a91fe5eb.png" alt="Logo" width=72 height=72>
   </a>
   <h3 align="center">NEXT BANK</h3>
