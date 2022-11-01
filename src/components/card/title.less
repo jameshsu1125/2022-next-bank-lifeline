@@ -1,7 +1,7 @@
 .CardTitle {
 	position: absolute;
 	top: 17.5%;
-	margin-left: -1.25rem;
+	left: -1.25rem;
 	padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
 	width: @width;
 	background-image: url(@img);
@@ -22,6 +22,8 @@
 		justify-content: flex-start;
 		padding-left: 5.2%;
 		font-weight: 900;
+
+		user-select: none;
 
 		@apply text-2xl;
 	}

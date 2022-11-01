@@ -87,3 +87,9 @@ Thank customers and some manufacturers for their support.
 Code and documentation copyright 2011-2022 the authors. Code released under the [MIT License](https://reponame/blob/master/LICENSE).
 
 <!-- open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security -->
+
+## Reference
+
+[廣告素材概念及文案](https://docs.google.com/presentation/d/1XE6w6te14jx9vHr0XolwhWgsgWuX67Z8/edit#slide=id.p5)
+
+[API](https://docs.google.com/document/d/17dkAT2CpH_72A3rMABtGS70R3ZXyOdYR/edit)

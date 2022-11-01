@@ -1,17 +1,25 @@
-<svg width="349" height="489" viewBox="0 0 349 489" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 453.424H218.412L235.555 477H343V1H45.0755L0.280221 47.0252L0 453.424Z" fill="#F8EC2C"/>
-<path d="M1 452.635H218.496L235.589 477H343V1H45.6647L1 47.0252V452.635Z" stroke="white" stroke-miterlimit="10"/>
-<path d="M246.44 472.81H240.46L227.88 454.4H233.87L246.44 472.81Z" fill="white"/>
-<path d="M255.68 472.81H249.69L237.12 454.4H243.11L255.68 472.81Z" fill="white"/>
-<path d="M264.92 472.81H258.93L246.36 454.4H252.34L264.92 472.81Z" fill="white"/>
-<path d="M274.16 472.81H268.17L255.6 454.4H261.58L274.16 472.81Z" fill="white"/>
-<path d="M283.39 472.81H277.41L264.83 454.4H270.82L283.39 472.81Z" fill="white"/>
-<path d="M292.63 472.81H286.64L274.07 454.4H280.06L292.63 472.81Z" fill="white"/>
-<path d="M301.87 472.81H295.88L283.31 454.4H289.29L301.87 472.81Z" fill="white"/>
-<path d="M311.11 472.81H305.12L292.54 454.4H298.53L311.11 472.81Z" fill="white"/>
-<path d="M320.34 472.81H314.36L301.78 454.4H307.77L320.34 472.81Z" fill="white"/>
-<path d="M329.58 472.81H323.59L311.02 454.4H317.01L329.58 472.81Z" fill="white"/>
-<path d="M338.82 472.81H332.83L320.26 454.4H326.24L338.82 472.81Z" fill="white"/>
-<path d="M348.06 472.81H342.07L329.49 454.4H335.48L348.06 472.81Z" fill="white"/>
-<path d="M333.77 487.77L274.74 399.97" stroke="white" stroke-miterlimit="10"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 25.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 349 489" style="enable-background:new 0 0 349 489;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F8EC2C;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;}
+</style>
+<path class="st0" d="M0,453.4h218.4l17.1,23.6H343V1H45.1L0.3,47L0,453.4z"/>
+<path class="st1" d="M1,452.6h217.5l17.1,24.4H343V1H45.7L1,47V452.6z"/>
+<path class="st2" d="M246.4,472.8h-6l-12.6-18.4h6L246.4,472.8z"/>
+<path class="st2" d="M255.7,472.8h-6l-12.6-18.4h6L255.7,472.8z"/>
+<path class="st2" d="M264.9,472.8h-6l-12.6-18.4h6L264.9,472.8z"/>
+<path class="st2" d="M274.2,472.8h-6l-12.6-18.4h6L274.2,472.8z"/>
+<path class="st2" d="M283.4,472.8h-6l-12.6-18.4h6L283.4,472.8z"/>
+<path class="st2" d="M292.6,472.8h-6l-12.6-18.4h6L292.6,472.8z"/>
+<path class="st2" d="M301.9,472.8h-6l-12.6-18.4h6L301.9,472.8z"/>
+<path class="st2" d="M311.1,472.8h-6l-12.6-18.4h6L311.1,472.8z"/>
+<path class="st2" d="M320.3,472.8h-6l-12.6-18.4h6L320.3,472.8z"/>
+<path class="st2" d="M329.6,472.8h-6L311,454.4h6L329.6,472.8z"/>
+<path class="st2" d="M338.8,472.8h-6l-12.6-18.4h6L338.8,472.8z"/>
+<path class="st2" d="M348.1,472.8h-6l-12.6-18.4h6L348.1,472.8z"/>
+<path class="st1" d="M333.8,487.8l-59-87.8"/>
 </svg>

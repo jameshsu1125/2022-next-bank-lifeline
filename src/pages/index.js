@@ -21,7 +21,7 @@ const Pages = memo(() => {
 		return '';
 	}, [page]);
 
-	return <div className='w-full'>{Page}</div>;
+	return <div className='h-full w-full'>{Page}</div>;
 });
 
 const App = () => {

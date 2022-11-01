@@ -14,7 +14,7 @@ module.exports = {
 			tertiary: '#ff0066',
 			quaternary: '#00ff00',
 			bgGray: '#E1E1E1',
-			bgYellow: '#F8EC2C',
+			yellow: '#F8EC2C',
 		},
 		fontSize: {
 			...fontSize,
