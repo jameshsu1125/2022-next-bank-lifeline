@@ -1,0 +1,72 @@
+.Watch {
+	position: absolute;
+	top: 50%;
+	right: 0%;
+	z-index: 1;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: image-width(@img) * @scale;
+	height: image-height(@img) * @scale;
+	opacity: 0.5;
+
+	@scale: 1;
+	@img: './img/0.svg';
+
+	& > div {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 75%;
+		height: 75%;
+		border: solid 1px rgb(152, 152, 152);
+		color: rgb(152, 152, 152);
+		text-align: center;
+		@apply rounded-full font-liquid text-lg;
+
+		& > span {
+			padding: 3px 0 0 1px;
+		}
+	}
+
+	&::before {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: url(@img);
+		background-size: 100%;
+		content: '';
+		animation: WatchRotate 5s linear infinite;
+	}
+
+	&::after {
+		position: absolute;
+		width: 60%;
+		height: 60%;
+		background-image: url('./img/1.svg');
+		background-size: 100%;
+		content: '';
+		animation: WatchRotate 7s linear infinite;
+		animation-direction: reverse;
+	}
+}
+
+.Watch-delay {
+	&::before {
+		animation-direction: reverse;
+	}
+
+	&::after {
+		animation-direction: normal;
+	}
+}
+
+@keyframes WatchRotate {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

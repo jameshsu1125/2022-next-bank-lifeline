@@ -22,6 +22,7 @@ module.exports = {
 		fontFamily: {
 			inter: ['Inter'],
 			interBlack: ['Inter Black'],
+			liquid: ['Liquid Crystal'],
 		},
 	},
 	plugins: [],

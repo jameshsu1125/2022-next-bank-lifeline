@@ -15,3 +15,13 @@
 
 	font-display: swap;
 }
+
+@font-face {
+	font-weight: normal;
+	font-style: normal;
+	font-family: 'Liquid Crystal';
+	src: url('subset-LiquidCrystal-Regular.woff2') format('woff2'),
+		url('subset-LiquidCrystal-Regular.woff') format('woff');
+
+	font-display: swap;
+}
