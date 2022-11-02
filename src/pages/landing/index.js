@@ -1,6 +1,7 @@
 import { memo, useEffect } from 'react';
 import Card from '../../components/card';
 import CardLogo from '../../components/cardLogo';
+import Compass from '../../components/compass';
 import Container from '../../components/container';
 import RegularButton from '../../components/regularButton';
 import './index.less';
@@ -10,7 +11,9 @@ const Landing = memo(() => {
 	return (
 		<div className='Landing'>
 			<Container>
-				<Card />
+				<Card>
+					<Compass />
+				</Card>
 				<CardLogo>
 					<RegularButton>立即測</RegularButton>
 				</CardLogo>

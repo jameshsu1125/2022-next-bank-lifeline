@@ -1,8 +1,11 @@
+import Click from 'lesca-click';
 import { lazy, memo, Suspense, useContext, useMemo, useReducer } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Context, initialState, reducer } from '../settings/config';
 import { ACTION, PAGE } from '../settings/constant';
 import '../settings/global.less';
+
+Click.install();
 
 const Pages = memo(() => {
 	const [context] = useContext(Context);
@@ -11,6 +14,7 @@ const Pages = memo(() => {
 	const Page = useMemo(() => {
 		const [target] = Object.values(PAGE).filter((data) => data === page);
 		const Element = lazy(() => import(`.${target}/`));
+		console.log(target);
 		if (target) {
 			return (
 				<Suspense fallback=''>
