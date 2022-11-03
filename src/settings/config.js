@@ -2,9 +2,11 @@ import { createContext } from 'react';
 import { ACTION, PAGE, TRANSITION } from './constant';
 
 export const Context = createContext();
+export const LoadingContext = createContext();
+export const QuestionContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: PAGE.landing,
+	[ACTION.page]: PAGE.questions,
 	[ACTION.transition]: TRANSITION.unset,
 };
 

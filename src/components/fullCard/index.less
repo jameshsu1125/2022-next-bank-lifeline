@@ -1,0 +1,181 @@
+.FullCard {
+	position: relative;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
+	width: @width + 12.4%;
+	height: 100%;
+
+	@width: 100%;
+	@img: './img/bg.svg';
+
+	&::before {
+		position: absolute;
+		top: 0;
+		width: 100%;
+		height: 4rem;
+		background-image: url(@img);
+		background-size: 100%;
+		content: '';
+	}
+
+	&::after {
+		position: absolute;
+		bottom: 2rem;
+		width: 100%;
+		height: 7rem;
+		background-image: url(@img);
+		background-position: bottom;
+		background-size: 100%;
+		content: '';
+	}
+
+	& > .container {
+		position: absolute;
+		top: 0%;
+		right: 0;
+		bottom: 0%;
+		left: 0;
+
+		& > div {
+			position: absolute;
+			top: 4rem;
+			width: 100%;
+			height: calc(~'100% - 4rem - 7rem - 2rem');
+			background-image: url('./img/bg-fill.svg');
+			background-position: center;
+			background-size: 100% auto;
+			background-repeat: repeat-y;
+
+			.content {
+				position: absolute;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+}
+
+.FullCard-content {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(~'100% - 3.7rem');
+
+	@apply p-5;
+
+	.content {
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		@scale: 1.2;
+		@img: './img/line.svg';
+
+		.context {
+			position: absolute;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			width: 100%;
+			height: 100%;
+		}
+
+		.sub-eng {
+			position: absolute;
+			right: 1rem;
+			bottom: 0.5rem;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 0.73;
+			@img: './img/eng.svg';
+		}
+
+		.eng {
+			position: absolute;
+			top: 7.3rem;
+			left: 1rem;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 1.2;
+			@img: './img/eng.svg';
+		}
+
+		.cht {
+			position: absolute;
+			top: 3.3rem;
+			left: 1rem;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 1;
+			@img: './img/cht.svg';
+		}
+
+		.vertical-text {
+			position: absolute;
+			bottom: 13rem;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 1;
+			@img: './img/vertical-text.svg';
+
+			@apply m-4;
+		}
+
+		.compass {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			margin-top: 0 - image-height(@img) * @scale * 0.5;
+			margin-left: 0 - image-width(@img) * @scale * 0.5;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 0.57;
+			@img: '../compass/img/compass.png';
+		}
+
+		.rt-l {
+			position: absolute;
+			right: 0;
+			margin: 0.75rem;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+		}
+
+		.lb-l {
+			position: absolute;
+			bottom: 0;
+			margin: 0.75rem;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+			transform: rotate(180deg);
+		}
+	}
+}

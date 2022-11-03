@@ -20,7 +20,7 @@ const Map1 = memo(({ status = 'main', onComplete = () => {} }) => {
 	}, []);
 
 	const position = {
-		main: 'mt-[6.4rem] ml-[0.4rem] scale-125',
+		main: 'mt-[7.7rem] ml-[-1.6rem] scale-[1.2]',
 		monitor: 'scale-[0.43] mt-[2.2rem] ml-[0.4rem]',
 	};
 

@@ -1,14 +1,35 @@
-import { memo, useRef, useEffect } from 'react';
+import useTween from 'lesca-use-tween';
+import { memo, useRef, useEffect, useContext } from 'react';
+import { LoadingContext } from '../../settings/config';
+import { LOGO_DURATION, TRANSITION } from '../../settings/constant';
 import './index.less';
 
 const Logo = memo(() => {
 	const ref = useRef();
+
+	const [context] = useContext(LoadingContext);
+	const { transition } = context;
+	const [style, setStyle] = useTween({ opacity: 0 });
+
 	useEffect(() => {
-		[...ref.current.getElementsByTagName('path')].forEach((path) => {
-			const total = path.getTotalLength();
-			path.setAttribute('style', `stroke-dasharray:${total}; stroke-dashoffset:${total}`);
-		});
-	}, []);
+		if (transition === TRANSITION.fadeIn) {
+			setStyle(
+				{ opacity: 1 },
+				{
+					duration: 100,
+					delay: LOGO_DURATION.logo,
+					onStart: () => {
+						[...ref.current.getElementsByTagName('path')].forEach((path) => {
+							const total = path.getTotalLength();
+							path.classList.add('on');
+							path.setAttribute('style', `stroke-dasharray:${total}; stroke-dashoffset:${total}`);
+						});
+					},
+				},
+			);
+		}
+	}, [transition]);
+
 	return (
 		<svg
 			ref={ref}
@@ -17,6 +38,7 @@ const Logo = memo(() => {
 			viewBox='0 0 197 127'
 			fill='none'
 			xmlns='http://www.w3.org/2000/svg'
+			style={style}
 		>
 			<path
 				d='M165.323 26.5332H150.61V19.6361H166.752C166.797 18.7147 166.846 17.8866 166.846 17.0622V12.8322H152.41V5.93506H189.168V12.8322H173.95V17.1555C173.95 17.9351 173.95 18.7632 173.905 19.6398H190.922V26.537H175.517C178.791 33.1133 184.555 37.8954 193.272 40.0589C191.704 41.5323 189.673 44.427 188.659 46.3145C180.265 43.6921 174.825 38.8653 170.995 31.9681C168.226 37.7164 162.97 43.1438 153.147 46.501C152.316 44.8448 150.195 42.0397 148.766 40.708C154.411 38.9175 158.309 36.3809 161.003 33.5273'

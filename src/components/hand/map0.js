@@ -17,7 +17,7 @@ const Map0 = memo(({ status = 'main', onComplete = () => {} }) => {
 	}, []);
 
 	const position = {
-		main: 'mt-[3rem] ml-[-1.2rem] scale-125',
+		main: 'mt-[5.4rem] ml-[-3.2rem] scale-[1.2]',
 		monitor: 'scale-[0.43] mt-[1rem]',
 	};
 
@@ -29,7 +29,6 @@ const Map0 = memo(({ status = 'main', onComplete = () => {} }) => {
 	return (
 		<div className={position[status]} style={style}>
 			<svg
-				// className='scale'
 				ref={ref}
 				version='1.1'
 				xmlns='http://www.w3.org/2000/svg'
@@ -44,7 +43,7 @@ const Map0 = memo(({ status = 'main', onComplete = () => {} }) => {
 					d='M2.7,24.9c0,0,22.9,8.1,46.6,0.4S87.5,7.4,94.2,3'
 					fill='none'
 					stroke={color[status]}
-					strokeWidth='5'
+					strokeWidth='6'
 					strokeLinecap='round'
 					strokeLinejoin='round'
 					strokeMiterlimit='10'
@@ -53,7 +52,7 @@ const Map0 = memo(({ status = 'main', onComplete = () => {} }) => {
 					d='M15.5,60.3c36.7-19.4,75-34,98.4-41.7'
 					fill='none'
 					stroke={color[status]}
-					strokeWidth='5'
+					strokeWidth='6'
 					strokeLinecap='round'
 					strokeLinejoin='round'
 					strokeMiterlimit='10'
@@ -62,7 +61,7 @@ const Map0 = memo(({ status = 'main', onComplete = () => {} }) => {
 					d='M26.1,92.1c14.2-16,24.6-29.9,62.2-44'
 					fill='none'
 					stroke={color[status]}
-					strokeWidth='5'
+					strokeWidth='6'
 					strokeLinecap='round'
 					strokeLinejoin='round'
 					strokeMiterlimit='10'

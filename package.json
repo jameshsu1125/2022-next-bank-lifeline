@@ -46,6 +46,7 @@
 	"dependencies": {
 		"@types/react": "^18.0.24",
 		"lesca-click": "^4.3.1",
+		"lesca-image-onload": "^3.0.1",
 		"lesca-number": "^1.4.0",
 		"lesca-use-tween": "^2.1.0",
 		"react": "^18.2.0",

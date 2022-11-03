@@ -15,13 +15,13 @@
 
 		& > svg {
 			transform: scale(@scale);
-
-			& > path {
-				animation: dash 2s cubic-bezier(0.25, 1, 0.5, 1);
-
-				animation-fill-mode: forwards;
-			}
 		}
+	}
+
+	.on {
+		animation: dash 2s cubic-bezier(0.25, 1, 0.5, 1);
+
+		animation-fill-mode: forwards;
 	}
 
 	@keyframes dash {

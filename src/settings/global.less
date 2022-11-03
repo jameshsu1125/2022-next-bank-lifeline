@@ -4,6 +4,8 @@
 
 @import url('./fonts/stylesheet.css?css');
 
+@MD: 682px;
+
 body {
 	margin: 0;
 
@@ -14,5 +16,17 @@ body {
 @layer components {
 	.App {
 		@apply absolute h-full w-full bg-bgGray font-inter;
+	}
+}
+
+.PAGE {
+	position: relative;
+	overflow: hidden;
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+
+	@media only screen and (max-height: @MD) {
+		border: solid 3px red;
 	}
 }
