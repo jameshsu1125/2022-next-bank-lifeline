@@ -1,12 +1,15 @@
 import { memo, useContext, useEffect } from 'react';
+import RegularButton from '../../components/regularButton';
 import { QuestionContext } from '../../settings/config';
 import { QUESTIONS } from '../../settings/constant';
 import './question.less';
 
 const Buttons = memo(({ body = [] }) => (
 	<div className='question-buttons'>
-		{body.map((e) => (
-			<div key={e}>{e}</div>
+		{body.map((e, i) => (
+			<RegularButton key={e} flip={i % 2 === 1} arrow={false}>
+				{e}
+			</RegularButton>
 		))}
 	</div>
 ));

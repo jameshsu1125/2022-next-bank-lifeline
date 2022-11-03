@@ -19,6 +19,12 @@ const FullCard = memo(({ children }) => {
 					<div className='cht' />
 					<div className='eng' />
 					<div className='sub-eng' />
+					<div className='xui'>
+						<div />
+					</div>
+					<div className='xui' style={{ marginLeft: '4rem' }}>
+						<div />
+					</div>
 					<div className='context'>{children}</div>
 				</div>
 			</div>

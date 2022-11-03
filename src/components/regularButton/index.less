@@ -12,6 +12,14 @@
 		}
 	}
 
+	.flip {
+		mask-image: url('./img/mask2.svg');
+
+		& > div {
+			mask-image: url('./img/mask2.svg');
+		}
+	}
+
 	& > div {
 		padding: 2px 2px 10px 2px;
 		width: 100%;
@@ -23,11 +31,27 @@
 		mask-position: left top;
 		mask-size: 100%;
 		mask-repeat: no-repeat;
+
+		.arrow {
+			justify-content: space-between;
+
+			&::after {
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100% 100%;
+				content: '';
+
+				@scale: 1;
+				@img: './img/arrow.svg';
+			}
+		}
+
 		& > div {
 			display: flex;
 			align-items: center;
 			flex-direction: row;
-			justify-content: space-between;
+			justify-content: center;
 			padding: 0.5rem;
 			padding-left: 2rem;
 			width: 100%;
@@ -40,17 +64,6 @@
 			mask-repeat: no-repeat;
 
 			@apply font-interBlack text-xl text-yellow;
-
-			&::after {
-				width: image-width(@img) * @scale;
-				height: image-height(@img) * @scale;
-				background-image: url(@img);
-				background-size: 100%;
-				content: '';
-
-				@scale: 1;
-				@img: './img/arrow.svg';
-			}
 		}
 	}
 }

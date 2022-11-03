@@ -89,6 +89,52 @@
 			height: 100%;
 		}
 
+		.xui {
+			position: absolute;
+			bottom: 1.25rem;
+			left: 2.75rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+
+			@scale: 1;
+			@img: './img/c0.svg';
+
+			&::before {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-image: url(@img);
+				background-size: 100%;
+				content: '';
+			}
+
+			& > div {
+				position: absolute;
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100%;
+
+				@scale: 1;
+				@img: './img/c1.svg';
+			}
+
+			&::after {
+				position: absolute;
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100%;
+				content: '';
+
+				@scale: 1;
+				@img: './img/c2.svg';
+			}
+		}
+
 		.sub-eng {
 			position: absolute;
 			right: 1rem;

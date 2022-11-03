@@ -1,10 +1,23 @@
 .Question {
+	max-width: 290px;
+	width: 100%;
+
+	& > div {
+		@apply my-5;
+	}
+
 	.title {
-		background-color: red;
+		text-align: center;
+		font-weight: 900;
+
+		@apply font-interBlack text-2xl;
 	}
 
 	.question-buttons {
 		width: 100%;
-		background-color: blue;
+
+		& > * {
+			@apply my-5;
+		}
 	}
 }
