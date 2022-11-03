@@ -1,0 +1,26 @@
+.Hand {
+	margin-top: -9%;
+	margin-left: 9%;
+	padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
+	width: @width;
+	background-image: url(@img);
+	background-size: 100%;
+	background-repeat: no-repeat;
+
+	@width: 70%;
+	@img: './img/hand.svg';
+
+	& > div {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+}

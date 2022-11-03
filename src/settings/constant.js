@@ -16,4 +16,7 @@ export const TRANSITION = {
 	loop: 5,
 };
 
-export default {};
+export const HAND_DURATIONS = {
+	css: 2000,
+	stay: 3000,
+};

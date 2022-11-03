@@ -17,13 +17,11 @@ const Card = memo(({ children }) => (
 			<StandBottom>心理學</StandBottom>
 			<VerticalRight>手相</VerticalRight>
 			<VerticalLeft>personality</VerticalLeft>
-
 			<StandTop>
 				psychology
 				<br />
 				analysis
 			</StandTop>
-
 			<Watch />
 			<Watch y='60px' delay />
 		</div>

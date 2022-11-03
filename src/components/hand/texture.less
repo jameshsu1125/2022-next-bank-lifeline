@@ -1,0 +1,15 @@
+.Texture {
+	svg {
+		path {
+			animation: dashs 2s cubic-bezier(0.25, 1, 0.5, 1);
+
+			animation-fill-mode: forwards;
+		}
+	}
+
+	@keyframes dashs {
+		100% {
+			stroke-dashoffset: 0;
+		}
+	}
+}

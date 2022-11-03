@@ -11,40 +11,48 @@
 	background-image: url(@img);
 	background-size: 100%;
 
-	@scale: 0.55;
+	@scale: 0.57;
 	@img: './img/compass.png';
 
-	& > div:nth-child(1) {
+	.content {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+	}
+
+	& > div {
 		position: absolute;
+		background-size: cover;
+	}
+
+	& > div:nth-child(1) {
 		padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
 		width: @width;
 		background-image: url(@img);
-		background-size: cover;
 
 		@width: 85%;
 		@img: './img/0.svg';
 	}
 
 	& > div:nth-child(2) {
-		position: absolute;
 		padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
 		width: @width;
 		background-image: url(@img);
-		background-size: cover;
-		animation: CompassAnimate 8s linear infinite;
+		animation: CompassAnimate 10s linear infinite;
 
 		@width: 85%;
 		@img: './img/1.svg';
 	}
 
 	& > div:nth-child(3) {
-		position: absolute;
 		padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
 		width: @width;
 		background-image: url(@img);
-		background-size: cover;
-		animation: CompassAnimate 10s linear infinite;
-		animation-direction: reverse;
+		animation: CompassAnimate 15s linear infinite;
+		// animation-direction: reverse;
 
 		@width: 85%;
 		@img: './img/2.svg';
