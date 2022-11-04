@@ -1,0 +1,65 @@
+.Sign {
+	width: 100%;
+
+	.dialog {
+		position: relative;
+		margin-top: 1rem;
+		padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
+		width: @width;
+
+		@width: 100%;
+		@img: './img/dialog.svg';
+
+		&::after {
+			position: absolute;
+			bottom: 0.5rem;
+			left: -1.8rem;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+			content: '';
+
+			@scale: 0.62;
+			@img: './img/streak.svg';
+		}
+
+		.text {
+			position: absolute;
+			top: 0 - image-height(@img) * @scale - 10px;
+			left: 10px;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 0.7;
+			@img: './img/text.svg';
+		}
+
+		& > .container {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			background-image: url(@img);
+			background-size: 100%;
+			filter: drop-shadow(13px 13px 0 rgba(152, 152, 152, 0.5));
+
+			.dialog-content {
+				width: 300px;
+				text-align: center;
+				@apply space-y-2;
+
+				h1 {
+					@apply text-2xl;
+				}
+			}
+		}
+	}
+}

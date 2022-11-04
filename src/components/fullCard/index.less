@@ -109,6 +109,7 @@
 				background-image: url(@img);
 				background-size: 100%;
 				content: '';
+				animation: xuiRotate 4s ease-in-out infinite;
 			}
 
 			& > div {
@@ -117,6 +118,7 @@
 				height: image-height(@img) * @scale;
 				background-image: url(@img);
 				background-size: 100%;
+				animation: xuiRotate 3s ease-in-out infinite;
 
 				@scale: 1;
 				@img: './img/c1.svg';
@@ -129,9 +131,31 @@
 				background-image: url(@img);
 				background-size: 100%;
 				content: '';
+				animation: xuiRotate 5s ease-in-out infinite;
 
 				@scale: 1;
 				@img: './img/c2.svg';
+			}
+		}
+
+		.revses {
+			& > div {
+				animation-direction: reverse;
+			}
+			&::before {
+				animation-direction: reverse;
+			}
+			&::after {
+				animation-direction: reverse;
+			}
+		}
+
+		@keyframes xuiRotate {
+			0% {
+				transform: rotate(0deg);
+			}
+			100% {
+				transform: rotate(360deg);
 			}
 		}
 
