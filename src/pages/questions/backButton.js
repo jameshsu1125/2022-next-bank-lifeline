@@ -5,7 +5,21 @@ import { QuestionContext } from '../../settings/config';
 import { QUESTIONS_PAGE } from '../../settings/constant';
 import './backButton.less';
 
-const DEFAULT_STYLE = { opacity: 0, y: 0 };
+const DEFAULT_STYLE = { opacity: 0, y: 100 };
+
+export const BottomSymbol = memo(() => {
+	const [context] = useContext(QuestionContext);
+	const { page } = context;
+	const [style, setStyle] = useTween({ opacity: 0, y: 100 });
+
+	useEffect(() => {
+		if (page !== QUESTIONS_PAGE.question && page !== QUESTIONS_PAGE.form) {
+			setStyle({ y: 0, opacity: 1 });
+		} else setStyle({ y: 100, opacity: 0 });
+	}, [page]);
+
+	return <div className='BottomSymbol' style={style} />;
+});
 
 const BackButton = memo(() => {
 	const [context, setContext] = useContext(QuestionContext);

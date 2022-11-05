@@ -3,12 +3,26 @@
 
 	.dialog {
 		position: relative;
-		margin-top: 1rem;
+		margin-top: 1.5rem;
 		padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
 		width: @width;
 
 		@width: 100%;
 		@img: './img/dialog.svg';
+
+		&::before {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background-color: rgba(152, 152, 152, 0.5);
+			content: '';
+			transform: translateX(13px) translateY(13px);
+
+			mask-image: url(@img);
+			mask-size: 100%;
+		}
 
 		&::after {
 			position: absolute;
@@ -49,7 +63,8 @@
 			justify-content: center;
 			background-image: url(@img);
 			background-size: 100%;
-			filter: drop-shadow(13px 13px 0 rgba(152, 152, 152, 0.5));
+
+			// filter: drop-shadow(13px 13px 0 rgba(152, 152, 152, 0.5));
 
 			.dialog-content {
 				width: 300px;

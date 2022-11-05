@@ -1,11 +1,12 @@
 import ImagePreloader from 'lesca-image-onload';
-import useTween from 'lesca-use-tween';
+import useTween, { Bezier } from 'lesca-use-tween';
 import { memo, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import Container from '../../components/container';
 import FullCard from '../../components/fullCard';
+import RegularButton from '../../components/regularButton';
 import { QuestionContext } from '../../settings/config';
 import { QUESTIONS_PAGE, QUESTIONS_STATE, TRANSITION } from '../../settings/constant';
-import BackButton from './backButton';
+import BackButton, { BottomSymbol } from './backButton';
 import Form from './form';
 import './index.less';
 import Processing from './processing';
@@ -16,12 +17,14 @@ const DEFAULT_LOGO_STYLE = { top: '0.75rem', left: '0.75rem', scale: 1, opacity:
 const Logo = memo(() => {
 	const [context] = useContext(QuestionContext);
 	const { page } = context;
-
 	const [style, setStyle] = useTween(DEFAULT_LOGO_STYLE);
 
 	useEffect(() => {
 		if (page === QUESTIONS_PAGE.processing) {
-			setStyle({ scale: 1.9, opacity: 1, top: '3.05rem', left: '10.35rem' }, 500);
+			setStyle(
+				{ scale: 1.8, opacity: 1, top: '2.55rem', left: '10.35rem' },
+				{ duration: 800, easing: Bezier.easeInOutQuart },
+			);
 		} else if (page === QUESTIONS_PAGE.form) setStyle({ opacity: 0 }, 500);
 		else setStyle(DEFAULT_LOGO_STYLE, 500);
 	}, [page]);
@@ -65,11 +68,19 @@ const Questions = memo(() => {
 		<div ref={ref} className='Questions'>
 			<QuestionContext.Provider value={value}>
 				<Container>
+					<BottomSymbol />
 					<FullCard invertion={page === QUESTIONS_PAGE.processing}>
 						<Logo />
 						{Page}
 					</FullCard>
 					<BackButton />
+					{page === QUESTIONS_PAGE.form && (
+						<div className='absolute bottom-3 w-[408px]'>
+							<RegularButton yellow center>
+								了解活動相關資訊
+							</RegularButton>
+						</div>
+					)}
 				</Container>
 			</QuestionContext.Provider>
 		</div>

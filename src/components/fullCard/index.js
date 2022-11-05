@@ -61,7 +61,7 @@ const LBL = memo(({ property }) => {
 	useEffect(() => {
 		if (property === 1) setStyle({ backgroundColor: '#ffffff', opacity: 1 }, 500);
 		else if (property === 0) setStyle({ backgroundColor: '#989898', opacity: 0.3 }, 500);
-		else if (property === 2) setStyle({ backgroundColor: '#ffffff', opacity: 0.3 }, 500);
+		else if (property === 2) setStyle({ backgroundColor: '#ffffff', opacity: 1 }, 500);
 		else if (property === 3) setStyle({ backgroundColor: '#ffffff', opacity: 1 }, 500);
 		else setStyle({ backgroundColor: '#989898', opacity: 1 }, 500);
 	}, [property]);

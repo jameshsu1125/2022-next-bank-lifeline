@@ -1,5 +1,19 @@
 .BackButton {
 	position: absolute;
-	bottom: 1rem;
+	bottom: 2.5rem;
 	width: 190px;
+}
+
+.BottomSymbol {
+	position: absolute;
+	bottom: -1rem;
+	left: 50%;
+	margin-left: 0 - image-width(@img) * @scale * 0.5;
+	width: image-width(@img) * @scale;
+	height: image-height(@img) * @scale;
+	background-image: url(@img);
+	background-size: 100%;
+
+	@scale: 0.6;
+	@img: './img/bottomSymbol.svg';
 }

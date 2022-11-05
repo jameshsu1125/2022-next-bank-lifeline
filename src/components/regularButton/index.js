@@ -3,7 +3,7 @@ import { memo, useEffect, useId, useMemo, useRef } from 'react';
 import './index.less';
 
 const RegularButton = memo(
-	({ children, onClick, center, ico, flip, data, inversion, disabled }) => {
+	({ children, onClick, center, ico, flip, data, inversion, disabled, yellow }) => {
 		const id = useId();
 		const ref = useRef();
 
@@ -18,6 +18,7 @@ const RegularButton = memo(
 			const classname = [];
 			if (inversion) classname.push('inversion');
 			if (flip) classname.push('flip');
+			if (yellow) classname.push('yellow');
 			return classname.join(' ');
 		}, [inversion, flip]);
 
@@ -29,13 +30,15 @@ const RegularButton = memo(
 			return classname.join(' ');
 		}, [center, ico]);
 
+		const containerStyle = useMemo(() => {
+			const classname = ['RegularButton'];
+			if (disabled) classname.push('RegularButtonDisabled');
+			if (flip) classname.push('RegularButtonFlip');
+			return classname.join(' ');
+		}, [disabled, flip]);
+
 		return (
-			<div
-				ref={ref}
-				id={id}
-				className={`RegularButton${disabled ? ' RegularButtonDisabled' : ''}`}
-				data-name={data}
-			>
+			<div ref={ref} id={id} className={containerStyle} data-name={data}>
 				<div className={style}>
 					<div className={iconStyle}>
 						<div>{children}</div>
@@ -53,6 +56,7 @@ RegularButton.defaultProps = {
 	data: '',
 	inversion: false,
 	disabled: false,
+	yellow: false,
 };
 
 export default RegularButton;
