@@ -47,6 +47,15 @@
 			padding-left: 2rem;
 		}
 
+		.center {
+			justify-content: center;
+			padding-left: 0;
+			&::after {
+				position: absolute;
+				right: 0;
+			}
+		}
+
 		.arrow {
 			&::after {
 				width: image-width(@img) * @scale;

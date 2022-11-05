@@ -45,7 +45,9 @@ const Dialog = memo(({ transition, setTransition }) => {
 					<h1>測試完成!請輸入你的名字</h1>
 					<Input ref={ref} placeholder='名稱最長限定9字以內' type='text' />
 					<div className='pt-5'>
-						<RegularButton onClick={onClick}>前往結果</RegularButton>
+						<RegularButton center onClick={onClick}>
+							前往結果
+						</RegularButton>
 					</div>
 				</div>
 			</div>

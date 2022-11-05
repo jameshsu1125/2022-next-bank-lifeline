@@ -14,7 +14,6 @@ const Pages = memo(() => {
 	const Page = useMemo(() => {
 		const [target] = Object.values(PAGE).filter((data) => data === page);
 		const Element = lazy(() => import(`.${target}/`));
-		console.log(target);
 		if (target) {
 			return (
 				<Suspense fallback=''>

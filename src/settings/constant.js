@@ -46,7 +46,7 @@ export const QUESTIONS_PAGE = {
 };
 
 export const QUESTIONS_STATE = {
-	page: QUESTIONS_PAGE.sign,
+	page: QUESTIONS_PAGE.form,
 	transition: TRANSITION.unset,
 	index: 0,
 	answers: [],
@@ -99,3 +99,5 @@ export const QUESTIONS = [
 		body: [{ text: '月球上的驚奇生物展' }, { text: '達文西的一根頭髮展' }],
 	},
 ];
+
+export const PROCESSING_DURATION = 3000;

@@ -62,6 +62,23 @@
 	}
 }
 
+.FullCard-invertion {
+	@img: './img/bg2.svg';
+	&::before {
+		background-image: url(@img);
+	}
+
+	&::after {
+		background-image: url(@img);
+	}
+
+	& > .container {
+		& > div {
+			background-image: url('./img/bg-fill2.svg');
+		}
+	}
+}
+
 .FullCard-content {
 	position: absolute;
 	top: 0;
@@ -167,6 +184,7 @@
 			height: image-height(@img) * @scale;
 			background-image: url(@img);
 			background-size: 100%;
+			opacity: 0.3;
 
 			@scale: 0.73;
 			@img: './img/eng.svg';
@@ -193,6 +211,7 @@
 			height: image-height(@img) * @scale;
 			background-image: url(@img);
 			background-size: 100%;
+			opacity: 0.3;
 
 			@scale: 1;
 			@img: './img/cht.svg';
@@ -233,8 +252,12 @@
 			margin: 0.75rem;
 			width: image-width(@img) * @scale;
 			height: image-height(@img) * @scale;
-			background-image: url(@img);
-			background-size: 100%;
+			background-color: #989898;
+
+			mask-image: url(@img);
+			mask-size: 100%;
+			// background-image: url(@img);
+			// background-size: 100%;
 		}
 
 		.lb-l {
@@ -243,9 +266,12 @@
 			margin: 0.75rem;
 			width: image-width(@img) * @scale;
 			height: image-height(@img) * @scale;
-			background-image: url(@img);
-			background-size: 100%;
+			// background-image: url(@img);
+			// background-size: 100%;
 			transform: rotate(180deg);
+
+			mask-image: url(@img);
+			mask-size: 100%;
 		}
 	}
 }

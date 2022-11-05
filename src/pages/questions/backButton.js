@@ -5,7 +5,7 @@ import { QuestionContext } from '../../settings/config';
 import { QUESTIONS_PAGE } from '../../settings/constant';
 import './backButton.less';
 
-const DEFAULT_STYLE = { opacity: 0, y: 100 };
+const DEFAULT_STYLE = { opacity: 0, y: 0 };
 
 const BackButton = memo(() => {
 	const [context, setContext] = useContext(QuestionContext);
@@ -30,7 +30,7 @@ const BackButton = memo(() => {
 
 	return (
 		<div className='BackButton' style={style}>
-			<RegularButton onClick={onClick} inversion ico='back'>
+			<RegularButton onClick={onClick} inversion disabled={disabled} ico='back'>
 				BACK
 			</RegularButton>
 		</div>
