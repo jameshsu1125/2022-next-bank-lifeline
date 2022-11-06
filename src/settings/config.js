@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 import { createContext } from 'react';
 import { ACTION, PAGE, TRANSITION } from './constant';
 
@@ -6,7 +7,7 @@ export const LoadingContext = createContext();
 export const QuestionContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: PAGE.questions,
+	[ACTION.page]: PAGE.landing,
 	[ACTION.transition]: TRANSITION.unset,
 };
 
@@ -32,3 +33,10 @@ export const reducer = (state, action) => {
 	if (action.type) return { ...state, [action.type]: action.state };
 	return state;
 };
+
+export const validateEmail = (email) =>
+	String(email)
+		.toLowerCase()
+		.match(
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+		);

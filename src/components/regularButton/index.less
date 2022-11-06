@@ -99,6 +99,20 @@
 				@img: './img/back.svg';
 			}
 		}
+
+		.close {
+			&::after {
+				margin-right: 25px;
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100% 100%;
+				content: '';
+
+				@scale: 0.6;
+				@img: './img/close.svg';
+			}
+		}
 	}
 
 	.flip {
@@ -136,16 +150,5 @@
 }
 
 .RegularButtonDisabled {
-	&:active {
-		filter: drop-shadow(7px 7px 0px rgba(152, 152, 152, 0.5));
-		& > div {
-			transform: translateX(0px) translateY(0px);
-		}
-	}
-
-	& > div {
-		& > div {
-			background-color: #fff * 0.5 !important;
-		}
-	}
+	filter: grayscale(1);
 }

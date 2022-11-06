@@ -12,6 +12,7 @@ import './index.less';
 import Processing from './processing';
 import Question from './question';
 import Sign from './sign';
+import Submited from './submited';
 
 const DEFAULT_LOGO_STYLE = { top: '0.75rem', left: '0.75rem', scale: 1, opacity: 1 };
 const Logo = memo(() => {
@@ -38,7 +39,6 @@ const Questions = memo(() => {
 	const { page } = value[0];
 	const Page = useMemo(() => {
 		const [target] = Object.values(QUESTIONS_PAGE).filter((data) => data === page);
-		console.log(target);
 		switch (target) {
 			case QUESTIONS_PAGE.question:
 				return <Question />;
@@ -51,6 +51,9 @@ const Questions = memo(() => {
 
 			case QUESTIONS_PAGE.form:
 				return <Form />;
+
+			case QUESTIONS_PAGE.submited:
+				return <Submited />;
 
 			default:
 				return false;
