@@ -1,12 +1,12 @@
 import ImagePreloader from 'lesca-image-onload';
 import useTween from 'lesca-use-tween';
 import { memo, useCallback, useContext, useEffect, useRef, useState } from 'react';
-import CheckBox from '../../components/checkBox';
-import ScrollableDialog from '../../components/dialog';
-import { RegularInput } from '../../components/input';
-import RegularButton from '../../components/regularButton';
-import { QuestionContext, validateEmail } from '../../settings/config';
-import { QUESTIONS_PAGE, TRANSITION } from '../../settings/constant';
+import CheckBox from '../components/checkBox';
+import ScrollableDialog from '../components/dialog';
+import { RegularInput } from '../components/input';
+import RegularButton from '../components/regularButton';
+import { QuestionContext, validateEmail } from '../settings/config';
+import { QUESTIONS_PAGE, TRANSITION } from '../settings/constant';
 import './form.less';
 
 const INPUT_PORPERTY = [

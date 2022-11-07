@@ -1,25 +1,31 @@
 import useTween from 'lesca-use-tween';
 import { memo, useContext, useEffect, useState } from 'react';
-import { QuestionContext } from '../../settings/config';
-import { PROCESSING_DURATION, QUESTIONS_PAGE } from '../../settings/constant';
+import { Context, processingDuration, QuestionContext } from '../../settings/config';
+import { ACTION, PAGE } from '../../settings/constant';
 import './processing.less';
 
 const Processing = memo(() => {
-	const [, setContext] = useContext(QuestionContext);
+	const [, setContext] = useContext(Context);
+	const [questionContext] = useContext(QuestionContext);
+	const { answers, name } = questionContext;
 	const [style, setStyle] = useTween({ opacity: 0, scale: 0 });
 	const [, setFrame] = useTween({ index: 0 });
-
 	const [opacity, setOpacity] = useState(1);
+
+	useEffect(() => {
+		const result = answers.filter((e) => e !== '').join('');
+		setContext({ type: ACTION.result, state: { result, name } });
+	}, [answers, name]);
 
 	useEffect(() => {
 		setStyle({ opacity: 1, scale: 1 }, { duration: 500, delay: 500 });
 		setFrame(
 			{ index: 1 },
 			{
-				duration: PROCESSING_DURATION,
+				duration: processingDuration,
 				onUpdate: () => setOpacity(Math.random()),
 				onComplete: () => {
-					setContext((S) => ({ ...S, page: QUESTIONS_PAGE.form }));
+					setContext({ type: ACTION.page, state: PAGE.result });
 				},
 			},
 		);

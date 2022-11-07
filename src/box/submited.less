@@ -1,0 +1,69 @@
+.Submited {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-start;
+	width: 100%;
+	height: 100%;
+
+	.row {
+		display: flex;
+		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		width: 100%;
+
+		@apply p-5;
+
+		& > p {
+			text-align: center;
+			@apply font-inter text-2xl leading-9;
+		}
+
+		& > .logo {
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 0.5;
+			@img: './img/full-logo.svg';
+
+			@apply my-10;
+		}
+
+		& > .dialog {
+			position: relative;
+			padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
+			width: @width;
+			background-image: url(@img);
+			background-size: cover;
+
+			@width: 100%;
+			@img: './img/dialog-submited.svg';
+
+			& > div {
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				display: flex;
+				align-items: center;
+				flex-direction: column;
+				justify-content: center;
+				width: 100%;
+				height: 100%;
+
+				* > div {
+					width: 100%;
+				}
+			}
+		}
+	}
+
+	hr {
+		width: 80%;
+		border-top: solid 1px #9d9e9e;
+	}
+}

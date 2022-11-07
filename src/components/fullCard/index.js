@@ -1,5 +1,5 @@
 import useTween from 'lesca-use-tween';
-import { memo, useContext, useEffect, useMemo, useState } from 'react';
+import { memo, useContext, useEffect, useMemo, useRef, useState } from 'react';
 import { QuestionContext } from '../../settings/config';
 import { QUESTIONS_PAGE } from '../../settings/constant';
 import './index.less';
@@ -29,7 +29,6 @@ const Eng = memo(({ hide }) => {
 const Compass = memo(({ property }) => {
 	const [style, setStyle] = useTween({ y: 0, opacity: 1 });
 	useEffect(() => {
-		console.log(property);
 		if (property === 0) setStyle({ y: 0, opacity: 1 }, 500);
 		else if (property === 1) setStyle({ y: -100, opacity: 1 }, 500);
 		else if (property === 2) setStyle({ opacity: 0 }, 500);
@@ -58,15 +57,25 @@ const RTL = memo(({ property }) => {
 });
 
 const LBL = memo(({ property }) => {
+	const ref = useRef();
 	const [style, setStyle] = useTween({ backgroundColor: '#989898', opacity: 0 });
 	useEffect(() => {
 		if (property === 1) setStyle({ backgroundColor: '#ffffff', opacity: 1 }, 500);
 		else if (property === 0) setStyle({ backgroundColor: '#989898', opacity: 0.3 }, 500);
 		else if (property === 2) setStyle({ backgroundColor: '#ffffff', opacity: 1 }, 500);
-		else if (property === 3) setStyle({ backgroundColor: '#ffffff', opacity: 1 }, 500);
-		else setStyle({ backgroundColor: '#989898', opacity: 1 }, 500);
+		else if (property === 3) {
+			setStyle(
+				{ backgroundColor: '#ffffff', opacity: 1 },
+				{
+					duration: 500,
+					onComplete: () => {
+						ref.current.style.zIndex = 2;
+					},
+				},
+			);
+		} else setStyle({ backgroundColor: '#989898', opacity: 1 }, 500);
 	}, [property]);
-	return <div className='lb-l' style={style} />;
+	return <div ref={ref} className='lb-l' style={style} />;
 });
 
 const FullCard = memo(({ children, invertion = false }) => {

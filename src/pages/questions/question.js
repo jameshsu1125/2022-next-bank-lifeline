@@ -1,8 +1,8 @@
 import useTween from 'lesca-use-tween';
 import { memo, useCallback, useContext, useEffect } from 'react';
 import RegularButton from '../../components/regularButton';
-import { QuestionContext } from '../../settings/config';
-import { QUESTIONS, QUESTIONS_PAGE, TRANSITION } from '../../settings/constant';
+import { QuestionContext, questions } from '../../settings/config';
+import { QUESTIONS_PAGE, TRANSITION } from '../../settings/constant';
 import './question.less';
 
 const DEFAULT_BUTTON_STYLE = { opacity: 0, y: 8 };
@@ -28,7 +28,7 @@ const Button = memo(({ data, i, transition }) => {
 			const { name } = e.dataset;
 			const ctx = { ...context };
 			if (name) ctx.answers[index] = name;
-			if (index < QUESTIONS.length - 1) ctx.index += 1;
+			if (index < questions.length - 1) ctx.index += 1;
 			else ctx.page = QUESTIONS_PAGE.sign;
 			setContext(ctx);
 		},
@@ -73,7 +73,7 @@ const Title = memo(({ title, transition }) => {
 const Question = memo(() => {
 	const [context] = useContext(QuestionContext);
 	const { index, transition } = context;
-	const { title, body } = QUESTIONS[index];
+	const { title, body } = questions[index];
 
 	return (
 		<div className='Question'>
