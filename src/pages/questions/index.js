@@ -16,10 +16,13 @@ const Questions = memo(() => {
 	const ref = useRef();
 	const value = useState(QUESTIONS_STATE);
 	const { page } = value[0];
+	const [, setContext] = value;
 	const Page = useMemo(() => {
 		const [target] = Object.values(QUESTIONS_PAGE).filter((data) => data === page);
 		switch (target) {
 			case QUESTIONS_PAGE.question:
+				// ? reset user data
+				setContext(QUESTIONS_STATE);
 				return <Question />;
 
 			case QUESTIONS_PAGE.sign:
@@ -35,7 +38,6 @@ const Questions = memo(() => {
 
 	useEffect(() => {
 		new ImagePreloader().load(ref.current).then(() => {
-			const [, setContext] = value;
 			setContext((S) => ({ ...S, transition: TRANSITION.fadeIn }));
 		});
 	}, []);
@@ -45,7 +47,7 @@ const Questions = memo(() => {
 			<QuestionContext.Provider value={value}>
 				<Container>
 					<BottomSymbol />
-					<FullCard invertion={page === QUESTIONS_PAGE.processing}>
+					<FullCard page={page} invertion={page === QUESTIONS_PAGE.processing}>
 						<Logo />
 						{Page}
 					</FullCard>

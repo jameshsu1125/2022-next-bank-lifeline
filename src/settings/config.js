@@ -7,7 +7,7 @@ export const LoadingContext = createContext();
 export const QuestionContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: PAGE.questions,
+	[ACTION.page]: PAGE.form,
 	[ACTION.transition]: TRANSITION.unset,
 	[ACTION.result]: RESULT,
 };
