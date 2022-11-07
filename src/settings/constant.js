@@ -46,7 +46,7 @@ export const QUESTIONS_PAGE = {
 };
 
 export const QUESTIONS_STATE = {
-	page: QUESTIONS_PAGE.question,
+	page: QUESTIONS_PAGE.sign,
 	transition: TRANSITION.unset,
 	index: 0,
 	answers: [],

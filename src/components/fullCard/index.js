@@ -29,8 +29,9 @@ const Eng = memo(({ hide }) => {
 const Compass = memo(({ property }) => {
 	const [style, setStyle] = useTween({ y: 0, opacity: 1 });
 	useEffect(() => {
+		console.log(property);
 		if (property === 0) setStyle({ y: 0, opacity: 1 }, 500);
-		else if (property === 1) setStyle({ y: 0, opacity: 1 }, 500);
+		else if (property === 1) setStyle({ y: -100, opacity: 1 }, 500);
 		else if (property === 2) setStyle({ opacity: 0 }, 500);
 		else setStyle({ y: 0, opacity: 1 }, 500);
 	}, [property]);
@@ -79,9 +80,10 @@ const FullCard = memo(({ children, invertion = false }) => {
 
 	const notQuestion = useMemo(() => page !== QUESTIONS_PAGE.question, [page]);
 	const compass = useMemo(() => {
-		if (page === QUESTIONS_PAGE.processing) return 1;
+		if (page === QUESTIONS_PAGE.sign) return 1;
 		if (page === QUESTIONS_PAGE.form) return 2;
 		if (page === QUESTIONS_PAGE.submited) return 2;
+
 		return 0;
 	}, [page]);
 	const rtl = useMemo(() => {
