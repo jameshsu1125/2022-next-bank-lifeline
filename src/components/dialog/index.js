@@ -23,7 +23,7 @@ const Content = memo(({ transition, children, head, id, onClose, setTransition, 
 		const scroll = (e) => {
 			const { target } = e;
 			const { scrollTop, scrollHeight, clientHeight } = target;
-			if (scrollTop + clientHeight === scrollHeight) {
+			if (scrollTop + clientHeight >= scrollHeight) {
 				setDisabled(false);
 			}
 		};

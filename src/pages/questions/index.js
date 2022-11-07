@@ -51,7 +51,7 @@ const Questions = memo(() => {
 						<Logo />
 						{Page}
 					</FullCard>
-					<BackButton />
+					<BackButton page={page} />
 					{page === QUESTIONS_PAGE.form && (
 						<div className='absolute bottom-3 w-[408px]'>
 							<RegularButton yellow center>

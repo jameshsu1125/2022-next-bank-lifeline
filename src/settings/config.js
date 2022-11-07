@@ -5,9 +5,10 @@ import { ACTION, PAGE, RESULT, TRANSITION } from './constant';
 export const Context = createContext();
 export const LoadingContext = createContext();
 export const QuestionContext = createContext();
+export const FormContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: PAGE.form,
+	[ACTION.page]: PAGE.result,
 	[ACTION.transition]: TRANSITION.unset,
 	[ACTION.result]: RESULT,
 };
@@ -90,3 +91,5 @@ export const questions = [
 ];
 
 export const processingDuration = 3000;
+
+export const submitedURL = 'https://www.nextbank.com.tw/';

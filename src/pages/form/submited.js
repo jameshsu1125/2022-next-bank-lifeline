@@ -1,4 +1,6 @@
 import { memo, useEffect } from 'react';
+import RegularButton from '../../components/regularButton';
+import { submitedURL } from '../../settings/config';
 import './submited.less';
 
 const Dialog = memo(() => (
@@ -7,7 +9,9 @@ const Dialog = memo(() => (
 			<div>現在註冊 將將保會員</div>
 			<div>
 				不用等，直接拿
-				<span> 小禮物！</span>
+				<div className='backline'>
+					<div> 小禮物！</div>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -32,6 +36,17 @@ const Submited = memo(() => {
 			</div>
 			<div className='row'>
 				<Dialog />
+			</div>
+			<div className='fit-row'>
+				<RegularButton
+					ico={false}
+					flip
+					onClick={() => {
+						window.open(submitedURL);
+					}}
+				>
+					立即註冊拿好禮
+				</RegularButton>
 			</div>
 		</div>
 	);

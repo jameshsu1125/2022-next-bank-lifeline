@@ -5,8 +5,8 @@ import CheckBox from '../../components/checkBox';
 import ScrollableDialog from '../../components/dialog';
 import { RegularInput } from '../../components/input';
 import RegularButton from '../../components/regularButton';
-import { QuestionContext, validateEmail } from '../../settings/config';
-import { QUESTIONS_PAGE, TRANSITION } from '../../settings/constant';
+import { FormContext, validateEmail } from '../../settings/config';
+import { FORM_PAGE, TRANSITION } from '../../settings/constant';
 import './form.less';
 
 const INPUT_PORPERTY = [
@@ -32,7 +32,7 @@ const Animate = memo(({ transition, children, delay = 0, direct = 'y' }) => {
 });
 
 const Form = memo(() => {
-	const [, setContext] = useContext(QuestionContext);
+	const [, setContext] = useContext(FormContext);
 	const ref = useRef();
 	const contanerRef = useRef();
 	const [transition, setTransition] = useState(TRANSITION.unset);
@@ -45,9 +45,11 @@ const Form = memo(() => {
 	const onClick = useCallback(() => {
 		const form = ref.current;
 		const formData = new FormData(form);
+		const fetchData = {};
 		const result = INPUT_PORPERTY.map((e) => {
 			const { name, modal } = e;
-			return { name, data: formData.get(name), modal };
+			fetchData[name] = formData.get(name);
+			return { name, data: fetchData[name], modal };
 		})
 			.filter((e) => {
 				const { name, data } = e;
@@ -66,8 +68,7 @@ const Form = memo(() => {
 		// TODO => add Modal Component ?
 		if (result.length > 0) alert(`請確實填寫以下資料\n${result.join(', ')}。`);
 		else {
-			setContext((S) => ({ ...S, page: QUESTIONS_PAGE.submited }));
-			// submite
+			setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
 		}
 	}, [ref, checked]);
 	return (

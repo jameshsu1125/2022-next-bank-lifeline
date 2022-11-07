@@ -88,3 +88,12 @@ export const RESULT_GET_BY_ID = {
 	FIJN: { ...RESULT_INFOMATION.h },
 	TIJN: { ...RESULT_INFOMATION.h },
 };
+
+export const FORM_PAGE = {
+	form: '/form',
+	submited: '/submited',
+};
+
+export const FORM_STATE = {
+	page: FORM_PAGE.form,
+};

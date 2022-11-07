@@ -1,7 +1,6 @@
 import useTween from 'lesca-use-tween';
-import { memo, useContext, useEffect, useMemo, useRef, useState } from 'react';
-import { QuestionContext } from '../../settings/config';
-import { QUESTIONS_PAGE } from '../../settings/constant';
+import { memo, useEffect, useMemo, useRef, useState } from 'react';
+import { FORM_PAGE, QUESTIONS_PAGE } from '../../settings/constant';
 import './index.less';
 
 const DEFAULT_CHT_STYLE = { top: '3.3rem', left: '1rem', opacity: 1 };
@@ -78,10 +77,8 @@ const LBL = memo(({ property }) => {
 	return <div ref={ref} className='lb-l' style={style} />;
 });
 
-const FullCard = memo(({ children, invertion = false }) => {
-	const [context] = useContext(QuestionContext);
-	const { page } = context;
-
+const FullCard = memo(({ children, page }) => {
+	const invertion = page === QUESTIONS_PAGE.processing;
 	const style = useMemo(() => {
 		if (invertion) return 'FullCard FullCard-invertion';
 		return 'FullCard';
@@ -90,30 +87,30 @@ const FullCard = memo(({ children, invertion = false }) => {
 	const notQuestion = useMemo(() => page !== QUESTIONS_PAGE.question, [page]);
 	const compass = useMemo(() => {
 		if (page === QUESTIONS_PAGE.sign) return 1;
-		if (page === QUESTIONS_PAGE.form) return 2;
-		if (page === QUESTIONS_PAGE.submited) return 2;
+		if (page === FORM_PAGE.form) return 2;
+		if (page === FORM_PAGE.submited) return 2;
 
 		return 0;
 	}, [page]);
 	const rtl = useMemo(() => {
 		if (page === QUESTIONS_PAGE.sign) return 1;
-		if (page === QUESTIONS_PAGE.form) return 2;
-		if (page === QUESTIONS_PAGE.submited) return 2;
+		if (page === FORM_PAGE.form) return 2;
+		if (page === FORM_PAGE.submited) return 2;
 		return 0;
 	}, [page]);
 
 	const lbl = useMemo(() => {
 		if (page === QUESTIONS_PAGE.processing) return 1;
-		if (page === QUESTIONS_PAGE.form) return 2;
-		if (page === QUESTIONS_PAGE.submited) return 3;
+		if (page === FORM_PAGE.form) return 2;
+		if (page === FORM_PAGE.submited) return 3;
 		return 0;
 	}, [page]);
 
 	const cht = useMemo(() => {
 		if (page === QUESTIONS_PAGE.sign) return 1;
 		if (page === QUESTIONS_PAGE.processing) return 2;
-		if (page === QUESTIONS_PAGE.form) return 2;
-		if (page === QUESTIONS_PAGE.submited) return 2;
+		if (page === FORM_PAGE.form) return 2;
+		if (page === FORM_PAGE.submited) return 2;
 		return 0;
 	}, [page]);
 
