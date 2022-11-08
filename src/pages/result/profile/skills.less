@@ -1,0 +1,69 @@
+.Skills {
+	position: absolute;
+	bottom: 4rem;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+
+	@border: solid 2px #989898;
+
+	.row-a {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: space-between;
+		width: 100%;
+		border: @border;
+
+		& > div:first-child {
+			font-weight: 900;
+		}
+
+		& > div:not(:first-child) {
+			font-weight: 900;
+		}
+
+		& > div {
+			display: flex;
+			align-items: center;
+			flex-direction: row;
+			justify-content: flex-start;
+
+			.star {
+				margin-left: 0.2rem;
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100%;
+
+				@scale: 0.9;
+				@img: './img/star.svg';
+			}
+		}
+
+		@apply bg-yellow p-3 font-inter text-xl;
+	}
+
+	.row-b {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: center;
+		width: 100%;
+		font-weight: 900;
+
+		& > div:last-child {
+			border-right: @border;
+		}
+
+		& > div {
+			width: (100%/3);
+			border-bottom: @border;
+			border-left: @border;
+			text-align: center;
+			@apply bg-yellow p-3 font-interBlack text-xl;
+		}
+	}
+}

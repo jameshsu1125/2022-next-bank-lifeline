@@ -46,7 +46,7 @@ const Questions = memo(() => {
 		<div ref={ref} className='Questions'>
 			<QuestionContext.Provider value={value}>
 				<Container>
-					<BottomSymbol />
+					<BottomSymbol page={page} />
 					<FullCard page={page} invertion={page === QUESTIONS_PAGE.processing}>
 						<Logo />
 						{Page}

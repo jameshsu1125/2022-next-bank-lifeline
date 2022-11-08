@@ -11,16 +11,19 @@ body {
 
 	text-size-adjust: none;
 	overscroll-behavior: none;
+
+	@apply bg-bgGray;
 }
 
 @layer components {
 	.App {
-		@apply absolute h-full w-full bg-bgGray font-inter;
+		overflow-x: hidden;
+		@apply w-full font-inter;
 	}
 }
 
 .PAGE {
-	position: relative;
+	position: absolute;
 	overflow: hidden;
 	box-sizing: border-box;
 	width: 100%;

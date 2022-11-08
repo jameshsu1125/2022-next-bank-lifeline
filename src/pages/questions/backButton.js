@@ -9,9 +9,10 @@ const DEFAULT_STYLE = { opacity: 0, y: 100 };
 
 export const BottomSymbol = memo(({ page }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 100 });
+	console.log(page);
 
 	useEffect(() => {
-		if (page !== QUESTIONS_PAGE.question && page !== FORM_PAGE.form) {
+		if (page !== QUESTIONS_PAGE.question && page !== FORM_PAGE.submited) {
 			setStyle({ y: 0, opacity: 1 }, 500);
 		} else setStyle({ y: 100, opacity: 0 }, 500);
 	}, [page]);

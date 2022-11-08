@@ -14,6 +14,10 @@ const Pages = memo(() => {
 	const Page = useMemo(() => {
 		const [target] = Object.values(PAGE).filter((data) => data === page);
 		const Element = lazy(() => import(`.${target}/`));
+
+		if (target === PAGE.result) Click.setEnabled(false);
+		else Click.setEnabled(true);
+
 		if (target) {
 			return (
 				<Suspense fallback=''>
@@ -24,7 +28,7 @@ const Pages = memo(() => {
 		return '';
 	}, [page]);
 
-	return <div className='h-full w-full'>{Page}</div>;
+	return <div className='w-full'>{Page}</div>;
 });
 
 const App = () => {

@@ -1,8 +1,8 @@
 import { memo, useContext, useEffect } from 'react';
-import RegularButton from '../../components/regularButton';
-import { Context } from '../../settings/config';
-import { ACTION, PAGE } from '../../settings/constant';
-import './buttons.less';
+import RegularButton from '../../../components/regularButton';
+import { Context } from '../../../settings/config';
+import { ACTION, PAGE } from '../../../settings/constant';
+import './index.less';
 
 const ResultButton = memo(() => {
 	const [, setContext] = useContext(Context);
