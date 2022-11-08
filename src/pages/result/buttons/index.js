@@ -9,7 +9,6 @@ const ResultButton = memo(() => {
 	useEffect(() => {}, []);
 	return (
 		<div className='ResultButton'>
-			<div className='trip' />
 			<div className='row'>
 				<div className='w-[50%]'>
 					<RegularButton

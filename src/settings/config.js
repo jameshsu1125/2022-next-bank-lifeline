@@ -8,7 +8,7 @@ export const QuestionContext = createContext();
 export const FormContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: PAGE.result,
+	[ACTION.page]: PAGE.landing,
 	[ACTION.transition]: TRANSITION.unset,
 	[ACTION.result]: RESULT,
 };
@@ -91,7 +91,8 @@ export const questions = [
 ];
 export const processingDuration = 3000;
 export const submitedURL = 'https://www.nextbank.com.tw/';
-export const resultName = {
+
+const resultName = {
 	結構線: '結構線',
 	X光線: 'X光線',
 	銷魂麵線: '銷魂麵線',
@@ -101,7 +102,7 @@ export const resultName = {
 	智慧線: '0和1的智慧線',
 	霍金的輪廓線: '霍金的輪廓線',
 };
-export const resultInformation = {
+const resultInformation = {
 	[resultName.結構線]: {
 		name: '結構線',
 		star: 3,
@@ -160,7 +161,7 @@ export const resultInformation = {
 	},
 };
 
-export const resultDescription = {
+const resultDescription = {
 	[resultName.結構線]: {
 		title: '是穩固世界的要角',
 		personality:
@@ -227,69 +228,128 @@ export const resultDescription = {
 	},
 };
 
+export const resultExplanation = {
+	[resultName.結構線]: {
+		lineName: '密集線',
+		explan: '暗示愛護大家的你，也要愛護自己！',
+		solve: '降低風險更放鬆',
+	},
+	[resultName.X光線]: {
+		lineName: '交叉線',
+		explan: '暗示穿透人心的你，有時難免遇到糾結點！',
+		solve: '不擔心不糾結無憂慮',
+	},
+	[resultName.銷魂麵線]: {
+		lineName: '波動線',
+		explan: '暗示波動大的行動派人生，有時也要小心謹慎！',
+		solve: '愛冒險也要少風險',
+	},
+	[resultName.愛的連線]: {
+		lineName: '愛之線',
+		explan: '暗示愛護大家的你，也要愛護自己！',
+		solve: '用心守護你',
+	},
+	[resultName.飛行線]: {
+		lineName: '不規則航線',
+		explan: '暗示開啟旅程的你，也要小心安全！',
+		solve: '探索之路更放心',
+	},
+	[resultName.貓皇路線]: {
+		lineName: '巔峰線',
+		explan: '暗示霸氣如靠山的你，也需要一個懂你的靠山！',
+		solve: '讓你放心依靠',
+	},
+	[resultName.智慧線]: {
+		lineName: '程式線',
+		explan: '暗示思考精密的人生，也可能會有小bug！',
+		solve: '降低bug風險',
+	},
+	[resultName.霍金的輪廓線]: {
+		lineName: '特殊線',
+		explan: '暗示創新的你，需要先為創新準備好！',
+		solve: '提前計畫少風險',
+	},
+};
+
 export const getResultById = {
 	FIJS: {
 		profile: resultInformation[resultName.結構線],
 		description: resultDescription[resultName.結構線],
+		explanation: resultExplanation[resultName.結構線],
 	},
 	TIJS: {
 		profile: resultInformation[resultName.結構線],
 		description: resultDescription[resultName.結構線],
+		explanation: resultExplanation[resultName.結構線],
 	},
 	FEJS: {
 		profile: resultInformation[resultName.愛的連線],
 		description: resultDescription[resultName.愛的連線],
+		explanation: resultExplanation[resultName.愛的連線],
 	},
 	FEJN: {
 		profile: resultInformation[resultName.愛的連線],
 		description: resultDescription[resultName.愛的連線],
+		explanation: resultExplanation[resultName.愛的連線],
 	},
 	FIPS: {
 		profile: resultInformation[resultName.X光線],
 		description: resultDescription[resultName.X光線],
+		explanation: resultExplanation[resultName.X光線],
 	},
 	FIPN: {
 		profile: resultInformation[resultName.X光線],
 		description: resultDescription[resultName.X光線],
+		explanation: resultExplanation[resultName.X光線],
 	},
 	FEPS: {
 		profile: resultInformation[resultName.銷魂麵線],
 		description: resultDescription[resultName.銷魂麵線],
+		explanation: resultExplanation[resultName.銷魂麵線],
 	},
 	TEPS: {
 		profile: resultInformation[resultName.銷魂麵線],
 		description: resultDescription[resultName.銷魂麵線],
+		explanation: resultExplanation[resultName.銷魂麵線],
 	},
 	FEPN: {
 		profile: resultInformation[resultName.飛行線],
 		description: resultDescription[resultName.飛行線],
+		explanation: resultExplanation[resultName.飛行線],
 	},
 	TEPN: {
 		profile: resultInformation[resultName.飛行線],
 		description: resultDescription[resultName.飛行線],
+		explanation: resultExplanation[resultName.飛行線],
 	},
 	TEJS: {
 		profile: resultInformation[resultName.貓皇路線],
 		description: resultDescription[resultName.貓皇路線],
+		explanation: resultExplanation[resultName.貓皇路線],
 	},
 	TEJN: {
 		profile: resultInformation[resultName.貓皇路線],
 		description: resultDescription[resultName.貓皇路線],
+		explanation: resultExplanation[resultName.貓皇路線],
 	},
 	TIPS: {
 		profile: resultInformation[resultName.智慧線],
 		description: resultDescription[resultName.智慧線],
+		explanation: resultExplanation[resultName.智慧線],
 	},
 	TIPN: {
 		profile: resultInformation[resultName.智慧線],
 		description: resultDescription[resultName.智慧線],
+		explanation: resultExplanation[resultName.智慧線],
 	},
 	FIJN: {
 		profile: resultInformation[resultName.霍金的輪廓線],
 		description: resultDescription[resultName.霍金的輪廓線],
+		explanation: resultExplanation[resultName.霍金的輪廓線],
 	},
 	TIJN: {
 		profile: resultInformation[resultName.霍金的輪廓線],
 		description: resultDescription[resultName.霍金的輪廓線],
+		explanation: resultExplanation[resultName.霍金的輪廓線],
 	},
 };

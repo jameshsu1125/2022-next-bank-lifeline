@@ -9,17 +9,5 @@
 	.container {
 		width: 100%;
 		@apply space-y-4;
-
-		.trip {
-			width: calc(~'100% + 2.5rem ');
-			height: image-height(@img) * @scale;
-			background-image: url(@img);
-			background-size: 100%;
-
-			@scale: 1;
-			@img: './img/warning-strip.svg';
-
-			@apply -ml-5;
-		}
 	}
 }

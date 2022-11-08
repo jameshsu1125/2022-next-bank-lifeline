@@ -1,0 +1,108 @@
+.ResultExplane {
+	width: 100%;
+
+	@apply space-y-4;
+
+	.trip {
+		position: relative;
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		justify-content: center;
+		width: calc(~'100% + 2.5rem');
+
+		&::before {
+			position: absolute;
+			left: 0;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+			content: '';
+
+			@scale: 0.6;
+			@img: './img/strip-symbol.svg';
+		}
+
+		&::after {
+			position: absolute;
+			right: 0;
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+			content: '';
+			transform: rotate(180deg);
+
+			@scale: 0.6;
+			@img: './img/strip-symbol.svg';
+		}
+
+		.t {
+			width: image-width(@img) * @scale;
+			height: image-height(@img) * @scale;
+			background-image: url(@img);
+			background-size: 100%;
+
+			@scale: 0.6;
+			@img: './img/strip-text.svg';
+			@apply m-3;
+		}
+
+		@apply -ml-5 bg-yellow;
+	}
+
+	.dialog {
+		position: relative;
+		padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
+		width: @width;
+		background-image: url(@img);
+		background-size: cover;
+
+		@width: 100%;
+		@img: './img/dialog.svg';
+
+		& > div {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+
+			& > .content {
+				width: 53%;
+				height: 100%;
+
+				@apply space-y-3;
+
+				& > .row {
+					width: 100%;
+
+					.blankName {
+						width: image-width(@img) * @scale;
+						height: image-height(@img) * @scale;
+						background-image: url(@img);
+						background-size: 100%;
+
+						@scale: 0.61;
+						@img: './img/bankname.svg';
+					}
+
+					& > h1 {
+						font-weight: 600;
+						@apply text-2xl;
+					}
+
+					& > p {
+						font-weight: 400;
+						@apply text-lg leading-6;
+					}
+				}
+
+				@apply p-5;
+			}
+		}
+	}
+}
