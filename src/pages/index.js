@@ -28,7 +28,12 @@ const Pages = memo(() => {
 		return '';
 	}, [page]);
 
-	return <div className='w-full'>{Page}</div>;
+	const style = useMemo(() => {
+		if (page === PAGE.result) return 'w-full';
+		return 'w-full h-full absolute';
+	}, [page]);
+
+	return <div className={style}>{Page}</div>;
 });
 
 const App = () => {

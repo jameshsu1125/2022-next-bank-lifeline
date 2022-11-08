@@ -14,9 +14,11 @@ import Sign from './sign';
 
 const Questions = memo(() => {
 	const ref = useRef();
+
 	const value = useState(QUESTIONS_STATE);
 	const { page } = value[0];
-	const [, setContext] = value;
+	const setContext = value[1];
+
 	const Page = useMemo(() => {
 		const [target] = Object.values(QUESTIONS_PAGE).filter((data) => data === page);
 		switch (target) {
