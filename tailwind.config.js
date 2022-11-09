@@ -20,8 +20,15 @@ module.exports = {
 			...fontSize,
 		},
 		fontFamily: {
-			inter: ['Inter'],
-			interBlack: ['Inter Black'],
+			inter: ['Inter', 'Microsoft JhengHei', '微軟正黑體', 'Arial', 'Helvetica', 'sans-serif'],
+			interBlack: [
+				'Inter Black',
+				'Microsoft JhengHei',
+				'微軟正黑體',
+				'Arial',
+				'Helvetica',
+				'sans-serif',
+			],
 			liquid: ['Liquid Crystal'],
 		},
 	},

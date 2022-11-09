@@ -61,5 +61,5 @@ export const FORM_PAGE = {
 };
 
 export const FORM_STATE = {
-	page: FORM_PAGE.submited,
+	page: FORM_PAGE.form,
 };

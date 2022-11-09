@@ -1,4 +1,5 @@
 import Click from 'lesca-click';
+import Landscape from 'lesca-react-landscape';
 import { lazy, memo, Suspense, useContext, useMemo, useReducer } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Context, initialState, reducer } from '../settings/config';
@@ -33,7 +34,12 @@ const Pages = memo(() => {
 		return 'w-full h-full absolute';
 	}, [page]);
 
-	return <div className={style}>{Page}</div>;
+	return (
+		<div className={style}>
+			{Page}
+			<Landscape />
+		</div>
+	);
 });
 
 const App = () => {

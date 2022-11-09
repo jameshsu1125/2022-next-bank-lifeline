@@ -1,3 +1,4 @@
+/* eslint-disable no-alert */
 import ImagePreloader from 'lesca-image-onload';
 import useTween from 'lesca-use-tween';
 import { memo, useCallback, useContext, useEffect, useRef, useState } from 'react';
@@ -68,7 +69,9 @@ const Form = memo(() => {
 		// TODO => add Modal Component ?
 		if (result.length > 0) {
 			alert(`請確實填寫以下資料\n${result.join(', ')}。`);
-			setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
+			if (window.confirm('[系統測試]:不提交，繼續測試？')) {
+				setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
+			}
 		} else {
 			setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
 		}

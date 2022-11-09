@@ -13,7 +13,7 @@ const Processing = memo(() => {
 	const [opacity, setOpacity] = useState(1);
 
 	useEffect(() => {
-		const result = answers.filter((e) => e !== '').join('');
+		const result = answers.filter((e) => e !== '').join('') || 'FIJS';
 		setContext({ type: ACTION.result, state: { result, name } });
 	}, [answers, name]);
 
