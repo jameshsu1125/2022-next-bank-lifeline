@@ -67,7 +67,7 @@ const LBL = memo(({ property }) => {
 				{ backgroundColor: '#ffffff', opacity: 1 },
 				{
 					duration: 500,
-					onComplete: () => {
+					onStart: () => {
 						ref.current.style.zIndex = 2;
 					},
 				},

@@ -10,16 +10,16 @@ const UserName = memo(() => {
 
 	useEffect(() => {
 		if (name) {
-			setFullName(
-				<>
-					<div>{name}</div>
-					<div>的後天生命線</div>
-				</>,
-			);
+			setFullName(name);
 		} else {
-			setFullName('');
+			setFullName('你');
 		}
 	}, [name]);
-	return <div className='UserName'>{fullName}</div>;
+	return (
+		<div className='UserName'>
+			<div>{fullName}</div>
+			<div>的後天生命線</div>
+		</div>
+	);
 });
 export default UserName;

@@ -1,16 +1,15 @@
 /* eslint-disable react/jsx-one-expression-per-line */
-import { memo, useContext, useEffect } from 'react';
+import { memo, useContext } from 'react';
 import { Context, getResultById } from '../../../settings/config';
 import { ACTION } from '../../../settings/constant';
 import './index.less';
 
-const ResultExplane = memo(() => {
+const ResultExplane = memo(({ random }) => {
 	const [context] = useContext(Context);
 	const { result } = context[ACTION.result];
 	const data = getResultById[result];
 	const { lineName, explan, solve } = data.explanation;
-
-	useEffect(() => {}, []);
+	const { classname } = data.profile;
 	return (
 		<div className='ResultExplane'>
 			<div className='trip'>
@@ -38,6 +37,11 @@ const ResultExplane = memo(() => {
 								{solve}
 							</p>
 						</div>
+					</div>
+					<div className='hand'>
+						<div className={`p ${classname}`} />
+						<div className={`magnifier m${classname}`} />
+						<div className={`l l${classname} r${classname}-${random}`} />
 					</div>
 				</div>
 			</div>

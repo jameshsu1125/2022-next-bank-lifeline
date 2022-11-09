@@ -1,0 +1,27 @@
+.ProfileHeadline {
+	position: absolute;
+	top: 4.5%;
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: flex-start;
+	min-width: image-width(@img) * @scale * 0.7;
+	height: image-height(@img) * @scale;
+	background-image: url(@img);
+	background-position: right center;
+	background-size: auto 100%;
+	font-weight: 600;
+
+	@scale: 0.6;
+	@img: './img/headline.svg';
+
+	& > div {
+		position: relative;
+		margin-top: -1.2rem;
+		padding-left: 1rem;
+
+		writing-mode: nowrap;
+	}
+
+	@apply -ml-5 pl-5 pr-10 font-inter text-5xl tracking-widest;
+}

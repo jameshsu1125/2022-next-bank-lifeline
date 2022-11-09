@@ -16,8 +16,6 @@ const ResultDescription = memo(() => {
 	const data = getResultById[result];
 	const { title, personality, career, love } = data.description;
 
-	console.log(love);
-
 	useEffect(() => {}, []);
 	return (
 		<div className='ResultDescription'>

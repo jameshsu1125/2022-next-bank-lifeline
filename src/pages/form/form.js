@@ -66,8 +66,10 @@ const Form = memo(() => {
 		if (!checked) result.push('閱讀隱私條款');
 
 		// TODO => add Modal Component ?
-		if (result.length > 0) alert(`請確實填寫以下資料\n${result.join(', ')}。`);
-		else {
+		if (result.length > 0) {
+			alert(`請確實填寫以下資料\n${result.join(', ')}。`);
+			setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
+		} else {
 			setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
 		}
 	}, [ref, checked]);

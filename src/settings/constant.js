@@ -53,7 +53,7 @@ export const QUESTIONS_STATE = {
 	name: '',
 };
 
-export const RESULT = { result: 'FIJS', name: '伊斯巴拉淦巴尼杜兒' };
+export const RESULT = { result: 'TIJS', name: '伊斯巴拉淦巴尼杜兒' };
 
 export const FORM_PAGE = {
 	form: '/form',
@@ -61,5 +61,5 @@ export const FORM_PAGE = {
 };
 
 export const FORM_STATE = {
-	page: FORM_PAGE.form,
+	page: FORM_PAGE.submited,
 };

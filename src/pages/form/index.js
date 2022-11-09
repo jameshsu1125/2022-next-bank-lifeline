@@ -1,4 +1,4 @@
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useMemo, useState } from 'react';
 import Container from '../../components/container';
 import FullCard from '../../components/fullCard';
 import { FormContext } from '../../settings/config';
@@ -26,7 +26,6 @@ const Forms = memo(() => {
 		}
 	}, [page]);
 
-	useEffect(() => {}, []);
 	return (
 		<div className='Forms'>
 			<Container>
