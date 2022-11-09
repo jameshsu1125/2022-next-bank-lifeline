@@ -1,9 +1,20 @@
-import { memo, useContext } from 'react';
+import useTween from 'lesca-use-tween';
+import { memo, useContext, useEffect } from 'react';
 import { Context, getResultById } from '../../../settings/config';
-import { ACTION } from '../../../settings/constant';
+import { ACTION, TRANSITION } from '../../../settings/constant';
 import './hand.less';
 
-const ViewProfile = memo(({ random }) => {
+const Hand = memo(({ classname, random, transition, delay }) => {
+	const [style, setStyle] = useTween({ opacity: 0, scale: 2 });
+	useEffect(() => {
+		if (transition === TRANSITION.fadeIn) {
+			setStyle({ opacity: 1, scale: 1 }, { duration: 500, delay });
+		}
+	}, [transition]);
+	return <div className={`p ${classname}-${random}`} style={style} />;
+});
+
+const ViewProfile = memo(({ random, transition, delay }) => {
 	const [context] = useContext(Context);
 	const { result } = context[ACTION.result];
 	const { profile } = getResultById[result];
@@ -11,7 +22,7 @@ const ViewProfile = memo(({ random }) => {
 	return (
 		<div className='ViewProfile'>
 			<div className='position'>
-				<div className={`p ${classname}-${random}`} />
+				<Hand classname={classname} random={random} transition={transition} delay={delay} />
 			</div>
 		</div>
 	);

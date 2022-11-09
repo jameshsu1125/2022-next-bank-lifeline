@@ -87,7 +87,7 @@
 		.back {
 			&::after {
 				position: absolute;
-				top: 11px;
+				top: 16px;
 				right: 1.1rem;
 				width: image-width(@img) * @scale;
 				height: image-height(@img) * @scale;
@@ -97,6 +97,54 @@
 
 				@scale: 0.5;
 				@img: './img/back.svg';
+			}
+		}
+
+		.link {
+			&::after {
+				position: absolute;
+				top: 21px;
+				right: 1.1rem;
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100% 100%;
+				content: '';
+
+				@scale: 0.5;
+				@img: './img/link.svg';
+			}
+		}
+
+		.download {
+			&::after {
+				position: absolute;
+				top: 13px;
+				right: 1.1rem;
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100% 100%;
+				content: '';
+
+				@scale: 0.5;
+				@img: './img/download.svg';
+			}
+		}
+
+		.gift {
+			&::after {
+				position: absolute;
+				top: 17px;
+				right: 1.1rem;
+				width: image-width(@img) * @scale;
+				height: image-height(@img) * @scale;
+				background-image: url(@img);
+				background-size: 100% 100%;
+				content: '';
+
+				@scale: 0.5;
+				@img: './img/gift.svg';
 			}
 		}
 
