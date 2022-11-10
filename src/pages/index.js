@@ -1,16 +1,24 @@
 import Click from 'lesca-click';
 import Landscape from 'lesca-react-landscape';
+import LoadingProcess from 'lesca-react-loading';
+import Fetch, { contentType } from 'lesca-sp88-fetch';
 import { lazy, memo, Suspense, useContext, useMemo, useReducer } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Context, initialState, reducer } from '../settings/config';
 import { ACTION, PAGE } from '../settings/constant';
 import '../settings/global.less';
+import LandscapeIcon from './img/landscape.png';
 
 Click.install();
+Fetch.install({
+	hostUrl: process.env.API,
+	contentType: contentType.JSON,
+});
 
 const Pages = memo(() => {
 	const [context] = useContext(Context);
 	const page = context[ACTION.page];
+	const prcessing = context[ACTION.prcessing];
 
 	const Page = useMemo(() => {
 		const [target] = Object.values(PAGE).filter((data) => data === page);
@@ -37,7 +45,12 @@ const Pages = memo(() => {
 	return (
 		<div className={style}>
 			{Page}
-			<Landscape />
+			{prcessing.enabled && (
+				<LoadingProcess backgroundColor='rgba(248, 236, 44, 0.8)' iconColor='#000'>
+					<span className='text-black'>{prcessing.body}</span>
+				</LoadingProcess>
+			)}
+			<Landscape style={{ backgroundColor: '#F8EC2C', backgroundImage: `url(${LandscapeIcon})` }} />
 		</div>
 	);
 });

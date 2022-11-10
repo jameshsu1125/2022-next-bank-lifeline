@@ -1,4 +1,3 @@
-/* eslint-disable no-alert */
 import ImagePreloader from 'lesca-image-onload';
 import useTween from 'lesca-use-tween';
 import { memo, useCallback, useContext, useEffect, useRef, useState } from 'react';
@@ -6,6 +5,7 @@ import CheckBox from '../../components/checkBox';
 import ScrollableDialog from '../../components/dialog';
 import { RegularInput } from '../../components/input';
 import RegularButton from '../../components/regularButton';
+import useRegister from '../../hooks/useRegister';
 import { FormContext, validateEmail } from '../../settings/config';
 import { FORM_PAGE, TRANSITION } from '../../settings/constant';
 import './form.less';
@@ -39,9 +39,15 @@ const Form = memo(() => {
 	const [transition, setTransition] = useState(TRANSITION.unset);
 	const [terms, setTerms] = useState(false);
 	const [checked, setChecked] = useState(false);
+	const [queryRespone, fetcher] = useRegister();
 	useEffect(() => {
 		new ImagePreloader().load(contanerRef.current).then(() => setTransition(TRANSITION.fadeIn));
 	}, []);
+	useEffect(() => {
+		if (queryRespone) {
+			setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
+		}
+	}, [queryRespone]);
 	const onCheck = useCallback(() => setTerms(true), []);
 	const onClick = useCallback(() => {
 		const form = ref.current;
@@ -65,15 +71,10 @@ const Form = memo(() => {
 			})
 			.map((e) => e.modal);
 		if (!checked) result.push('閱讀隱私條款');
-
-		// TODO => add Modal Component ?
-		if (result.length > 0) {
-			alert(`請確實填寫以下資料\n${result.join(', ')}。`);
-			if (window.confirm('[系統測試]:不提交，繼續測試？')) {
-				setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
-			}
-		} else {
-			setContext((S) => ({ ...S, page: FORM_PAGE.submited }));
+		if (result.length > 0) alert(`請確實填寫以下資料\n${result.join(', ')}。`);
+		else {
+			const { name: Name, email: Email, tel: Mobile } = fetchData;
+			fetcher({ Name, Email, Mobile });
 		}
 	}, [ref, checked]);
 	return (
@@ -120,9 +121,7 @@ const Form = memo(() => {
 					checked={checked}
 					onClose={(readed) => {
 						setTerms(false);
-						if (readed) {
-							setChecked(true);
-						}
+						if (readed) setChecked(true);
 					}}
 				>
 					<p>

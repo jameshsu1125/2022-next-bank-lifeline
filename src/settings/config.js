@@ -1,6 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 import { createContext } from 'react';
-import { ACTION, PAGE, RESULT, RESULT_IDS, TRANSITION } from './constant';
+import { ACTION, ENTRYTIME, PAGE, PRCESSING, RESULT, RESULT_IDS, TRANSITION } from './constant';
 
 export const Context = createContext();
 export const LoadingContext = createContext();
@@ -8,9 +8,11 @@ export const QuestionContext = createContext();
 export const FormContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: window.location.hostname === 'localhost' ? PAGE.questions : PAGE.landing,
+	[ACTION.page]: window.location.hostname === 'localhost' ? PAGE.form : PAGE.landing,
 	[ACTION.transition]: TRANSITION.unset,
 	[ACTION.result]: RESULT,
+	[ACTION.entrytime]: ENTRYTIME,
+	[ACTION.prcessing]: PRCESSING,
 };
 
 export const reducer = (state, action) => {
@@ -109,6 +111,7 @@ const resultInformation = {
 		tenths: '3/10',
 		feature: ['細膩穩重', '有條理', '讓人安心'],
 		classname: 'p0',
+		index: '1',
 	},
 	[resultName.X光線]: {
 		name: 'X光線',
@@ -116,6 +119,7 @@ const resultInformation = {
 		tenths: '2/10',
 		feature: ['浪漫', '藝術氣質', '活出自我'],
 		classname: 'p1',
+		index: '2',
 	},
 	[resultName.銷魂麵線]: {
 		name: '銷魂麵線',
@@ -123,6 +127,7 @@ const resultInformation = {
 		tenths: '2/10',
 		feature: ['敢衝行動派', '活在當下', '無拘無束'],
 		classname: 'p2',
+		index: '3',
 	},
 	[resultName.愛的連線]: {
 		name: '愛的連線',
@@ -130,6 +135,7 @@ const resultInformation = {
 		tenths: '2/10',
 		feature: ['充滿溫暖', '樂於給予', '好人緣'],
 		classname: 'p3',
+		index: '4',
 	},
 	[resultName.飛行線]: {
 		name: '飛行線',
@@ -137,6 +143,7 @@ const resultInformation = {
 		tenths: '2/10',
 		feature: ['愛探索', '有渲染力', '點子王'],
 		classname: 'p4',
+		index: '5',
 	},
 	[resultName.貓皇路線]: {
 		name: '貓皇路線',
@@ -144,6 +151,7 @@ const resultInformation = {
 		tenths: '1/10',
 		feature: ['自信發光', '征服人心', '領導力'],
 		classname: 'p5',
+		index: '6',
 	},
 	[resultName.智慧線]: {
 		name: '0和1的智慧線',
@@ -151,6 +159,7 @@ const resultInformation = {
 		tenths: '9/100',
 		feature: ['喜歡思考', '聰明', '觀點獨特'],
 		classname: 'p6',
+		index: '7',
 	},
 	[resultName.霍金的輪廓線]: {
 		name: '霍金的輪廓線',
@@ -158,6 +167,7 @@ const resultInformation = {
 		tenths: '4/100',
 		feature: ['眼光犀利', '具影響力', '令人崇拜'],
 		classname: 'p7',
+		index: '8',
 	},
 };
 

@@ -2,6 +2,8 @@ export const ACTION = {
 	page: '頁面',
 	transition: '動態',
 	result: '結果資料',
+	entrytime: '進入網站時間',
+	prcessing: '資料處理中',
 };
 
 export const PAGE = {
@@ -84,4 +86,14 @@ export const FORM_PAGE = {
 
 export const FORM_STATE = {
 	page: FORM_PAGE.form,
+};
+
+const date = new Date();
+export const ENTRYTIME = `${date.getFullYear()}/${
+	date.getMonth() + 1
+}/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+export const PRCESSING = {
+	enabled: false,
+	body: '資料處理中',
 };
