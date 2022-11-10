@@ -24,7 +24,7 @@ const useRegister = () => {
 				const res = { ResponseCode: '00', ResponseMSG: 'OK' };
 				setState(res);
 				setContext({ type: ACTION.prcessing, state: { ...PRCESSING, enabled: false } });
-			}, 1000);
+			}, 500);
 			return;
 		}
 

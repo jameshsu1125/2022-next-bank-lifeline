@@ -11,7 +11,7 @@ export const BottomSymbol = memo(({ page }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 100 });
 
 	useEffect(() => {
-		if (page !== QUESTIONS_PAGE.question && page !== FORM_PAGE.submited) {
+		if (page !== QUESTIONS_PAGE.question && page !== FORM_PAGE.form) {
 			setStyle({ y: 0, opacity: 1 }, 500);
 		} else setStyle({ y: 100, opacity: 0 }, 500);
 	}, [page]);

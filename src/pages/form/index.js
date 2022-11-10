@@ -1,12 +1,35 @@
-import { memo, useMemo, useState } from 'react';
+import useTween from 'lesca-use-tween';
+import { memo, useEffect, useMemo, useState } from 'react';
 import Container from '../../components/container';
 import FullCard from '../../components/fullCard';
-import { FormContext } from '../../settings/config';
+import RegularButton from '../../components/regularButton';
+import { FormContext, submitedURL } from '../../settings/config';
 import { FORM_PAGE, FORM_STATE } from '../../settings/constant';
 import { BottomSymbol } from '../questions/backButton';
 import Form from './form';
 import './index.less';
 import Submited from './submited';
+
+const MoreInformationButton = memo(({ page }) => {
+	const [style, setStyle] = useTween({ opacity: 0, y: 100 });
+	useEffect(() => {
+		if (page === FORM_PAGE.form) setStyle({ opacity: 1, y: 0 }, 500);
+		else setStyle({ opacity: 0, y: 100 }, 500);
+	}, [page]);
+	return (
+		<div className='formButton' style={style}>
+			<RegularButton
+				yellow
+				center
+				onClick={() => {
+					window.open(submitedURL);
+				}}
+			>
+				了解活動相關資訊
+			</RegularButton>
+		</div>
+	);
+});
 
 const Forms = memo(() => {
 	const value = useState(FORM_STATE);
@@ -32,6 +55,7 @@ const Forms = memo(() => {
 				<FormContext.Provider value={value}>
 					<FullCard page={page}>{Page}</FullCard>
 					<BottomSymbol page={page} />
+					<MoreInformationButton page={page} />
 				</FormContext.Provider>
 			</Container>
 		</div>
