@@ -79,9 +79,22 @@
 				background-image: url(@img);
 				background-size: 100% 100%;
 				content: '';
+				animation: arrowAnimate 1s ease-in-out infinite;
 
 				@scale: 1;
 				@img: './img/arrow.svg';
+			}
+
+			@keyframes arrowAnimate {
+				0% {
+					transform: translateX(0px);
+				}
+				50% {
+					transform: translateX(5px);
+				}
+				100% {
+					transform: translateX(0px);
+				}
 			}
 		}
 

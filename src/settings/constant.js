@@ -73,7 +73,7 @@ export const RESULT_IDS = {
 };
 
 export const RESULT = {
-	result: RESULT_IDS.H0FIJN,
+	result: RESULT_IDS.A0FIJS,
 	name: '伊斯巴拉淦巴尼杜兒',
 };
 

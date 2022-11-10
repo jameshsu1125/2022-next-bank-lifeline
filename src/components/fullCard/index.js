@@ -31,6 +31,7 @@ const Compass = memo(({ property }) => {
 		if (property === 0) setStyle({ y: 0, opacity: 1 }, 500);
 		else if (property === 1) setStyle({ y: -100, opacity: 1 }, 500);
 		else if (property === 2) setStyle({ opacity: 0 }, 500);
+		else if (property === 3) setStyle({ opacity: 1, y: 48 }, 500);
 		else setStyle({ y: 0, opacity: 1 }, 500);
 	}, [property]);
 	return <div className='compass' style={style} />;
@@ -89,7 +90,7 @@ const FullCard = memo(({ children, page }) => {
 		if (page === QUESTIONS_PAGE.sign) return 1;
 		if (page === FORM_PAGE.form) return 2;
 		if (page === FORM_PAGE.submited) return 2;
-
+		if (page === QUESTIONS_PAGE.question) return 3;
 		return 0;
 	}, [page]);
 	const rtl = useMemo(() => {

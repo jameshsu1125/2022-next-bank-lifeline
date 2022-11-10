@@ -23,7 +23,7 @@ const Compass = memo(({ children }) => {
 
 	return (
 		<div className='Compass' style={style}>
-			{[...new Array(3).keys()].map((e) => (
+			{[...new Array(4).keys()].map((e) => (
 				<div key={e} />
 			))}
 			<div className='content'>{children}</div>
