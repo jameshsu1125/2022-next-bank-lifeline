@@ -1,6 +1,6 @@
 /* eslint-disable implicit-arrow-linebreak */
 import { createContext } from 'react';
-import { ACTION, PAGE, RESULT, TRANSITION } from './constant';
+import { ACTION, PAGE, RESULT, RESULT_IDS, TRANSITION } from './constant';
 
 export const Context = createContext();
 export const LoadingContext = createContext();
@@ -8,7 +8,7 @@ export const QuestionContext = createContext();
 export const FormContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: PAGE.landing,
+	[ACTION.page]: PAGE.result,
 	[ACTION.transition]: TRANSITION.unset,
 	[ACTION.result]: RESULT,
 };
@@ -272,82 +272,82 @@ export const resultExplanation = {
 };
 
 export const getResultById = {
-	FIJS: {
+	[RESULT_IDS.A0FIJS]: {
 		profile: resultInformation[resultName.結構線],
 		description: resultDescription[resultName.結構線],
 		explanation: resultExplanation[resultName.結構線],
 	},
-	TIJS: {
+	[RESULT_IDS.A1TIJS]: {
 		profile: resultInformation[resultName.結構線],
 		description: resultDescription[resultName.結構線],
 		explanation: resultExplanation[resultName.結構線],
 	},
-	FEJS: {
+	[RESULT_IDS.B0FEJS]: {
 		profile: resultInformation[resultName.愛的連線],
 		description: resultDescription[resultName.愛的連線],
 		explanation: resultExplanation[resultName.愛的連線],
 	},
-	FEJN: {
+	[RESULT_IDS.B1FEJN]: {
 		profile: resultInformation[resultName.愛的連線],
 		description: resultDescription[resultName.愛的連線],
 		explanation: resultExplanation[resultName.愛的連線],
 	},
-	FIPS: {
+	[RESULT_IDS.C0FIPS]: {
 		profile: resultInformation[resultName.X光線],
 		description: resultDescription[resultName.X光線],
 		explanation: resultExplanation[resultName.X光線],
 	},
-	FIPN: {
+	[RESULT_IDS.C1FIPN]: {
 		profile: resultInformation[resultName.X光線],
 		description: resultDescription[resultName.X光線],
 		explanation: resultExplanation[resultName.X光線],
 	},
-	FEPS: {
+	[RESULT_IDS.D0FEPS]: {
 		profile: resultInformation[resultName.銷魂麵線],
 		description: resultDescription[resultName.銷魂麵線],
 		explanation: resultExplanation[resultName.銷魂麵線],
 	},
-	TEPS: {
+	[RESULT_IDS.D1TEPS]: {
 		profile: resultInformation[resultName.銷魂麵線],
 		description: resultDescription[resultName.銷魂麵線],
 		explanation: resultExplanation[resultName.銷魂麵線],
 	},
-	FEPN: {
+	[RESULT_IDS.E0FEPN]: {
 		profile: resultInformation[resultName.飛行線],
 		description: resultDescription[resultName.飛行線],
 		explanation: resultExplanation[resultName.飛行線],
 	},
-	TEPN: {
+	[RESULT_IDS.E1TEPN]: {
 		profile: resultInformation[resultName.飛行線],
 		description: resultDescription[resultName.飛行線],
 		explanation: resultExplanation[resultName.飛行線],
 	},
-	TEJS: {
+	[RESULT_IDS.F0TEJS]: {
 		profile: resultInformation[resultName.貓皇路線],
 		description: resultDescription[resultName.貓皇路線],
 		explanation: resultExplanation[resultName.貓皇路線],
 	},
-	TEJN: {
+	[RESULT_IDS.F1TEJN]: {
 		profile: resultInformation[resultName.貓皇路線],
 		description: resultDescription[resultName.貓皇路線],
 		explanation: resultExplanation[resultName.貓皇路線],
 	},
-	TIPS: {
+	[RESULT_IDS.G0TIPS]: {
 		profile: resultInformation[resultName.智慧線],
 		description: resultDescription[resultName.智慧線],
 		explanation: resultExplanation[resultName.智慧線],
 	},
-	TIPN: {
+	[RESULT_IDS.G1TIPN]: {
 		profile: resultInformation[resultName.智慧線],
 		description: resultDescription[resultName.智慧線],
 		explanation: resultExplanation[resultName.智慧線],
 	},
-	FIJN: {
+	[RESULT_IDS.H0FIJN]: {
 		profile: resultInformation[resultName.霍金的輪廓線],
 		description: resultDescription[resultName.霍金的輪廓線],
 		explanation: resultExplanation[resultName.霍金的輪廓線],
 	},
-	TIJN: {
+	[RESULT_IDS.H1TIJN]: {
 		profile: resultInformation[resultName.霍金的輪廓線],
 		description: resultDescription[resultName.霍金的輪廓線],
 		explanation: resultExplanation[resultName.霍金的輪廓線],

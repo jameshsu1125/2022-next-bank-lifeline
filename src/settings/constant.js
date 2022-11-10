@@ -53,7 +53,26 @@ export const QUESTIONS_STATE = {
 	name: '',
 };
 
-export const RESULT = { result: 'TIJS', name: '伊斯巴拉淦巴尼杜兒' };
+export const RESULT_IDS = {
+	A0FIJS: 'FIJS',
+	A1TIJS: 'TIJS',
+	B0FEJS: 'FEJS',
+	B1FEJN: 'FEJN',
+	C0FIPS: 'FIPS',
+	C1FIPN: 'FIPN',
+	D0FEPS: 'FEPS',
+	D1TEPS: 'TEPS',
+	E0FEPN: 'FEPN',
+	E1TEPN: 'TEPN',
+	F0TEJS: 'TEJS',
+	F1TEJN: 'TEJN',
+	G0TIPS: 'TIPS',
+	G1TIPN: 'TIPN',
+	H0FIJN: 'FIJN',
+	H1TIJN: 'TIJN',
+};
+
+export const RESULT = { result: RESULT_IDS.H0FIJN, name: '伊斯巴拉淦巴尼杜兒' };
 
 export const FORM_PAGE = {
 	form: '/form',

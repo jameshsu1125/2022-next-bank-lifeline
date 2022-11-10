@@ -4,12 +4,13 @@ import { memo, useContext, useEffect } from 'react';
 import { Context, getResultById } from '../../../settings/config';
 import { ACTION } from '../../../settings/constant';
 import './index.less';
+import Magnifier from './magnifier';
 
 const Dialog = memo(({ lineName, explan, solve, classname, random, viewCounter }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 200 });
 	useEffect(() => {
 		if (viewCounter === 2) {
-			setStyle({ opacity: 1, y: 0 }, 1000);
+			setStyle({ opacity: 1, y: 0 }, 800);
 		}
 	}, [viewCounter]);
 	return (
@@ -38,8 +39,7 @@ const Dialog = memo(({ lineName, explan, solve, classname, random, viewCounter }
 				</div>
 				<div className='hand'>
 					<div className={`p ${classname}`} />
-					<div className={`magnifier m${classname}`} />
-					<div className={`l l${classname} r${classname}-${random}`} />
+					<Magnifier classname={classname} random={random} />
 				</div>
 			</div>
 		</div>
