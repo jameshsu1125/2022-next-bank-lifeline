@@ -72,7 +72,10 @@ export const RESULT_IDS = {
 	H1TIJN: 'TIJN',
 };
 
-export const RESULT = { result: RESULT_IDS.H0FIJN, name: '伊斯巴拉淦巴尼杜兒' };
+export const RESULT = {
+	result: RESULT_IDS.H0FIJN,
+	name: '伊斯巴拉淦巴尼杜兒',
+};
 
 export const FORM_PAGE = {
 	form: '/form',
