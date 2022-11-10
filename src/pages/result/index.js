@@ -7,7 +7,7 @@ import './index.less';
 import ResultProfile from './profile';
 
 const ResultDescription = lazy(() => import('./description'));
-const ResultExplane = lazy(() => import('./explan'));
+const ResultExplain = lazy(() => import('./explain'));
 const ResultButton = lazy(() => import('./buttons'));
 
 const Category = memo(({ children, setviewCounter, threshold }) => (
@@ -42,7 +42,7 @@ const Result = memo(() => {
 								<ResultDescription viewCounter={viewCounter} />
 							</Category>
 							<Category threshold={0.5} setviewCounter={setviewCounter}>
-								<ResultExplane random={random} viewCounter={viewCounter} />
+								<ResultExplain random={random} viewCounter={viewCounter} />
 							</Category>
 							<Category threshold={0.5} setviewCounter={setviewCounter}>
 								<ResultButton viewCounter={viewCounter} />

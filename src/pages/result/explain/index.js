@@ -46,14 +46,14 @@ const Dialog = memo(({ lineName, explan, solve, classname, random, viewCounter }
 	);
 });
 
-const ResultExplane = memo(({ random, viewCounter }) => {
+const ResultExplain = memo(({ random, viewCounter }) => {
 	const [context] = useContext(Context);
 	const { result } = context[ACTION.result];
 	const data = getResultById[result];
 	const { lineName, explan, solve } = data.explanation;
 	const { classname } = data.profile;
 	return (
-		<div className='ResultExplane'>
+		<div className='ResultExplain'>
 			<div className='trip'>
 				<div className='t' />
 			</div>
@@ -61,4 +61,4 @@ const ResultExplane = memo(({ random, viewCounter }) => {
 		</div>
 	);
 });
-export default ResultExplane;
+export default ResultExplain;
