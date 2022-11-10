@@ -38,7 +38,7 @@ const Result = memo(() => {
 					<ResultProfile random={random} transition={transition} />
 					{transition === TRANSITION.fadeIn && (
 						<Suspense>
-							<Category threshold={0.2} setviewCounter={setviewCounter}>
+							<Category threshold={0.1} setviewCounter={setviewCounter}>
 								<ResultDescription viewCounter={viewCounter} />
 							</Category>
 							<Category threshold={0.5} setviewCounter={setviewCounter}>
