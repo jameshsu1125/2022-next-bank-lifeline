@@ -1,4 +1,5 @@
 import Click from 'lesca-click';
+import Facebook from 'lesca-facebook-share';
 import Gtag from 'lesca-gtag';
 import Landscape from 'lesca-react-landscape';
 import LoadingProcess from 'lesca-react-loading';
@@ -16,6 +17,7 @@ Fetch.install({
 	contentType: contentType.JSON,
 });
 Gtag.install(process.env.GtagID);
+Facebook.install(process.env.FB_ID);
 
 const Pages = memo(() => {
 	const [context] = useContext(Context);
@@ -52,7 +54,13 @@ const Pages = memo(() => {
 					<span className='text-black'>{prcessing.body}</span>
 				</LoadingProcess>
 			)}
-			<Landscape style={{ backgroundColor: '#F8EC2C', backgroundImage: `url(${LandscapeIcon})` }} />
+			<Landscape
+				style={{
+					backgroundColor: '#F8EC2C',
+					zIndex: 999,
+					backgroundImage: `url(${LandscapeIcon})`,
+				}}
+			/>
 		</div>
 	);
 });

@@ -1,3 +1,5 @@
+import Facebook from 'lesca-facebook-share';
+import QueryString from 'lesca-url-parameters';
 import useTween from 'lesca-use-tween';
 import { Children, cloneElement, memo, useContext, useEffect } from 'react';
 import RegularButton from '../../../components/regularButton';
@@ -35,7 +37,19 @@ const ResultButton = memo(({ viewCounter }) => {
 						</RegularButton>
 					</div>
 					<div className='w-[50%]'>
-						<RegularButton center inversion ico='link'>
+						<RegularButton
+							center
+							inversion
+							ico='link'
+							onClick={() => {
+								const href = QueryString.root() + QueryString.file();
+								Facebook.share({
+									href,
+									hashtag: '你的後天生命線',
+									redirect_uri: href,
+								});
+							}}
+						>
 							分享連結
 						</RegularButton>
 					</div>
