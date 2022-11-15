@@ -14,7 +14,7 @@ const ResultExplain = memo(({ random, viewCounter }) => {
 
 	return (
 		<div className='ResultExplain'>
-			<div className='trip mt-4'>
+			<div className='trip'>
 				<div className='t' />
 			</div>
 			<ExplainDialog {...{ lineName, explan, solve, classname, random, viewCounter }} />
