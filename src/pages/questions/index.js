@@ -2,6 +2,7 @@ import ImagePreloader from 'lesca-image-onload';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import Container from '../../components/container';
 import FullCard from '../../components/fullCard';
+import QuestionCounter from '../../components/questionCounter';
 import RegularButton from '../../components/regularButton';
 import { QuestionContext } from '../../settings/config';
 import { QUESTIONS_PAGE, QUESTIONS_STATE, TRANSITION } from '../../settings/constant';
@@ -18,6 +19,8 @@ const Questions = memo(() => {
 	const value = useState(QUESTIONS_STATE);
 	const { page } = value[0];
 	const setContext = value[1];
+
+	const [counter, setCounter] = useState(false);
 
 	const Page = useMemo(() => {
 		const [target] = Object.values(QUESTIONS_PAGE).filter((data) => data === page);
@@ -41,6 +44,7 @@ const Questions = memo(() => {
 	useEffect(() => {
 		new ImagePreloader().load(ref.current).then(() => {
 			setContext((S) => ({ ...S, transition: TRANSITION.fadeIn }));
+			setCounter(true);
 		});
 	}, []);
 
@@ -51,6 +55,7 @@ const Questions = memo(() => {
 					<BottomSymbol page={page} />
 					<FullCard page={page} invertion={page === QUESTIONS_PAGE.processing}>
 						<Logo />
+						{counter && <QuestionCounter setCounter={setCounter} />}
 						{Page}
 					</FullCard>
 					<BackButton page={page} />

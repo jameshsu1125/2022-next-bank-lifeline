@@ -24,17 +24,14 @@ export const TRANSITION = {
 
 export const HAND_DURATIONS = {
 	css: 2000,
-	stay: 3000,
+	stay: 0,
 };
 
 export const LOGO_DURATION = {
-	logo: 1500,
-	title: 900,
-	description: 700,
-	monitor: 500,
+	logo: 300,
 	compass: 0,
 	hand: 200,
-	button: 3000,
+	button: 1000,
 };
 
 export const LANDING_STATE = {
@@ -75,7 +72,7 @@ export const RESULT_IDS = {
 };
 
 export const RESULT = {
-	result: RESULT_IDS.A0FIJS,
+	result: RESULT_IDS.C1FIPN,
 	name: '伊斯巴拉淦巴尼杜兒',
 };
 
@@ -86,6 +83,7 @@ export const FORM_PAGE = {
 
 export const FORM_STATE = {
 	page: FORM_PAGE.form,
+	terms: false,
 };
 
 const date = new Date();

@@ -92,9 +92,9 @@ export const questions = [
 	},
 ];
 export const processingDuration = 3000;
-export const submitedURL = 'https://www.nextbank.com.tw/';
+export const submitedURL = 'https://ins-I.nextbank.com.tw/Member/RegCon/';
 
-const resultName = {
+export const resultName = {
 	結構線: '結構線',
 	X光線: 'X光線',
 	銷魂麵線: '銷魂麵線',
@@ -260,7 +260,7 @@ export const resultExplanation = {
 		solve: '用心守護你',
 	},
 	[resultName.飛行線]: {
-		lineName: '不規則航線',
+		lineName: '扭曲航線',
 		explan: '暗示開啟旅程的你，也要小心安全！',
 		solve: '探索之路更放心',
 	},

@@ -33,7 +33,7 @@ const Result = memo(() => {
 
 	return (
 		<div ref={ref} className='Result'>
-			<Container>
+			<Container maxHeight={false}>
 				<div className='container'>
 					<ResultProfile random={random} transition={transition} />
 					{transition === TRANSITION.fadeIn && (

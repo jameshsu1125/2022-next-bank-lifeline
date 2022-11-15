@@ -58,7 +58,7 @@ const ResultButton = memo(({ viewCounter }) => {
 							setContext({ type: ACTION.page, state: PAGE.form });
 						}}
 					>
-						參加抽獎 試試後天運氣
+						試試後天運氣 抽iphone14
 					</RegularButton>
 				</div>
 			</AnimteProvider>

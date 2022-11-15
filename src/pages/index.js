@@ -1,4 +1,5 @@
 import Click from 'lesca-click';
+import Gtag from 'lesca-gtag';
 import Landscape from 'lesca-react-landscape';
 import LoadingProcess from 'lesca-react-loading';
 import Fetch, { contentType } from 'lesca-sp88-fetch';
@@ -14,6 +15,7 @@ Fetch.install({
 	hostUrl: process.env.API,
 	contentType: contentType.JSON,
 });
+Gtag.install(process.env.GtagID);
 
 const Pages = memo(() => {
 	const [context] = useContext(Context);

@@ -1,6 +1,6 @@
 import useTween from 'lesca-use-tween';
 import { Children, cloneElement, memo, useContext, useEffect } from 'react';
-import { Context, getResultById } from '../../../settings/config';
+import { Context, getResultById, resultName } from '../../../settings/config';
 import { ACTION } from '../../../settings/constant';
 import './index.less';
 
@@ -66,12 +66,16 @@ const ResultDescription = memo(({ viewCounter }) => {
 									<div className='content'>
 										<Headline hr={false}>適合發展感情線的是</Headline>
 										<div className='hand-container'>
-											{love.map((e) => (
-												<div key={e.name}>
-													<div className={e.classname} />
-													<div>{e.name}</div>
-												</div>
-											))}
+											{love.map((e) => {
+												const style =
+													e.name === resultName.貓皇路線 ? { backgroundPositionY: '-26px' } : {};
+												return (
+													<div key={e.name}>
+														<div className={e.classname} style={style} />
+														<div>{e.name}</div>
+													</div>
+												);
+											})}
 										</div>
 									</div>
 								</div>

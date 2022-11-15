@@ -1,9 +1,9 @@
 import useTween from 'lesca-use-tween';
-import { memo, useEffect, useMemo, useState } from 'react';
+import { memo, useContext, useEffect, useMemo, useState } from 'react';
 import Container from '../../components/container';
 import FullCard from '../../components/fullCard';
 import RegularButton from '../../components/regularButton';
-import { FormContext, submitedURL } from '../../settings/config';
+import { FormContext } from '../../settings/config';
 import { FORM_PAGE, FORM_STATE } from '../../settings/constant';
 import { BottomSymbol } from '../questions/backButton';
 import Form from './form';
@@ -11,6 +11,7 @@ import './index.less';
 import Submited from './submited';
 
 const MoreInformationButton = memo(({ page }) => {
+	const [, setContext] = useContext(FormContext);
 	const [style, setStyle] = useTween({ opacity: 0, y: 100 });
 	useEffect(() => {
 		if (page === FORM_PAGE.form) setStyle({ opacity: 1, y: 0 }, 500);
@@ -22,7 +23,7 @@ const MoreInformationButton = memo(({ page }) => {
 				yellow
 				center
 				onClick={() => {
-					window.open(submitedURL);
+					setContext((S) => ({ ...S, terms: true }));
 				}}
 			>
 				了解活動相關資訊

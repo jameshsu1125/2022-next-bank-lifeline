@@ -1,0 +1,94 @@
+.QuestionCounter {
+	position: absolute;
+	top: 0.75rem;
+	display: flex;
+	overflow: hidden;
+	align-items: center;
+	flex-direction: column;
+	justify-content: center;
+	width: 110px;
+	text-align: center;
+	font-weight: 900;
+
+	@apply bg-yellow pt-3 pb-7 font-interBlack;
+
+	.questionCounter-compass {
+		position: relative;
+		margin-top: 5px;
+		padding-bottom: (unit(image-height(@img) / unit(image-width(@img))) * @width);
+		width: @width;
+
+		@width: 70%;
+		@img: './img/c0.svg';
+
+		& > div {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			& > div {
+				position: absolute;
+			}
+
+			.svg {
+				width: 100%;
+				height: 100%;
+				background-image: url(@img);
+				background-size: 100%;
+				animation: questionCounterAnimate 20s ease-in-out infinite;
+			}
+
+			.counter {
+				margin-top: 4px;
+				font-weight: 500;
+				@apply font-liquid text-5xl;
+			}
+
+			&::before {
+				position: absolute;
+				width: 75%;
+				height: 75%;
+				border: solid 1px rgba(152, 152, 152, 1);
+				border-radius: 50%;
+				content: '';
+			}
+		}
+	}
+
+	.questionCounter-total {
+		position: absolute;
+		right: 0;
+		bottom: 0;
+		display: flex;
+		align-items: flex-end;
+		flex-direction: column;
+		justify-content: flex-end;
+		width: image-width(@img) * @scale;
+		height: image-height(@img) * @scale;
+		background-image: url(@img);
+		background-size: 100%;
+
+		@scale: 0.7;
+		@img: './img/c1.svg';
+
+		& > div {
+			margin-bottom: -2px;
+		}
+
+		@apply pr-1 font-liquid text-2xl text-yellow;
+	}
+
+	@keyframes questionCounterAnimate {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+}
