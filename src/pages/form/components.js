@@ -1,8 +1,10 @@
+import Gtag from 'lesca-gtag';
 import useTween from 'lesca-use-tween';
 import { memo, useEffect } from 'react';
 import RegularButton from '../../components/regularButton';
 import { submitedURL } from '../../settings/config';
-import { TRANSITION } from '../../settings/constant';
+import { FORM_PAGE, TRANSITION } from '../../settings/constant';
+import { gtagPages } from '../../settings/ga';
 
 export const Logo = memo(({ transition }) => {
 	const [style, setStyle] = useTween({ opacity: 0, x: -50 });
@@ -61,6 +63,7 @@ export const Button = memo(({ transition, delay }) => {
 				ico={false}
 				flip
 				onClick={() => {
+					Gtag.event(gtagPages[FORM_PAGE.submited], '立即註冊拿好禮');
 					window.open(submitedURL);
 				}}
 			>

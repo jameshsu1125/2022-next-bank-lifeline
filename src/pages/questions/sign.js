@@ -1,3 +1,4 @@
+import Gtag from 'lesca-gtag';
 import ImagePreloader from 'lesca-image-onload';
 import useTween, { Bezier } from 'lesca-use-tween';
 import { memo, useCallback, useContext, useEffect, useRef, useState } from 'react';
@@ -6,6 +7,7 @@ import { setMaxLength } from '../../components/input/sort';
 import RegularButton from '../../components/regularButton';
 import { QuestionContext } from '../../settings/config';
 import { QUESTIONS_PAGE, TRANSITION } from '../../settings/constant';
+import { gtagPages } from '../../settings/ga';
 import './sign.less';
 
 const Dialog = memo(({ transition, setTransition }) => {
@@ -35,6 +37,7 @@ const Dialog = memo(({ transition, setTransition }) => {
 		const name = setMaxLength(value);
 		setContext((S) => ({ ...S, name }));
 		setTransition(TRANSITION.fadeOut);
+		Gtag.event(gtagPages[QUESTIONS_PAGE.sign], '前往結果');
 	}, [ref]);
 
 	return (
@@ -61,6 +64,7 @@ const Sign = memo(() => {
 
 	useEffect(() => {
 		new ImagePreloader().load(ref.current).then(() => setTransition(TRANSITION.fadeIn));
+		Gtag.pv(gtagPages[QUESTIONS_PAGE.sign]);
 	}, []);
 
 	return (

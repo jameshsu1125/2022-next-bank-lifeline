@@ -11,13 +11,10 @@ import { ACTION, PAGE } from '../settings/constant';
 import '../settings/global.less';
 import LandscapeIcon from './img/landscape.png';
 
-Click.install();
-Fetch.install({
-	hostUrl: process.env.API,
-	contentType: contentType.JSON,
-});
-Gtag.install(process.env.GtagID);
+Gtag.install(process.env.Gtag_ID);
 Facebook.install(process.env.FB_ID);
+Click.install();
+Fetch.install({ hostUrl: process.env.API, contentType: contentType.JSON });
 
 const Pages = memo(() => {
 	const [context] = useContext(Context);

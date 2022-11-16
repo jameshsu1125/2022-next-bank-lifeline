@@ -1,8 +1,10 @@
+import Gtag from 'lesca-gtag';
 import useTween from 'lesca-use-tween';
 import { memo, useCallback, useContext, useEffect, useState } from 'react';
 import RegularButton from '../../components/regularButton';
 import { QuestionContext } from '../../settings/config';
-import { FORM_PAGE, QUESTIONS_PAGE } from '../../settings/constant';
+import { FORM_PAGE, PAGE, QUESTIONS_PAGE } from '../../settings/constant';
+import { gtagPages } from '../../settings/ga';
 import './backButton.less';
 
 const DEFAULT_STYLE = { opacity: 0, y: 100 };
@@ -23,7 +25,6 @@ const BackButton = memo(() => {
 	const [context, setContext] = useContext(QuestionContext);
 	const { index, page } = context;
 	const [disabled, setDisabled] = useState(index === 0);
-
 	const [style, setStyle] = useTween(DEFAULT_STYLE);
 
 	useEffect(() => {
@@ -37,7 +38,10 @@ const BackButton = memo(() => {
 	}, [index, page]);
 
 	const onClick = useCallback(() => {
-		if (!disabled) setContext((S) => ({ ...S, index: index - 1 }));
+		if (!disabled) {
+			setContext((S) => ({ ...S, index: index - 1 }));
+			Gtag.event(gtagPages[PAGE.questions], 'BACK');
+		}
 	}, [disabled, index]);
 
 	return (

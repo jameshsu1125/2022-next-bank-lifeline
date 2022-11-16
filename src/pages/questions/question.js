@@ -1,8 +1,10 @@
+import Gtag from 'lesca-gtag';
 import useTween from 'lesca-use-tween';
 import { memo, useCallback, useContext, useEffect } from 'react';
 import RegularButton from '../../components/regularButton';
 import { QuestionContext, questions } from '../../settings/config';
-import { QUESTIONS_PAGE, TRANSITION } from '../../settings/constant';
+import { PAGE, QUESTIONS_PAGE, TRANSITION } from '../../settings/constant';
+import { gtagPages } from '../../settings/ga';
 import './question.less';
 
 const DEFAULT_BUTTON_STYLE = { opacity: 0, y: 8 };
@@ -31,6 +33,9 @@ const Button = memo(({ data, i, transition }) => {
 			if (index < questions.length - 1) ctx.index += 1;
 			else ctx.page = QUESTIONS_PAGE.sign;
 			setContext(ctx);
+
+			const innerText = e.children[0]?.children[0]?.children[0]?.innerText;
+			if (innerText) Gtag.event(gtagPages[PAGE.questions], innerText);
 		},
 		[index, transition],
 	);
@@ -61,6 +66,7 @@ const Title = memo(({ title, transition }) => {
 				duration: 50,
 				onComplete: () => setStyle({ opacity: 1, y: 0 }, 300),
 			});
+			Gtag.pv(`問題：${title}`);
 		}
 	}, [title, transition]);
 	return (

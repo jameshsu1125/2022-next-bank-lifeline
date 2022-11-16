@@ -1,3 +1,4 @@
+import Gtag from 'lesca-gtag';
 import ImagePreloader from 'lesca-image-onload';
 import { memo, useEffect, useMemo, useRef, useState } from 'react';
 import Container from '../../components/container';
@@ -5,7 +6,8 @@ import FullCard from '../../components/fullCard';
 import QuestionCounter from '../../components/questionCounter';
 import RegularButton from '../../components/regularButton';
 import { QuestionContext } from '../../settings/config';
-import { QUESTIONS_PAGE, QUESTIONS_STATE, TRANSITION } from '../../settings/constant';
+import { PAGE, QUESTIONS_PAGE, QUESTIONS_STATE, TRANSITION } from '../../settings/constant';
+import { gtagPages } from '../../settings/ga';
 import BackButton, { BottomSymbol } from './backButton';
 import './index.less';
 import Logo from './logo';
@@ -46,6 +48,7 @@ const Questions = memo(() => {
 			setContext((S) => ({ ...S, transition: TRANSITION.fadeIn }));
 			setCounter(true);
 		});
+		Gtag.pv(gtagPages[PAGE.questions]);
 	}, []);
 
 	return (

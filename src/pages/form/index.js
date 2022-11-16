@@ -1,10 +1,12 @@
+import Gtag from 'lesca-gtag';
 import useTween from 'lesca-use-tween';
 import { memo, useContext, useEffect, useMemo, useState } from 'react';
 import Container from '../../components/container';
 import FullCard from '../../components/fullCard';
 import RegularButton from '../../components/regularButton';
 import { FormContext } from '../../settings/config';
-import { FORM_PAGE, FORM_STATE } from '../../settings/constant';
+import { FORM_PAGE, FORM_STATE, PAGE } from '../../settings/constant';
+import { gtagPages } from '../../settings/ga';
 import { BottomSymbol } from '../questions/backButton';
 import Form from './form';
 import './index.less';
@@ -24,6 +26,7 @@ const MoreInformationButton = memo(({ page }) => {
 				center
 				onClick={() => {
 					setContext((S) => ({ ...S, terms: true }));
+					Gtag.event(gtagPages[PAGE.form], '了解活動相關資訊');
 				}}
 			>
 				了解活動相關資訊

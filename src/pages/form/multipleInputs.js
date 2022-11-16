@@ -1,10 +1,12 @@
+import Gtag from 'lesca-gtag';
 import useTween from 'lesca-use-tween';
 import { memo, useEffect, useRef, useCallback } from 'react';
 import CheckBox from '../../components/checkBox';
 import { RegularInput } from '../../components/input';
 import RegularButton from '../../components/regularButton';
 import { validateEmail } from '../../settings/config';
-import { TRANSITION } from '../../settings/constant';
+import { PAGE, TRANSITION } from '../../settings/constant';
+import { gtagPages } from '../../settings/ga';
 
 const INPUT_PORPERTY = [
 	{ name: 'name', placeholder: '請輸入你的名字', type: 'text', maxLength: 999, modal: '名字' },
@@ -31,7 +33,10 @@ const Animate = memo(({ transition, children, delay = 0, direct = 'y' }) => {
 const MultipleInputs = memo(({ transition, setPrivate, checkState, fetcher }) => {
 	const ref = useRef();
 	const [checked] = checkState;
-	const onCheck = useCallback(() => setPrivate(true), []);
+	const onCheck = useCallback(() => {
+		setPrivate(true);
+		Gtag.event(gtagPages[PAGE.form], '隱私條款');
+	}, []);
 	const onClick = useCallback(() => {
 		const form = ref.current;
 		const formData = new FormData(form);
@@ -58,6 +63,7 @@ const MultipleInputs = memo(({ transition, setPrivate, checkState, fetcher }) =>
 		else {
 			const { name: Name, email: Email, tel: Mobile } = fetchData;
 			fetcher({ Name, Email, Mobile });
+			Gtag.event(gtagPages[PAGE.form], '送出抽獎');
 		}
 	}, [ref, checked]);
 
