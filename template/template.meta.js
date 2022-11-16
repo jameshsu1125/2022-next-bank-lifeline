@@ -3,5 +3,5 @@
 module.exports = {
 	title: '',
 	description: '',
-	url: 'https://ins-u.nextbank.com.tw/Home/News/event_open',
+	url: 'https://ins-u.nextbank.com.tw/Home/News/event_open/',
 };
