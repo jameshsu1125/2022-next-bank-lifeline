@@ -94,3 +94,9 @@ Code and documentation copyright 2011-2022 the authors. Code released under the 
 [廣告素材概念及文案](https://docs.google.com/presentation/d/1XE6w6te14jx9vHr0XolwhWgsgWuX67Z8/edit#slide=id.p5)
 [API](https://docs.google.com/document/d/17dkAT2CpH_72A3rMABtGS70R3ZXyOdYR/edit)
 -->
+
+## remove optimized svg
+
+```sh
+find . -name '*\<*' | while read f; do mv "$f" "${f//\</}"; done
+```

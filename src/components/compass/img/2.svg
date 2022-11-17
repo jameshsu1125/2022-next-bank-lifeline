@@ -1,8 +1,1 @@
-<svg version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="0 0 259.3 260.5" style="enable-background:new 0 0 259.3 260.5;" xml:space="preserve">
-<style type="text/css">
-	.st1{fill:#E1E1E1;}
-</style>
-<path class="st1" d="M36.4,168.8c-5-11.9-7.7-24.9-7.7-38.6c0-13.7,2.7-26.9,7.7-38.9l-13.1-5.4c-11.6,28.2-11.6,60.2,0,88.4
-	L36.4,168.8z"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 259.3 260.5" style="enable-background:new 0 0 259.3 260.5" xml:space="preserve"><path d="M36.4 168.8c-5-11.9-7.7-24.9-7.7-38.6 0-13.7 2.7-26.9 7.7-38.9l-13.1-5.4c-11.6 28.2-11.6 60.2 0 88.4l13.1-5.5z" style="fill:#e1e1e1"/></svg>
