@@ -6,11 +6,13 @@ import './headline.less';
 
 const Name = memo(({ name, transition, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, x: -200 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) {
 			setStyle({ opacity: 1, x: 0 }, { duration: 500, delay });
 		}
 	}, [transition]);
+
 	return (
 		<div className='ProfileHeadline' style={style}>
 			<div>{name}</div>

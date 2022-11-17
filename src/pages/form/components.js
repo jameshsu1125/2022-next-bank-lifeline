@@ -8,17 +8,21 @@ import { gtagPages } from '../../settings/ga';
 
 export const Logo = memo(({ transition }) => {
 	const [style, setStyle] = useTween({ opacity: 0, x: -50 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) setStyle({ opacity: 1, x: 0 }, 500);
 	}, [transition]);
+
 	return <div className='logo' style={style} />;
 });
 
 export const Text = memo(({ transition, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 50 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) setStyle({ opacity: 1, y: 0 }, { duration: 500, delay });
 	}, [transition]);
+
 	return (
 		<p style={style}>
 			您已完成抽獎程序
@@ -32,9 +36,11 @@ export const Text = memo(({ transition, delay }) => {
 
 export const Dialog = memo(({ transition, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 400 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) setStyle({ opacity: 1, y: 0 }, { duration: 500, delay });
 	}, [transition]);
+
 	return (
 		<div className='dialog' style={style}>
 			<div>
@@ -52,11 +58,13 @@ export const Dialog = memo(({ transition, delay }) => {
 
 export const Button = memo(({ transition, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, scale: 2 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) {
 			setStyle({ opacity: 1, scale: 1 }, { duration: 400, delay });
 		}
 	}, [transition]);
+
 	return (
 		<div className='fit-row' style={style}>
 			<RegularButton

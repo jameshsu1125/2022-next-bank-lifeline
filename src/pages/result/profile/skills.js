@@ -7,11 +7,13 @@ import './skills.less';
 
 const Table = memo(({ num, star, feature, total, transition, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 100 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) {
 			setStyle({ opacity: 1, y: 1 }, { duration: 500, delay });
 		}
 	}, [transition]);
+
 	return (
 		<div className='Skills' style={style}>
 			<div className='row-a'>

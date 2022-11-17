@@ -5,11 +5,13 @@ import './dialog.less';
 
 const ExplainDialog = memo(({ lineName, explan, solve, classname, random, viewCounter }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 200 });
+
 	useEffect(() => {
 		if (viewCounter === 2) {
 			setStyle({ opacity: 1, y: 0 }, 800);
 		}
 	}, [viewCounter]);
+
 	return (
 		<div className='ExplainDialog' style={style}>
 			<div className='content'>

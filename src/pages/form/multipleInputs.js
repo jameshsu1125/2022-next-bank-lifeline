@@ -22,21 +22,25 @@ const INPUT_PORPERTY = [
 
 const Animate = memo(({ transition, children, delay = 0, direct = 'y' }) => {
 	const [style, setStyle] = useTween({ opacity: 0, [direct]: direct === 'x' ? -100 : 100 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) {
 			setStyle({ opacity: 1, [direct]: 0 }, { duration: 500, delay });
 		}
 	}, [transition]);
+
 	return <div style={style}>{children}</div>;
 });
 
 const MultipleInputs = memo(({ transition, setPrivate, checkState, fetcher }) => {
 	const ref = useRef();
 	const [checked] = checkState;
+
 	const onCheck = useCallback(() => {
 		setPrivate(true);
 		Gtag.event(gtagPages[PAGE.form], '隱私條款');
 	}, []);
+
 	const onClick = useCallback(() => {
 		const form = ref.current;
 		const formData = new FormData(form);

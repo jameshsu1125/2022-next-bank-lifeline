@@ -15,10 +15,12 @@ import Submited from './submited';
 const MoreInformationButton = memo(({ page }) => {
 	const [, setContext] = useContext(FormContext);
 	const [style, setStyle] = useTween({ opacity: 0, y: 100 });
+
 	useEffect(() => {
 		if (page === FORM_PAGE.form) setStyle({ opacity: 1, y: 0 }, 500);
 		else setStyle({ opacity: 0, y: 100 }, 500);
 	}, [page]);
+
 	return (
 		<div className='formButton' style={style}>
 			<RegularButton

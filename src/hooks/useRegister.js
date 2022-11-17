@@ -1,7 +1,7 @@
 import Fetch from 'lesca-sp88-fetch';
 import { useContext, useState } from 'react';
 import { Context, getResultById } from '../settings/config';
-import { ACTION, PRCESSING } from '../settings/constant';
+import { ACTION, PRCESSING_STATE } from '../settings/constant';
 
 const { hostname } = window.location;
 
@@ -13,7 +13,7 @@ const useRegister = () => {
 
 	const [state, setState] = useState();
 	const fetch = async (props) => {
-		setContext({ type: ACTION.prcessing, state: { ...PRCESSING, enabled: true } });
+		setContext({ type: ACTION.prcessing, state: { ...PRCESSING_STATE, enabled: true } });
 		const date = new Date();
 		const Agreetime = `${date.getFullYear()}/${
 			date.getMonth() + 1
@@ -23,7 +23,7 @@ const useRegister = () => {
 			setTimeout(() => {
 				const res = { ResponseCode: '00', ResponseMSG: 'OK' };
 				setState(res);
-				setContext({ type: ACTION.prcessing, state: { ...PRCESSING, enabled: false } });
+				setContext({ type: ACTION.prcessing, state: { ...PRCESSING_STATE, enabled: false } });
 			}, 500);
 			return;
 		}
@@ -35,7 +35,7 @@ const useRegister = () => {
 			else alert(ResponseMSG);
 		} else alert('主機愈時，請稍候再試。');
 
-		setContext({ type: ACTION.prcessing, state: { ...PRCESSING, enabled: false } });
+		setContext({ type: ACTION.prcessing, state: { ...PRCESSING_STATE, enabled: false } });
 	};
 	return [state, fetch];
 };

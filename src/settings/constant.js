@@ -21,29 +21,11 @@ export const TRANSITION = {
 	fadeOutEnd: 4,
 	loop: 5,
 };
-
-export const HAND_DURATIONS = {
-	css: 2000,
-	stay: 0,
-};
-
-export const LOGO_DURATION = {
-	logo: 300,
-	compass: 0,
-	hand: 200,
-	button: 1000,
-};
-
-export const LANDING_STATE = {
-	transition: TRANSITION.unset,
-};
-
-export const QUESTIONS_PAGE = {
-	question: '/question',
-	sign: '/sign',
-	processing: '/processing',
-};
-
+export const HAND_DURATIONS = { css: 2000, stay: 0 };
+export const LOGO_DURATION = { logo: 300, compass: 0, hand: 200, button: 1000 };
+export const LANDING_STATE = { transition: TRANSITION.unset };
+export const QUESTIONS_PAGE = { question: '/question', sign: '/sign', processing: '/processing' };
+export const PRCESSING_STATE = { enabled: false, body: '資料處理中' };
 export const QUESTIONS_STATE = {
 	page: QUESTIONS_PAGE.question,
 	transition: TRANSITION.unset,
@@ -70,28 +52,10 @@ export const RESULT_IDS = {
 	H0FIJN: 'FIJN',
 	H1TIJN: 'TIJN',
 };
-
-export const RESULT = {
-	result: RESULT_IDS.C1FIPN,
-	name: '伊斯巴拉淦巴尼杜兒',
-};
-
-export const FORM_PAGE = {
-	form: '/form',
-	submited: '/submited',
-};
-
-export const FORM_STATE = {
-	page: FORM_PAGE.form,
-	terms: false,
-};
-
+export const RESULT = { result: RESULT_IDS.C1FIPN, name: '伊斯巴拉淦巴尼杜兒' };
+export const FORM_PAGE = { form: '/form', submited: '/submited' };
+export const FORM_STATE = { page: FORM_PAGE.form, terms: false };
 const date = new Date();
 export const ENTRYTIME = `${date.getFullYear()}/${
 	date.getMonth() + 1
 }/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
-
-export const PRCESSING = {
-	enabled: false,
-	body: '資料處理中',
-};

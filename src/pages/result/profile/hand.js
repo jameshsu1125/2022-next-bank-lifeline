@@ -6,11 +6,13 @@ import './hand.less';
 
 const Hand = memo(({ classname, random, transition, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, scale: 2 });
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) {
 			setStyle({ opacity: 1, scale: 1 }, { duration: 500, delay });
 		}
 	}, [transition]);
+
 	return <div className={`p ${classname}-${random}`} style={style} />;
 });
 

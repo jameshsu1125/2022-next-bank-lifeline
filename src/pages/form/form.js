@@ -14,7 +14,6 @@ import Terms from './terms';
 const Form = memo(() => {
 	const [context, setContext] = useContext(FormContext);
 	const { terms } = context;
-
 	const contanerRef = useRef();
 	const [transition, setTransition] = useState(TRANSITION.unset);
 	const [priv, setPrivate] = useState(false);

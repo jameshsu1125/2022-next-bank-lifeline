@@ -1,6 +1,14 @@
 /* eslint-disable implicit-arrow-linebreak */
 import { createContext } from 'react';
-import { ACTION, ENTRYTIME, PAGE, PRCESSING, RESULT, RESULT_IDS, TRANSITION } from './constant';
+import {
+	ACTION,
+	ENTRYTIME,
+	PAGE,
+	PRCESSING_STATE,
+	RESULT,
+	RESULT_IDS,
+	TRANSITION,
+} from './constant';
 
 export const Context = createContext();
 export const LoadingContext = createContext();
@@ -8,11 +16,11 @@ export const QuestionContext = createContext();
 export const FormContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: window.location.hostname === 'localhost' ? PAGE.form : PAGE.landing,
+	[ACTION.page]: window.location.hostname === 'localhost' ? PAGE.landing : PAGE.landing,
 	[ACTION.transition]: TRANSITION.unset,
 	[ACTION.result]: RESULT,
 	[ACTION.entrytime]: ENTRYTIME,
-	[ACTION.prcessing]: PRCESSING,
+	[ACTION.prcessing]: PRCESSING_STATE,
 };
 
 export const reducer = (state, action) => {

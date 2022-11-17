@@ -15,6 +15,7 @@ const Headline = memo(({ children, hr = true, style }) => (
 
 const AnimteProvider = memo(({ children, viewCounter, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 50 });
+
 	useEffect(() => {
 		if (viewCounter === 1) {
 			setStyle({ opacity: 1, y: 0 }, { duration: 500, delay });

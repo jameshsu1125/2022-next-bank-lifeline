@@ -8,6 +8,7 @@ import { gtagPages } from '../../settings/ga';
 import './question.less';
 
 const DEFAULT_BUTTON_STYLE = { opacity: 0, y: 8 };
+const DEFAULT_TITLE_STYLE = { opacity: 0, y: 8 };
 
 const Button = memo(({ data, i, transition }) => {
 	const [context, setContext] = useContext(QuestionContext);
@@ -56,10 +57,9 @@ const Buttons = memo(({ body = [], transition }) => (
 	</div>
 ));
 
-const DEFAULT_TITLE_STYLE = { opacity: 0, y: 8 };
-
 const Title = memo(({ title, transition }) => {
 	const [style, setStyle] = useTween(DEFAULT_TITLE_STYLE);
+
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) {
 			setStyle(DEFAULT_TITLE_STYLE, {
@@ -69,6 +69,7 @@ const Title = memo(({ title, transition }) => {
 			Gtag.pv(`問題：${title}`);
 		}
 	}, [title, transition]);
+
 	return (
 		<div className='title' style={style}>
 			{title}

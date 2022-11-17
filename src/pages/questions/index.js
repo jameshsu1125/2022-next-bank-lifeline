@@ -17,11 +17,9 @@ import Sign from './sign';
 
 const Questions = memo(() => {
 	const ref = useRef();
-
 	const value = useState(QUESTIONS_STATE);
 	const { page } = value[0];
 	const setContext = value[1];
-
 	const [counter, setCounter] = useState(false);
 
 	const Page = useMemo(() => {
