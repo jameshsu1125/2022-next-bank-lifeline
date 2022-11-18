@@ -59,7 +59,7 @@ const Content = memo(({ transition, children, head, id, onClose, setTransition, 
 								setTransition(TRANSITION.fadeOut);
 							}}
 						>
-							關閉
+							{disabled ? '往下滑閱讀並關閉' : '關閉'}
 						</RegularButton>
 					</div>
 					<div id={id} className='dialog-close' />

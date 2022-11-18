@@ -25,11 +25,11 @@ export const Text = memo(({ transition, delay }) => {
 
 	return (
 		<p style={style}>
-			您已完成抽獎程序
+			將將～你已符合抽獎資格
 			<br />
-			我們將於2023年2月2日
+			我們將於2023年2月28日
 			<br />
-			於將來FB公布抽獎名單！
+			於將來銀行網路投保專區公布抽獎名單！
 		</p>
 	);
 });
@@ -44,12 +44,12 @@ export const Dialog = memo(({ transition, delay }) => {
 	return (
 		<div className='dialog' style={style}>
 			<div>
-				<div>現在註冊 將將保會員</div>
+				<div>註冊會員&預約車險到期提醒</div>
 				<div>
-					不用等，直接拿
 					<div className='backline'>
-						<div> 小禮物！</div>
+						<div>限量好禮</div>
 					</div>
+					等你拿！
 				</div>
 			</div>
 		</div>
@@ -71,11 +71,11 @@ export const Button = memo(({ transition, delay }) => {
 				ico={false}
 				flip
 				onClick={() => {
-					Gtag.event(gtagPages[FORM_PAGE.submited], '立即註冊拿好禮');
+					Gtag.event(gtagPages[FORM_PAGE.submited], '加入將來人拿好禮');
 					window.open(submitedURL);
 				}}
 			>
-				立即註冊拿好禮
+				加入將來人拿好禮
 			</RegularButton>
 		</div>
 	);

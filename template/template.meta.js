@@ -1,7 +1,7 @@
 // https://jameshsu1125.github.io/2022-next-bank-lifeline/
 
 module.exports = {
-	title: '',
+	title: '測測你的【後天生命線】，預知將來走勢，測完抽iphone14！',
 	description: '',
 	url: 'https://ins-u.nextbank.com.tw/Home/News/event_open/',
 };

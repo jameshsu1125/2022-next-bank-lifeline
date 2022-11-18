@@ -85,7 +85,7 @@ const ResultButton = memo(({ viewCounter }) => {
 							Gtag.event(gtagPages[PAGE.result], '試試後天運氣 抽iphone14');
 						}}
 					>
-						試試後天運氣 抽iphone14
+						試試後天運氣 抽iPhone14
 					</RegularButton>
 				</div>
 			</AnimteProvider>
