@@ -1,8 +1,6 @@
-import Gtag from 'lesca-gtag';
 import ImagePreloader from 'lesca-image-onload';
 import { memo, useEffect, useRef, useState } from 'react';
-import { FORM_PAGE, TRANSITION } from '../../settings/constant';
-import { gtagPages } from '../../settings/ga';
+import { TRANSITION } from '../../settings/constant';
 import { Button, Dialog, Logo, Text } from './components';
 import './submited.less';
 
@@ -12,7 +10,6 @@ const Submited = memo(() => {
 
 	useEffect(() => {
 		new ImagePreloader().load(ref.current).then(() => setTransition(TRANSITION.fadeIn));
-		Gtag.pv(gtagPages[FORM_PAGE.submited]);
 	}, []);
 
 	return (

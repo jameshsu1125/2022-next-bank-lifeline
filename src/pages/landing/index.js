@@ -1,4 +1,3 @@
-import Gtag from 'lesca-gtag';
 import ImagePreloader from 'lesca-image-onload';
 import { memo, useContext, useEffect, useRef, useState } from 'react';
 import Card from '../../components/card';
@@ -10,7 +9,6 @@ import Monitor from '../../components/monitor';
 import RegularButton from '../../components/regularButton';
 import { Context, LoadingContext } from '../../settings/config';
 import { ACTION, LANDING_STATE, PAGE, TRANSITION } from '../../settings/constant';
-import { gtagPages } from '../../settings/ga';
 import './index.less';
 
 const Landing = memo(() => {
@@ -24,7 +22,6 @@ const Landing = memo(() => {
 			const [, setLoadingContext] = value;
 			setLoadingContext((S) => ({ ...S, transition: TRANSITION.fadeIn }));
 		});
-		Gtag.pv(gtagPages[PAGE.landing]);
 	}, []);
 
 	return (
@@ -40,7 +37,6 @@ const Landing = memo(() => {
 						<RegularButton
 							onClick={() => {
 								setContext({ type: ACTION.page, state: PAGE.questions });
-								Gtag.event(gtagPages[PAGE.landing], '立即測');
 							}}
 						>
 							立即測

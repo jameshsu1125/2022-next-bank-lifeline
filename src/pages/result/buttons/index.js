@@ -1,12 +1,10 @@
 import Facebook from 'lesca-facebook-share';
-import Gtag from 'lesca-gtag';
 import QueryString from 'lesca-url-parameters';
 import useTween from 'lesca-use-tween';
 import { Children, cloneElement, memo, useContext, useEffect } from 'react';
 import RegularButton from '../../../components/regularButton';
 import { Context } from '../../../settings/config';
 import { ACTION, PAGE } from '../../../settings/constant';
-import { gtagPages } from '../../../settings/ga';
 import './index.less';
 
 const AnimteProvider = memo(({ children, viewCounter, delay }) => {
@@ -34,7 +32,6 @@ const ResultButton = memo(({ viewCounter }) => {
 							ico='back'
 							onClick={() => {
 								setContext({ type: ACTION.page, state: PAGE.questions });
-								Gtag.event(gtagPages[PAGE.result], '再玩一次');
 							}}
 						>
 							再玩一次
@@ -46,7 +43,6 @@ const ResultButton = memo(({ viewCounter }) => {
 							inversion
 							ico='link'
 							onClick={() => {
-								Gtag.event(gtagPages[PAGE.result], '分享連結');
 								const href = QueryString.root() + QueryString.file();
 								Facebook.share({
 									href,
@@ -62,14 +58,7 @@ const ResultButton = memo(({ viewCounter }) => {
 			</AnimteProvider>
 			<AnimteProvider {...{ viewCounter, delay: 100 }}>
 				<div className='row'>
-					<RegularButton
-						center
-						inversion
-						ico='download'
-						onClick={() => {
-							Gtag.event(gtagPages[PAGE.result], '長按下載結果圖');
-						}}
-					>
+					<RegularButton center inversion ico='download' onClick={() => {}}>
 						長按下載結果圖
 					</RegularButton>
 				</div>
@@ -82,7 +71,6 @@ const ResultButton = memo(({ viewCounter }) => {
 						ico='gift'
 						onClick={() => {
 							setContext({ type: ACTION.page, state: PAGE.form });
-							Gtag.event(gtagPages[PAGE.result], '試試後天運氣 抽iphone14');
 						}}
 					>
 						試試後天運氣 抽iPhone14

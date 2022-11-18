@@ -1,10 +1,8 @@
-import Gtag from 'lesca-gtag';
 import ImagePreloader from 'lesca-image-onload';
 import { lazy, memo, Suspense, useEffect, useRef, useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import Container from '../../components/container';
-import { PAGE, TRANSITION } from '../../settings/constant';
-import { gtagPages } from '../../settings/ga';
+import { TRANSITION } from '../../settings/constant';
 import './index.less';
 import ResultProfile from './profile';
 
@@ -31,7 +29,6 @@ const Result = memo(() => {
 
 	useEffect(() => {
 		new ImagePreloader().load(ref.current).then(() => setTransition(TRANSITION.fadeIn));
-		Gtag.pv(gtagPages[PAGE.result]);
 	}, []);
 
 	return (

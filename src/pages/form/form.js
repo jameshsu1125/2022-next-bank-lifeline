@@ -1,11 +1,9 @@
-import Gtag from 'lesca-gtag';
 import ImagePreloader from 'lesca-image-onload';
 import { memo, useContext, useEffect, useRef, useState } from 'react';
 import ScrollableDialog from '../../components/dialog';
 import useRegister from '../../hooks/useRegister';
 import { FormContext } from '../../settings/config';
-import { FORM_PAGE, PAGE, TRANSITION } from '../../settings/constant';
-import { gtagPages } from '../../settings/ga';
+import { FORM_PAGE, TRANSITION } from '../../settings/constant';
 import './form.less';
 import MultipleInputs from './multipleInputs';
 import Private from './private';
@@ -23,7 +21,6 @@ const Form = memo(() => {
 
 	useEffect(() => {
 		new ImagePreloader().load(contanerRef.current).then(() => setTransition(TRANSITION.fadeIn));
-		Gtag.pv(gtagPages[PAGE.form]);
 	}, []);
 
 	useEffect(() => {

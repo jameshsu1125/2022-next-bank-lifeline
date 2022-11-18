@@ -1,6 +1,5 @@
 import Click from 'lesca-click';
 import Facebook from 'lesca-facebook-share';
-import Gtag from 'lesca-gtag';
 import Landscape from 'lesca-react-landscape';
 import LoadingProcess from 'lesca-react-loading';
 import Fetch, { contentType } from 'lesca-sp88-fetch';
@@ -11,7 +10,6 @@ import { ACTION, PAGE } from '../settings/constant';
 import '../settings/global.less';
 import LandscapeIcon from './img/landscape.png';
 
-Gtag.install(process.env.Gtag_ID);
 Facebook.install(process.env.FB_ID);
 Click.install();
 Fetch.install({ hostUrl: process.env.API, contentType: contentType.JSON });
