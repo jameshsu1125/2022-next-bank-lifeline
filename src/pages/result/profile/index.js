@@ -5,7 +5,7 @@ import './index.less';
 import Skills from './skills';
 import UserName from './userName';
 
-const ResultProfile = memo(({ random, transition }) => (
+const ResultProfile = memo(({ transition }) => (
 	<div className='ResultProfile'>
 		<div className='outlineBox'>
 			<div className='container'>
@@ -15,7 +15,7 @@ const ResultProfile = memo(({ random, transition }) => (
 				<div className='content'>
 					<UserName transition={transition} delay={0} />
 					<Headline transition={transition} delay={50} />
-					<ViewProfile transition={transition} delay={300} random={random} />
+					<ViewProfile transition={transition} delay={300} />
 					<Skills transition={transition} delay={500} />
 				</div>
 			</div>

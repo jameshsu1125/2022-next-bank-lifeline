@@ -1,7 +1,9 @@
+import Click from 'lesca-click';
 import Facebook from 'lesca-facebook-share';
 import QueryString from 'lesca-url-parameters';
 import useTween from 'lesca-use-tween';
-import { Children, cloneElement, memo, useContext, useEffect } from 'react';
+import UserAgent from 'lesca-user-agent';
+import { Children, cloneElement, memo, useContext, useEffect, useState } from 'react';
 import RegularButton from '../../../components/regularButton';
 import { Context } from '../../../settings/config';
 import { ACTION, PAGE } from '../../../settings/constant';
@@ -20,7 +22,19 @@ const AnimteProvider = memo(({ children, viewCounter, delay }) => {
 });
 
 const ResultButton = memo(({ viewCounter }) => {
-	const [, setContext] = useContext(Context);
+	const [context, setContext] = useContext(Context);
+	const image = context[ACTION.image];
+	const [device, setDevice] = useState(UserAgent.get() === 'mobile');
+
+	useEffect(() => {
+		Click.addPreventExcept('.download');
+		const resize = () => {
+			setDevice(UserAgent.get() === 'mobile');
+		};
+		window.addEventListener('resize', resize);
+		return () => window.removeEventListener('resize', resize);
+	}, []);
+
 	return (
 		<div className='ResultButton'>
 			<AnimteProvider {...{ viewCounter, delay: 0 }}>
@@ -46,7 +60,7 @@ const ResultButton = memo(({ viewCounter }) => {
 								const href = QueryString.root() + QueryString.file();
 								Facebook.share({
 									href,
-									hashtag: '你的後天生命線',
+									hashtag: '後天生命線',
 									redirect_uri: href,
 								});
 							}}
@@ -58,9 +72,16 @@ const ResultButton = memo(({ viewCounter }) => {
 			</AnimteProvider>
 			<AnimteProvider {...{ viewCounter, delay: 100 }}>
 				<div className='row'>
-					<RegularButton center inversion ico='download' onClick={() => {}}>
-						長按下載結果圖
+					<RegularButton center inversion ico='download'>
+						{device ? (
+							'長按下載結果圖'
+						) : (
+							<a className='pointer-events-auto px-[6rem] py-4' href={image.base64} download>
+								長按下載結果圖
+							</a>
+						)}
 					</RegularButton>
+					{device && <img id='doweload' src={image.base64} alt='' />}
 				</div>
 			</AnimteProvider>
 			<AnimteProvider {...{ viewCounter, delay: 200 }}>

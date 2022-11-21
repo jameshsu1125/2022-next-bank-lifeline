@@ -23,7 +23,6 @@ const Category = memo(({ children, setviewCounter, threshold }) => (
 
 const Result = memo(() => {
 	const ref = useRef();
-	const [random] = useState(Math.random() > 0.5 ? 1 : 2);
 	const [transition, setTransition] = useState(TRANSITION.unset);
 	const [viewCounter, setviewCounter] = useState(0);
 
@@ -35,14 +34,14 @@ const Result = memo(() => {
 		<div ref={ref} className='Result'>
 			<Container maxHeight={false}>
 				<div className='container'>
-					<ResultProfile random={random} transition={transition} />
+					<ResultProfile transition={transition} />
 					{transition === TRANSITION.fadeIn && (
 						<Suspense>
 							<Category threshold={0.1} setviewCounter={setviewCounter}>
 								<ResultDescription viewCounter={viewCounter} />
 							</Category>
 							<Category threshold={0.5} setviewCounter={setviewCounter}>
-								<ResultExplain random={random} viewCounter={viewCounter} />
+								<ResultExplain viewCounter={viewCounter} />
 							</Category>
 							<Category threshold={0.5} setviewCounter={setviewCounter}>
 								<ResultButton viewCounter={viewCounter} />

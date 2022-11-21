@@ -8,7 +8,7 @@ const Terms = memo(() => (
 		</p>
 		<div>
 			<div className='-ml-[8px]'>【活動內容】</div>
-			<ul className='space-y-1 pl-8 -indent-8'>
+			<ul className='space-y-1 pl-5 -indent-5'>
 				<li>1. 活動期間：2022/12/01-2023/01/31</li>
 				<li>
 					2.
@@ -21,7 +21,7 @@ const Terms = memo(() => (
 		</div>
 		<div>
 			<div className='-ml-[8px]'>【注意事項】</div>
-			<ul className='space-y-1 pl-8 -indent-8'>
+			<ul className='space-y-1'>
 				<li>
 					本行將於名單公佈後14日內主動聯繫中獎人，核對中獎人身分（核對中獎人邀請碼）以及獎品寄送資訊。若中獎人於2023/03/15前未能核實身分或提供獎品寄送資訊，視同放棄中獎資格。
 				</li>

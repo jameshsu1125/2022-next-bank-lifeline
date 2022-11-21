@@ -3,7 +3,7 @@ import { memo, useEffect } from 'react';
 import Magnifier from './magnifier';
 import './dialog.less';
 
-const ExplainDialog = memo(({ lineName, explan, solve, classname, random, viewCounter }) => {
+const ExplainDialog = memo(({ lineName, explan, solve, classname, color, viewCounter }) => {
 	const [style, setStyle] = useTween({ opacity: 0, y: 200 });
 
 	useEffect(() => {
@@ -39,7 +39,7 @@ const ExplainDialog = memo(({ lineName, explan, solve, classname, random, viewCo
 			<div className='hand'>
 				<div>
 					<div className={`p ${classname}`} />
-					<Magnifier classname={classname} random={random} />
+					<Magnifier classname={classname} color={color} />
 				</div>
 			</div>
 		</div>

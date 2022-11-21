@@ -5,9 +5,9 @@ import { ACTION } from '../../../settings/constant';
 import ExplainDialog from './dialog';
 import './index.less';
 
-const ResultExplain = memo(({ random, viewCounter }) => {
+const ResultExplain = memo(({ viewCounter }) => {
 	const [context] = useContext(Context);
-	const { result } = context[ACTION.result];
+	const { result, color } = context[ACTION.result];
 	const data = getResultById[result];
 	const { lineName, explan, solve } = data.explanation;
 	const { classname } = data.profile;
@@ -17,7 +17,7 @@ const ResultExplain = memo(({ random, viewCounter }) => {
 			<div className='trip'>
 				<div className='t' />
 			</div>
-			<ExplainDialog {...{ lineName, explan, solve, classname, random, viewCounter }} />
+			<ExplainDialog {...{ lineName, explan, solve, classname, color, viewCounter }} />
 		</div>
 	);
 });

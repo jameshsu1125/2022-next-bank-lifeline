@@ -4,7 +4,7 @@ import { Context, getResultById } from '../../../settings/config';
 import { ACTION, TRANSITION } from '../../../settings/constant';
 import './hand.less';
 
-const Hand = memo(({ classname, random, transition, delay }) => {
+const Hand = memo(({ classname, color, transition, delay }) => {
 	const [style, setStyle] = useTween({ opacity: 0, scale: 2 });
 
 	useEffect(() => {
@@ -13,18 +13,19 @@ const Hand = memo(({ classname, random, transition, delay }) => {
 		}
 	}, [transition]);
 
-	return <div className={`p ${classname}-${random}`} style={style} />;
+	return <div className={`p ${classname}-${color}`} style={style} />;
 });
 
-const ViewProfile = memo(({ random, transition, delay }) => {
+const ViewProfile = memo(({ transition, delay }) => {
 	const [context] = useContext(Context);
-	const { result } = context[ACTION.result];
+	const { result, color } = context[ACTION.result];
 	const { profile } = getResultById[result];
 	const { classname } = profile;
+
 	return (
 		<div className='ViewProfile'>
 			<div className='position'>
-				<Hand classname={classname} random={random} transition={transition} delay={delay} />
+				<Hand classname={classname} color={color} transition={transition} delay={delay} />
 			</div>
 		</div>
 	);

@@ -1,9 +1,13 @@
+import { base64 } from './image';
+
+/* eslint-disable no-plusplus */
 export const ACTION = {
 	page: '頁面',
 	transition: '動態',
 	result: '結果資料',
 	entrytime: '進入網站時間',
 	prcessing: '資料處理中',
+	image: '下載圖',
 };
 
 export const PAGE = {
@@ -33,6 +37,8 @@ export const QUESTIONS_STATE = {
 	answers: [],
 	name: '',
 };
+export const FORM_PAGE = { form: '/form', submited: '/submited' };
+export const FORM_STATE = { page: FORM_PAGE.form, terms: false };
 
 export const RESULT_IDS = {
 	A0FIJS: 'FIJS',
@@ -52,10 +58,45 @@ export const RESULT_IDS = {
 	H0FIJN: 'FIJN',
 	H1TIJN: 'TIJN',
 };
-export const RESULT = { result: RESULT_IDS.C1FIPN, name: '伊斯巴拉淦巴尼杜兒' };
-export const FORM_PAGE = { form: '/form', submited: '/submited' };
-export const FORM_STATE = { page: FORM_PAGE.form, terms: false };
+export const RESULT = {
+	result: RESULT_IDS.F0TEJS,
+	name: '伊斯巴拉淦巴尼杜兒',
+	color: Math.random() > 0.5 ? 1 : 2,
+};
+
 const date = new Date();
 export const ENTRYTIME = `${date.getFullYear()}/${
 	date.getMonth() + 1
 }/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
+
+export const IMAGE_STATE = { base64 };
+export const splitText = (str, size) => {
+	const numChunks = Math.ceil(str.length / size);
+	const chunks = new Array(numChunks);
+
+	for (let i = 0, o = 0; i < numChunks; ++i, o += size) {
+		chunks[i] = str.substr(o, size);
+	}
+
+	return chunks;
+};
+
+export const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
+	const byteCharacters = atob(b64Data.split('base64,')[1]);
+	const byteArrays = [];
+
+	for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+		const slice = byteCharacters.slice(offset, offset + sliceSize);
+
+		const byteNumbers = new Array(slice.length);
+		for (let i = 0; i < slice.length; i++) {
+			byteNumbers[i] = slice.charCodeAt(i);
+		}
+
+		const byteArray = new Uint8Array(byteNumbers);
+		byteArrays.push(byteArray);
+	}
+
+	const blob = new Blob(byteArrays, { type: contentType });
+	return blob;
+};
