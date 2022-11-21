@@ -1,9 +1,10 @@
 import Click from 'lesca-click';
-import Facebook from 'lesca-facebook-share';
+// import Facebook from 'lesca-facebook-share';
+import copy from 'copy-text-to-clipboard';
 import QueryString from 'lesca-url-parameters';
 import useTween from 'lesca-use-tween';
 import UserAgent from 'lesca-user-agent';
-import { Children, cloneElement, memo, useContext, useEffect, useState } from 'react';
+import { Children, cloneElement, memo, useCallback, useContext, useEffect, useState } from 'react';
 import RegularButton from '../../../components/regularButton';
 import { Context } from '../../../settings/config';
 import { ACTION, PAGE } from '../../../settings/constant';
@@ -27,12 +28,23 @@ const ResultButton = memo(({ viewCounter }) => {
 	const [device, setDevice] = useState(UserAgent.get() === 'mobile');
 
 	useEffect(() => {
-		Click.addPreventExcept('.download');
+		Click.addPreventExcept('#download');
 		const resize = () => {
 			setDevice(UserAgent.get() === 'mobile');
 		};
 		window.addEventListener('resize', resize);
 		return () => window.removeEventListener('resize', resize);
+	}, []);
+
+	const Copy = useCallback(() => {
+		const href = QueryString.root();
+		if (copy(href)) alert('連結已複製至剪貼簿');
+		else alert('瀏覽器不支援剪貼功能，請於瀏覽器複製連結');
+		/* Facebook.share({
+			href,
+			hashtag: '後天生命線',
+			redirect_uri: href,
+		}); */
 	}, []);
 
 	return (
@@ -52,19 +64,7 @@ const ResultButton = memo(({ viewCounter }) => {
 						</RegularButton>
 					</div>
 					<div className='w-[50%]'>
-						<RegularButton
-							center
-							inversion
-							ico='link'
-							onClick={() => {
-								const href = QueryString.root() + QueryString.file();
-								Facebook.share({
-									href,
-									hashtag: '後天生命線',
-									redirect_uri: href,
-								});
-							}}
-						>
+						<RegularButton center inversion ico='link' onClick={Copy}>
 							分享連結
 						</RegularButton>
 					</div>
@@ -77,11 +77,11 @@ const ResultButton = memo(({ viewCounter }) => {
 							'長按下載結果圖'
 						) : (
 							<a className='pointer-events-auto px-[6rem] py-4' href={image.base64} download>
-								長按下載結果圖
+								點擊下載結果圖
 							</a>
 						)}
 					</RegularButton>
-					{device && <img id='doweload' src={image.base64} alt='' />}
+					{device && <img id='doweload' width='408' height='64' src={image.base64} alt='' />}
 				</div>
 			</AnimteProvider>
 			<AnimteProvider {...{ viewCounter, delay: 200 }}>

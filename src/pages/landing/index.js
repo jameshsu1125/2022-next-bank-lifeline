@@ -16,11 +16,11 @@ const Landing = memo(() => {
 
 	const ref = useRef();
 	const value = useState(LANDING_STATE);
+	const [transition, setTransition] = useState(TRANSITION.unset);
 
 	useEffect(() => {
 		new ImagePreloader().load(ref.current).then(() => {
-			const [, setLoadingContext] = value;
-			setLoadingContext((S) => ({ ...S, transition: TRANSITION.fadeIn }));
+			setTransition(TRANSITION.fadeIn);
 		});
 	}, []);
 
@@ -29,11 +29,11 @@ const Landing = memo(() => {
 			<LoadingContext.Provider value={value}>
 				<Container>
 					<Card>
-						<Compass>
-							<Hand />
+						<Compass transition={transition}>
+							<Hand transition={transition} />
 						</Compass>
 					</Card>
-					<CardLogo>
+					<CardLogo transition={transition}>
 						<RegularButton
 							onClick={() => {
 								setContext({ type: ACTION.page, state: PAGE.questions });

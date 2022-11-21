@@ -1,14 +1,10 @@
 import useTween from 'lesca-use-tween';
-import { memo, useRef, useEffect, useContext } from 'react';
-import { LoadingContext } from '../../settings/config';
+import { memo, useEffect, useRef } from 'react';
 import { LOGO_DURATION, TRANSITION } from '../../settings/constant';
 import './index.less';
 
-const Logo = memo(() => {
+const Logo = memo(({ transition }) => {
 	const ref = useRef();
-
-	const [context] = useContext(LoadingContext);
-	const { transition } = context;
 	const [style, setStyle] = useTween({ opacity: 0 });
 
 	useEffect(() => {

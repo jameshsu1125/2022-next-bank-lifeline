@@ -1,13 +1,10 @@
 import useTween from 'lesca-use-tween';
-import { memo, useContext, useEffect } from 'react';
-import { LoadingContext } from '../../settings/config';
+import { memo, useEffect } from 'react';
 import { LOGO_DURATION, TRANSITION } from '../../settings/constant';
 import './index.less';
 import Logo from './logo';
 
-const CardLogo = memo(({ children }) => {
-	const [context] = useContext(LoadingContext);
-	const { transition } = context;
+const CardLogo = memo(({ children, transition }) => {
 	const [style, setStyle] = useTween({ opacity: 0, x: -100 });
 
 	useEffect(() => {
@@ -19,7 +16,7 @@ const CardLogo = memo(({ children }) => {
 	return (
 		<div className='CardLogo'>
 			<div className='logo'>
-				<Logo />
+				<Logo transition={transition} />
 			</div>
 			<div style={style}>{children}</div>
 		</div>

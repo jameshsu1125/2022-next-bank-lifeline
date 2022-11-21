@@ -1,13 +1,10 @@
 import useTween from 'lesca-use-tween';
-import { memo, useContext, useEffect } from 'react';
-import { LoadingContext } from '../../settings/config';
+import { memo, useEffect } from 'react';
 import { LOGO_DURATION, TRANSITION } from '../../settings/constant';
 import './index.less';
 import Texture from './texture';
 
-const Hand = memo(() => {
-	const [context] = useContext(LoadingContext);
-	const { transition } = context;
+const Hand = memo(({ transition }) => {
 	const [style, setStyle] = useTween({ opacity: 0, scale: 0 });
 
 	useEffect(() => {

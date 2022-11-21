@@ -17,7 +17,7 @@ export const QuestionContext = createContext();
 export const FormContext = createContext();
 
 export const initialState = {
-	[ACTION.page]: window.location.hostname === 'localhost' ? PAGE.form : PAGE.landing,
+	[ACTION.page]: window.location.hostname === 'localhost' ? PAGE.landing : PAGE.landing,
 	[ACTION.transition]: TRANSITION.unset,
 	[ACTION.result]: RESULT,
 	[ACTION.entrytime]: ENTRYTIME,

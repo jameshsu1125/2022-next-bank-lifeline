@@ -1,5 +1,3 @@
-import { base64 } from './image';
-
 /* eslint-disable no-plusplus */
 export const ACTION = {
 	page: '頁面',
@@ -27,7 +25,7 @@ export const TRANSITION = {
 };
 export const HAND_DURATIONS = { css: 2000, stay: 0 };
 export const LOGO_DURATION = { logo: 300, compass: 0, hand: 200, button: 1000 };
-export const LANDING_STATE = { transition: TRANSITION.unset };
+export const LANDING_STATE = {};
 export const QUESTIONS_PAGE = { question: '/question', sign: '/sign', processing: '/processing' };
 export const PRCESSING_STATE = { enabled: false, body: '資料處理中' };
 export const QUESTIONS_STATE = {
@@ -69,7 +67,7 @@ export const ENTRYTIME = `${date.getFullYear()}/${
 	date.getMonth() + 1
 }/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
-export const IMAGE_STATE = { base64 };
+export const IMAGE_STATE = { base64: '' };
 export const splitText = (str, size) => {
 	const numChunks = Math.ceil(str.length / size);
 	const chunks = new Array(numChunks);
@@ -79,24 +77,4 @@ export const splitText = (str, size) => {
 	}
 
 	return chunks;
-};
-
-export const b64toBlob = (b64Data, contentType = '', sliceSize = 512) => {
-	const byteCharacters = atob(b64Data.split('base64,')[1]);
-	const byteArrays = [];
-
-	for (let offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-		const slice = byteCharacters.slice(offset, offset + sliceSize);
-
-		const byteNumbers = new Array(slice.length);
-		for (let i = 0; i < slice.length; i++) {
-			byteNumbers[i] = slice.charCodeAt(i);
-		}
-
-		const byteArray = new Uint8Array(byteNumbers);
-		byteArrays.push(byteArray);
-	}
-
-	const blob = new Blob(byteArrays, { type: contentType });
-	return blob;
 };

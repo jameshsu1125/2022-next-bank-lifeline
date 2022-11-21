@@ -12,10 +12,12 @@ const Processing = memo(() => {
 	const [style, setStyle] = useTween({ opacity: 0, scale: 0 });
 	const [, setFrame] = useTween({ index: 0 });
 	const [opacity, setOpacity] = useState(1);
+	const [resultSaved, setResultSaved] = useState(false);
 
 	useEffect(() => {
 		const result = answers.filter((e) => e !== '').join('') || RESULT.result;
 		setContext({ type: ACTION.result, state: { ...RESULT, result, name } });
+		setResultSaved(true);
 	}, [answers, name]);
 
 	useEffect(() => {
@@ -49,7 +51,7 @@ const Processing = memo(() => {
 				</div>
 				<div className='s' style={{ opacity }} />
 			</div>
-			<Canvas onCapture={onCapture} />
+			{resultSaved && <Canvas onCapture={onCapture} />}
 		</>
 	);
 });
