@@ -45,6 +45,7 @@
 	},
 	"dependencies": {
 		"@types/react": "^18.0.25",
+		"axios": "^1.1.3",
 		"copy-text-to-clipboard": "^3.0.1",
 		"lesca-click": "^4.3.1",
 		"lesca-facebook-share": "^1.1.0",
@@ -53,7 +54,6 @@
 		"lesca-number": "^1.5.0",
 		"lesca-react-landscape": "^2.2.2",
 		"lesca-react-loading": "^1.1.8",
-		"lesca-sp88-fetch": "^1.1.5",
 		"lesca-url-parameters": "^2.0.7",
 		"lesca-use-tween": "^2.1.0",
 		"lesca-user-agent": "^2.0.0",

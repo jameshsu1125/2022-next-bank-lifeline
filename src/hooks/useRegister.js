@@ -1,4 +1,4 @@
-import Fetch from 'lesca-sp88-fetch';
+import axios from 'axios';
 import { useContext, useState } from 'react';
 import { Context, getResultById } from '../settings/config';
 import { ACTION, PRCESSING_STATE } from '../settings/constant';
@@ -28,10 +28,12 @@ const useRegister = () => {
 			return;
 		}
 
-		const res = await Fetch.post('/Create', { ...props, Agreetime, Entrytime, Result: index });
-		if (res) {
-			const { ResponseMSG, ResponseCode } = res;
-			if (ResponseCode === '00') setState(res);
+		const { data } = await axios.post(process.env.API, {
+			jsondata: JSON.stringify({ ...props, Agreetime, Entrytime, Result: index }),
+		});
+		if (data) {
+			const { ResponseMSG, ResponseCode } = JSON.parse(data);
+			if (ResponseCode === '00') setState(data);
 			else alert(ResponseMSG);
 		} else alert('主機愈時，請稍候再試。');
 

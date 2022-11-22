@@ -2,7 +2,6 @@ import Click from 'lesca-click';
 import Facebook from 'lesca-facebook-share';
 import Landscape from 'lesca-react-landscape';
 import LoadingProcess from 'lesca-react-loading';
-import Fetch, { contentType } from 'lesca-sp88-fetch';
 import { lazy, memo, Suspense, useContext, useMemo, useReducer } from 'react';
 import { createRoot } from 'react-dom/client';
 import { Context, initialState, reducer } from '../settings/config';
@@ -12,7 +11,6 @@ import LandscapeIcon from './img/landscape.png';
 
 Facebook.install(process.env.FB_ID);
 Click.install();
-Fetch.install({ hostUrl: process.env.API, contentType: contentType.JSON });
 
 const Pages = memo(() => {
 	const [context] = useContext(Context);
