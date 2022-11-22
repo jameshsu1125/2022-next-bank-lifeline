@@ -95,8 +95,8 @@ Code and documentation copyright 2011-2022 the authors. Code released under the 
 [API](https://docs.google.com/document/d/17dkAT2CpH_72A3rMABtGS70R3ZXyOdYR/edit)
 -->
 
-## remove optimized svg
+<!-- ## remove optimized svg
 
 ```sh
 find . -name '*\<*' | while read f; do mv "$f" "${f//\</}"; done
-```
+``` -->

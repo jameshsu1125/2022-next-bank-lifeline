@@ -6,32 +6,9 @@
 [![React](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3schools.com/css/)
 [![NPM](https://img.shields.io/badge/DEV-Jameshsu1125-9cf?style=for-the-badge)](https://www.npmjs.com/~jameshsu1125)
 
+- [Components](#components)
+  - [useRegister](#useregister)
+
 # Components
 
-## Table of components
-
-- [Component A](#component-a)
-
-## Component A
-
-### Usage
-
-### Development
-
-#### Methods
-
-| method                              | description | return |
-| :---------------------------------- | :---------: | -----: |
-| .**functionName**(**arg**:_string_) |     xxx     |   void |
-
-#### Properties
-
-| Properties            | description | default |
-| :-------------------- | :---------: | ------: |
-| .**enable**:_boolean_ |     xxx     |    true |
-
-#### Props
-
-| Properties         | description | default |
-| :----------------- | :---------: | ------: |
-| **title**:_string_ |     xxx     |      '' |
+## useRegister

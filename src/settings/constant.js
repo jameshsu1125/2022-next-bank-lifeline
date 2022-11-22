@@ -26,7 +26,6 @@ export const TRANSITION = {
 };
 export const HAND_DURATIONS = { css: 2000, stay: 0 };
 export const LOGO_DURATION = { logo: 300, compass: 0, hand: 200, button: 1000 };
-export const LANDING_STATE = {};
 export const QUESTIONS_PAGE = { question: '/question', sign: '/sign', processing: '/processing' };
 export const PRCESSING_STATE = { enabled: false, body: '資料處理中' };
 export const QUESTIONS_STATE = {

@@ -6,13 +6,34 @@
 [![React](https://img.shields.io/badge/-CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://www.w3schools.com/css/)
 [![NPM](https://img.shields.io/badge/DEV-Jameshsu1125-9cf?style=for-the-badge)](https://www.npmjs.com/~jameshsu1125)
 
-# Components
+- [Table of components](#table-of-components)
+  - [Landing component](#landing-component)
+  - [Question component](#question-component)
+  - [Result component](#result-component)
+  - [form compnent](#form-compnent)
+  - [Usage](#usage)
+  - [Development](#development)
+    - [Methods](#methods)
+    - [Properties](#properties)
+    - [Props](#props)
 
 ## Table of components
 
-- [Component A](#component-a)
+### Landing component
 
-## Component A
+頁面首頁與動態
+
+| modules | use |
+| :------ | :-: |
+| context |  X  |
+
+### Question component
+
+問
+
+### Result component
+
+### form compnent
 
 ### Usage
 

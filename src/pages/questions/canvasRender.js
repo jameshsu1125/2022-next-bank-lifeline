@@ -9,7 +9,7 @@ export const Options = {
 	maxBlock: 24,
 	position: { x: 52, y: 70 },
 	canvas: { width: 750, height: 1390, scale: 0.5973333333333334 },
-	fontFamily: 'Inter Black, Microsoft JhengHei, 微軟正黑體',
+	fontFamily: 'Microsoft JhengHei, 微軟正黑體',
 };
 
 export const render = async ({ profile, description, name, color, ctx, canvas, setDrawed }) => {
