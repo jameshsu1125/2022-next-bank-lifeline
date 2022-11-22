@@ -31,6 +31,7 @@ const useRegister = () => {
 		const { data } = await axios.post(process.env.API, {
 			jsonData: JSON.stringify({ ...props, Agreetime, Entrytime, Result: index }),
 		});
+
 		if (data) {
 			const { ResponseMSG, ResponseCode } = JSON.parse(data);
 			if (ResponseCode === '00') setState(data);
