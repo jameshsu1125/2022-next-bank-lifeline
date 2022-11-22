@@ -4,7 +4,7 @@ import copy from 'copy-text-to-clipboard';
 import QueryString from 'lesca-url-parameters';
 import useTween from 'lesca-use-tween';
 import UserAgent from 'lesca-user-agent';
-import { Children, cloneElement, memo, useCallback, useContext, useEffect, useState } from 'react';
+import { Children, cloneElement, memo, useContext, useEffect, useState } from 'react';
 import RegularButton from '../../../components/regularButton';
 import { Context } from '../../../settings/config';
 import { ACTION, PAGE } from '../../../settings/constant';
@@ -36,17 +36,6 @@ const ResultButton = memo(({ viewCounter }) => {
 		return () => window.removeEventListener('resize', resize);
 	}, []);
 
-	const Copy = useCallback(() => {
-		const href = QueryString.root();
-		if (copy(href)) alert('連結已複製至剪貼簿');
-		else alert('瀏覽器不支援剪貼功能，請於瀏覽器複製連結');
-		/* Facebook.share({
-			href,
-			hashtag: '後天生命線',
-			redirect_uri: href,
-		}); */
-	}, []);
-
 	return (
 		<div className='ResultButton'>
 			<AnimteProvider {...{ viewCounter, delay: 0 }}>
@@ -64,7 +53,21 @@ const ResultButton = memo(({ viewCounter }) => {
 						</RegularButton>
 					</div>
 					<div className='w-[50%]'>
-						<RegularButton center inversion ico='link' onClick={Copy}>
+						<RegularButton
+							center
+							inversion
+							ico='link'
+							onClick={() => {
+								const href = QueryString.root();
+								if (copy(href)) alert('連結已複製至剪貼簿');
+								else alert('瀏覽器不支援剪貼功能，請於瀏覽器複製連結');
+								/* Facebook.share({
+									href,
+									hashtag: '後天生命線',
+									redirect_uri: href,
+								}); */
+							}}
+						>
 							分享連結
 						</RegularButton>
 					</div>
