@@ -1,3 +1,4 @@
+/* eslint-disable implicit-arrow-linebreak */
 /* eslint-disable no-plusplus */
 export const ACTION = {
 	page: '頁面',
@@ -76,3 +77,15 @@ export const splitText = (str, size) => {
 	}
 	return chunks;
 };
+
+export const ImageLoader = (url) =>
+	new Promise((res, rej) => {
+		const image = new Image();
+		image.onload = (img) => {
+			res(img.currentTarget);
+		};
+		image.onerror = () => {
+			rej(new Error('image loaded error'));
+		};
+		image.src = url;
+	});

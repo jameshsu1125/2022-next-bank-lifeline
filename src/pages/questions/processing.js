@@ -22,6 +22,13 @@ const Processing = memo(() => {
 
 	useEffect(() => {
 		setStyle({ opacity: 1, scale: 1 }, { duration: 500, delay: 500 });
+		setFrame(
+			{ index: 1 },
+			{
+				duration: 100000,
+				onUpdate: () => setOpacity(Math.random()),
+			},
+		);
 	}, []);
 
 	const onCapture = useCallback(() => {
