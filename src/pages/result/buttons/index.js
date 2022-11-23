@@ -22,7 +22,7 @@ const AnimteProvider = memo(({ children, viewCounter, delay }) => {
 	return Children.map(children, (child) => cloneElement(child, { style }));
 });
 
-const ResultButton = memo(({ viewCounter }) => {
+const ResultButton = memo(({ viewCounter, setLightBoxState }) => {
 	const [context, setContext] = useContext(Context);
 	const image = context[ACTION.image];
 	const [device, setDevice] = useState(UserAgent.get() === 'mobile');
@@ -75,16 +75,22 @@ const ResultButton = memo(({ viewCounter }) => {
 			</AnimteProvider>
 			<AnimteProvider {...{ viewCounter, delay: 100 }}>
 				<div className='row'>
-					<RegularButton center inversion ico='download'>
+					<RegularButton
+						center
+						inversion
+						ico='download'
+						onClick={() => {
+							if (device) setLightBoxState(true);
+						}}
+					>
 						{device ? (
-							'長按下載結果圖'
+							'點擊下載分享圖'
 						) : (
 							<a className='pointer-events-auto px-[6rem] py-4' href={image.base64} download>
 								點擊下載結果圖
 							</a>
 						)}
 					</RegularButton>
-					{device && <img id='doweload' width='408' height='64' src={image.base64} alt='' />}
 				</div>
 			</AnimteProvider>
 			<AnimteProvider {...{ viewCounter, delay: 200 }}>

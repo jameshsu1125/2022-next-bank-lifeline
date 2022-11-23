@@ -5,7 +5,7 @@ import { TRANSITION } from '../../settings/constant';
 import RegularButton from '../regularButton';
 import './index.less';
 
-const Background = memo(({ transition }) => {
+export const Background = memo(({ transition }) => {
 	const [style, setStyle] = useTween({ opacity: 0 });
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) setStyle({ opacity: 1 }, 500);

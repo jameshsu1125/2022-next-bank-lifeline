@@ -39,7 +39,7 @@ const Form = memo(() => {
 			</div>
 			{priv && (
 				<ScrollableDialog
-					head='隱私條款'
+					head=''
 					checked={checked}
 					onClose={(readed) => {
 						setPrivate(false);

@@ -1,8 +1,10 @@
 import ImagePreloader from 'lesca-image-onload';
-import { lazy, memo, Suspense, useEffect, useRef, useState } from 'react';
+import { lazy, memo, Suspense, useContext, useEffect, useRef, useState } from 'react';
 import { InView } from 'react-intersection-observer';
 import Container from '../../components/container';
-import { TRANSITION } from '../../settings/constant';
+import StaticDialog from '../../components/dialog/static';
+import { Context } from '../../settings/config';
+import { ACTION, TRANSITION } from '../../settings/constant';
 import './index.less';
 import ResultProfile from './profile';
 
@@ -26,6 +28,10 @@ const Result = memo(() => {
 	const [transition, setTransition] = useState(TRANSITION.unset);
 	const [viewCounter, setviewCounter] = useState(0);
 
+	const [context] = useContext(Context);
+	const image = context[ACTION.image];
+	const [lightBoxState, setLightBoxState] = useState(false);
+
 	useEffect(() => {
 		new ImagePreloader().load(ref.current).then(() => setTransition(TRANSITION.fadeIn));
 	}, []);
@@ -44,12 +50,22 @@ const Result = memo(() => {
 								<ResultExplain viewCounter={viewCounter} />
 							</Category>
 							<Category threshold={0.5} setviewCounter={setviewCounter}>
-								<ResultButton viewCounter={viewCounter} />
+								<ResultButton viewCounter={viewCounter} setLightBoxState={setLightBoxState} />
 							</Category>
 						</Suspense>
 					)}
 				</div>
 			</Container>
+			{lightBoxState && (
+				<StaticDialog
+					onClose={() => setLightBoxState(false)}
+					onFadein={() => {
+						alert('再長按分享圖就可下載，完成後記得抽獎喔！');
+					}}
+				>
+					<img src={image.base64} alt='' className='pointer-events-auto h-auto max-h-[721px]' />
+				</StaticDialog>
+			)}
 		</div>
 	);
 });

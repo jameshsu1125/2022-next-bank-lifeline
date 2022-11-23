@@ -1,4 +1,7 @@
 /* eslint-disable implicit-arrow-linebreak */
+
+import { base64 } from './image';
+
 /* eslint-disable no-plusplus */
 export const ACTION = {
 	page: '頁面',
@@ -67,7 +70,7 @@ export const ENTRYTIME = `${date.getFullYear()}/${
 	date.getMonth() + 1
 }/${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}`;
 
-export const IMAGE_STATE = { base64: '' };
+export const IMAGE_STATE = { base64 };
 export const splitText = (str, size) => {
 	const numChunks = Math.ceil(str.length / size);
 	const chunks = new Array(numChunks);

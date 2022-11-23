@@ -102,7 +102,7 @@ export const questions = [
 	},
 ];
 export const processingDuration = 3000;
-export const submitedURL = 'https://ins-I.nextbank.com.tw/Member/RegCon/';
+export const submitedURL = 'https://ins.nextbank.com.tw/Member/RegCon/';
 
 export const resultName = {
 	結構線: '結構線',
