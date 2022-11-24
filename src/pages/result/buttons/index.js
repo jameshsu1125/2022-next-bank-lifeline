@@ -1,5 +1,4 @@
 import Click from 'lesca-click';
-// import Facebook from 'lesca-facebook-share';
 import copy from 'copy-text-to-clipboard';
 import QueryString from 'lesca-url-parameters';
 import useTween from 'lesca-use-tween';
@@ -61,11 +60,6 @@ const ResultButton = memo(({ viewCounter, setLightBoxState }) => {
 								const href = QueryString.root();
 								if (copy(href)) alert('連結已複製至剪貼簿');
 								else alert('瀏覽器不支援剪貼功能，請於瀏覽器複製連結');
-								/* Facebook.share({
-									href,
-									hashtag: '後天生命線',
-									redirect_uri: href,
-								}); */
 							}}
 						>
 							分享連結

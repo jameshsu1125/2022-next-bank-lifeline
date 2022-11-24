@@ -1,5 +1,4 @@
 import Click from 'lesca-click';
-import Facebook from 'lesca-facebook-share';
 import Landscape from 'lesca-react-landscape';
 import LoadingProcess from 'lesca-react-loading';
 import { lazy, memo, Suspense, useContext, useMemo, useReducer } from 'react';
@@ -9,7 +8,6 @@ import { ACTION, PAGE } from '../settings/constant';
 import '../settings/global.less';
 import LandscapeIcon from './img/landscape.png';
 
-Facebook.install(process.env.FB_ID);
 Click.install();
 
 const Pages = memo(() => {
