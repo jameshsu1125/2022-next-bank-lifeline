@@ -15,7 +15,6 @@ const ResultButton = lazy(() => import('./buttons'));
 const Category = memo(({ children, setviewCounter, threshold }) => (
 	<InView
 		as='div'
-		triggerOnce
 		threshold={threshold}
 		onChange={(inView) => inView && setviewCounter((c) => c + 1)}
 	>

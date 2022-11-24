@@ -5,6 +5,8 @@ import { TRANSITION } from '../../settings/constant';
 import RegularButton from '../regularButton';
 import './index.less';
 
+const SCROLL_TO_BOTTOM_OFFSET = 100;
+
 export const Background = memo(({ transition }) => {
 	const [style, setStyle] = useTween({ opacity: 0 });
 	useEffect(() => {
@@ -23,7 +25,7 @@ const Content = memo(({ transition, children, head, id, onClose, setTransition, 
 		const scroll = (e) => {
 			const { target } = e;
 			const { scrollTop, scrollHeight, clientHeight } = target;
-			if (scrollTop + clientHeight >= scrollHeight) {
+			if (scrollTop + clientHeight >= scrollHeight - SCROLL_TO_BOTTOM_OFFSET) {
 				setDisabled(false);
 			}
 		};

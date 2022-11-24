@@ -1,5 +1,5 @@
+import copy from 'copy-to-clipboard';
 import Click from 'lesca-click';
-import copy from 'copy-text-to-clipboard';
 import QueryString from 'lesca-url-parameters';
 import useTween from 'lesca-use-tween';
 import UserAgent from 'lesca-user-agent';
@@ -58,8 +58,8 @@ const ResultButton = memo(({ viewCounter, setLightBoxState }) => {
 							ico='link'
 							onClick={() => {
 								const href = QueryString.root();
-								if (copy(href)) alert('連結已複製至剪貼簿');
-								else alert('瀏覽器不支援剪貼功能，請於瀏覽器複製連結');
+								if (copy(href)) setTimeout(() => alert('連結已複製至剪貼簿'), 500);
+								else setTimeout(() => alert('瀏覽器不支援剪貼功能，請於瀏覽器複製連結'), 500);
 							}}
 						>
 							分享連結
