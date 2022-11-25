@@ -6,12 +6,14 @@ import { TRANSITION } from '../../settings/constant';
 import RegularButton from '../regularButton';
 import './index.less';
 
-const Content = memo(({ transition, children, id, onClick, onFadein, buttonLabel }) => {
+const Content = memo(({ transition, children, id, onClick, onClose, onFadein, buttonLabel }) => {
 	const [style, setStyle] = useTween({ y: window.innerHeight });
 
 	useEffect(() => {
 		if (transition === TRANSITION.fadeIn) {
 			setStyle({ y: 0 }, { duration: 500, onComplete: () => onFadein() });
+		} else if (transition === TRANSITION.fadeOut) {
+			setStyle({ y: window.innerHeight }, { duration: 500, onComplete: () => onClose() });
 		}
 	}, [transition]);
 	return (
@@ -39,28 +41,34 @@ const Content = memo(({ transition, children, id, onClick, onFadein, buttonLabel
 	);
 });
 
-const StaticDialog = memo(({ children, onClick, onFadein, buttonLabel = '立即抽iPhone14' }) => {
-	const id = useId();
-	const [transition, setTransition] = useState(TRANSITION.unset);
+const StaticDialog = memo(
+	({ children, onClick, onFadein, onClose, buttonLabel = '立即抽iPhone14' }) => {
+		const id = useId();
+		const [transition, setTransition] = useState(TRANSITION.unset);
 
-	useEffect(() => {
-		Click.addPreventExcept('.scroll');
-		setTransition(TRANSITION.fadeIn);
-	}, []);
+		useEffect(() => {
+			Click.add(`#${id}`, () => {
+				setTransition(TRANSITION.fadeOut);
+			});
+			Click.addPreventExcept('.scroll');
+			setTransition(TRANSITION.fadeIn);
+		}, []);
 
-	return (
-		<div className='ScrollableDialog'>
-			<Background transition={transition} />
-			<Content
-				onClick={onClick}
-				transition={transition}
-				id={id}
-				onFadein={onFadein}
-				buttonLabel={buttonLabel}
-			>
-				{children}
-			</Content>
-		</div>
-	);
-});
+		return (
+			<div className='ScrollableDialog'>
+				<Background transition={transition} />
+				<Content
+					onClose={onClose}
+					onClick={onClick}
+					transition={transition}
+					id={id}
+					onFadein={onFadein}
+					buttonLabel={buttonLabel}
+				>
+					{children}
+				</Content>
+			</div>
+		);
+	},
+);
 export default StaticDialog;

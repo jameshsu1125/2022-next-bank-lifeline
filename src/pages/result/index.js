@@ -57,12 +57,9 @@ const Result = memo(() => {
 			</Container>
 			{lightBoxState && (
 				<StaticDialog
-					onClick={() => {
-						setContext({ type: ACTION.page, state: PAGE.form });
-					}}
-					onFadein={() => {
-						alert('再長按分享圖就可下載');
-					}}
+					onClick={() => setContext({ type: ACTION.page, state: PAGE.form })}
+					onClose={() => setLightBoxState(false)}
+					onFadein={() => alert('再長按分享圖就可下載')}
 				>
 					<img src={image.base64} alt='' className='pointer-events-auto h-auto max-h-[721px]' />
 				</StaticDialog>
