@@ -4,7 +4,7 @@ import { InView } from 'react-intersection-observer';
 import Container from '../../components/container';
 import StaticDialog from '../../components/dialog/static';
 import { Context } from '../../settings/config';
-import { ACTION, TRANSITION } from '../../settings/constant';
+import { ACTION, PAGE, TRANSITION } from '../../settings/constant';
 import './index.less';
 import ResultProfile from './profile';
 
@@ -27,7 +27,7 @@ const Result = memo(() => {
 	const [transition, setTransition] = useState(TRANSITION.unset);
 	const [viewCounter, setviewCounter] = useState(0);
 
-	const [context] = useContext(Context);
+	const [context, setContext] = useContext(Context);
 	const image = context[ACTION.image];
 	const [lightBoxState, setLightBoxState] = useState(false);
 
@@ -57,9 +57,11 @@ const Result = memo(() => {
 			</Container>
 			{lightBoxState && (
 				<StaticDialog
-					onClose={() => setLightBoxState(false)}
+					onClick={() => {
+						setContext({ type: ACTION.page, state: PAGE.form });
+					}}
 					onFadein={() => {
-						alert('再長按分享圖就可下載，完成後記得抽獎喔！');
+						alert('再長按分享圖就可下載');
 					}}
 				>
 					<img src={image.base64} alt='' className='pointer-events-auto h-auto max-h-[721px]' />

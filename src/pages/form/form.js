@@ -51,7 +51,7 @@ const Form = memo(() => {
 			)}
 			{terms && (
 				<ScrollableDialog
-					head='活動條款'
+					head='活動辦法'
 					checked
 					onClose={() => {
 						setContext((S) => ({ ...S, terms: false }));

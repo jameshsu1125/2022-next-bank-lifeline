@@ -30,7 +30,7 @@ const ExplainDialog = memo(({ lineName, explan, solve, classname, color, viewCou
 				</div>
 				<div className='row'>
 					<p>
-						為你規劃保險，
+						聰明選保險，
 						<br />
 						{solve}
 					</p>
