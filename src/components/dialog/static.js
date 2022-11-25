@@ -26,7 +26,7 @@ const Content = memo(({ transition, children, id, onClick, onClose, onFadein, bu
 							center
 							yellow
 							flip
-							ico='close'
+							ico='gift'
 							onClick={() => {
 								onClick();
 							}}
