@@ -13,7 +13,7 @@
 	},
 	"license": "MIT",
 	"devDependencies": {
-		"@babel/core": "^7.20.2",
+		"@babel/core": "^7.20.5",
 		"@babel/plugin-transform-runtime": "^7.19.6",
 		"@babel/preset-env": "^7.20.2",
 		"@babel/preset-react": "^7.18.6",
@@ -36,7 +36,7 @@
 		"postcss": "^8.4.19",
 		"postcss-loader": "^7.0.1",
 		"postcss-preset-env": "^7.8.3",
-		"prettier-plugin-tailwindcss": "^0.1.13",
+		"prettier-plugin-tailwindcss": "^0.2.0",
 		"style-loader": "^3.3.1",
 		"tailwindcss": "^3.2.4",
 		"webpack": "^5.75.0",
@@ -45,7 +45,6 @@
 	},
 	"dependencies": {
 		"@types/react": "^18.0.25",
-		"axios": "^1.2.0",
 		"copy-to-clipboard": "^3.3.3",
 		"lesca-click": "^4.3.2",
 		"lesca-gtag": "^1.2.6",
@@ -53,6 +52,7 @@
 		"lesca-number": "^1.5.0",
 		"lesca-react-landscape": "^2.2.2",
 		"lesca-react-loading": "^1.1.8",
+		"lesca-sp88-fetch": "^1.2.1",
 		"lesca-url-parameters": "^2.0.7",
 		"lesca-use-tween": "^2.1.0",
 		"lesca-user-agent": "^2.0.0",

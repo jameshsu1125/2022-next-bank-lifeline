@@ -1,4 +1,4 @@
-import axios from 'axios';
+import Fetch from 'lesca-sp88-fetch';
 import { useContext, useState } from 'react';
 import { Context, getResultById } from '../settings/config';
 import { ACTION, PRCESSING_STATE } from '../settings/constant';
@@ -28,14 +28,21 @@ const useRegister = () => {
 			return;
 		}
 
-		const { data } = await axios.post(process.env.API, {
-			jsonData: JSON.stringify({ ...props, Agreetime, Entrytime, Result: index }),
+		const data = await Fetch.postStringify('/Create', {
+			...props,
+			Agreetime,
+			Entrytime,
+			Result: index,
 		});
 
 		if (data) {
-			const { ResponseMSG, ResponseCode } = JSON.parse(data);
-			if (ResponseCode === '00') setState(data);
-			else alert(ResponseMSG);
+			try {
+				const { ResponseMSG, ResponseCode } = JSON.parse(data);
+				if (ResponseCode === '00') setState(data);
+				else alert(ResponseMSG);
+			} catch (e) {
+				alert('主機愈時，請稍候再試。');
+			}
 		} else alert('主機愈時，請稍候再試。');
 
 		setContext({ type: ACTION.prcessing, state: { ...PRCESSING_STATE, enabled: false } });
