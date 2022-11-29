@@ -89,7 +89,7 @@ const MultipleInputs = memo(({ transition, setPrivate, checkState, fetcher }) =>
 				))}
 				<Animate delay={300} transition={transition}>
 					<CheckBox checked={checked} onClick={onCheck}>
-						我已閱讀並同意個人資料告知事項
+						我已閱讀並同意個人資料蒐集處理及利用告知事項和保險行銷使用
 					</CheckBox>
 				</Animate>
 				<Animate delay={400} transition={transition}>

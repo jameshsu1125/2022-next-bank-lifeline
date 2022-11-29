@@ -12,7 +12,7 @@ import LandscapeIcon from './img/landscape.png';
 Click.install();
 Fetch.install({
 	hostUrl: process.env.API,
-	contentType: contentType.URL_ENCODED,
+	contentType: contentType.JSON,
 });
 
 const Pages = memo(() => {

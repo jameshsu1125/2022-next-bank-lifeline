@@ -5,7 +5,7 @@ import { ACTION } from '../../../settings/constant';
 import ExplainDialog from './dialog';
 import './index.less';
 
-const ResultExplain = memo(({ viewCounter }) => {
+const ResultExplain = memo(() => {
 	const [context] = useContext(Context);
 	const { result, color } = context[ACTION.result];
 	const data = getResultById[result];
@@ -17,7 +17,7 @@ const ResultExplain = memo(({ viewCounter }) => {
 			<div className='trip'>
 				<div className='t' />
 			</div>
-			<ExplainDialog {...{ lineName, explan, solve, classname, color, viewCounter }} />
+			<ExplainDialog {...{ lineName, explan, solve, classname, color }} />
 		</div>
 	);
 });

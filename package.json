@@ -58,7 +58,6 @@
 		"lesca-user-agent": "^2.0.0",
 		"react": "^18.2.0",
 		"react-bottom-scroll-listener": "^5.1.0",
-		"react-dom": "^18.2.0",
-		"react-intersection-observer": "^9.4.1"
+		"react-dom": "^18.2.0"
 	}
 }
