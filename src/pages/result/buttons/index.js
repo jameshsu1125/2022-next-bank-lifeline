@@ -45,7 +45,7 @@ const ResultButton = memo(({ setLightBoxState }) => {
 						onClick={() => {
 							const href = QueryString.root();
 							if (copy(href)) setTimeout(() => alert('連結已複製至剪貼簿'), 500);
-							else setTimeout(() => alert('瀏覽器不支援剪貼功能，請用手機直接截圖'), 500);
+							else setTimeout(() => alert('不支援複製功能，請於瀏覽器複製網址'), 500);
 						}}
 					>
 						分享連結
