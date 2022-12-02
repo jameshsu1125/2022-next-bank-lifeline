@@ -48,13 +48,19 @@ export const reducer = (state, action) => {
 	return state;
 };
 
-export const validateEmail = (email) =>
-	String(email)
-		.toLowerCase()
-		.match(
-			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-		);
-
+export const validateEmail = (email) => {
+	const lowcaseEmail = String(email).toLowerCase();
+	if (lowcaseEmail.indexOf('@') > 0) {
+		const [, host] = lowcaseEmail.split('@');
+		const [hostname, net] = host.split('.');
+		if (hostname.length === 0) return null;
+		if (net) {
+			if (net.length <= 1) return null;
+		}
+		return true;
+	}
+	return null;
+};
 export const questions = [
 	{
 		title: '走著走著遇到叉路口，你會…',
