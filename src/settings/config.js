@@ -61,6 +61,12 @@ export const validateEmail = (email) => {
 	}
 	return null;
 };
+
+export const Pad = (num, len = 4) =>
+	Array.from(new Array(len - String(num).length).keys())
+		.map(() => '0')
+		.join('') + String(num);
+
 export const questions = [
 	{
 		title: '走著走著遇到叉路口，你會…',

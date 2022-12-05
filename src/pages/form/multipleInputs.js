@@ -52,7 +52,7 @@ const MultipleInputs = memo(({ transition, setPrivate, checkState, fetcher }) =>
 				if (name === 'name') {
 					if (data === '') return true;
 				} else if (name === 'tel') {
-					if (!data || data.length !== 10 || data.slice(0, 2) !== '09') return true;
+					if (!data || data.length !== 10 || data.substring(0, 2) !== '09') return true;
 				} else if (name === 'email') {
 					if (validateEmail(data) === null) return true;
 				}

@@ -48,7 +48,6 @@
 		"copy-to-clipboard": "^3.3.3",
 		"lesca-click": "^4.3.2",
 		"lesca-image-onload": "^3.0.1",
-		"lesca-number": "^1.5.1",
 		"lesca-react-landscape": "^2.2.2",
 		"lesca-react-loading": "^1.1.8",
 		"lesca-sp88-fetch": "^1.2.1",

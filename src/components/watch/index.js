@@ -1,5 +1,5 @@
-import { Pad } from 'lesca-number';
 import { memo, useEffect, useRef, useState } from 'react';
+import { Pad } from '../../settings/config';
 import './index.less';
 
 const Watch = memo(
