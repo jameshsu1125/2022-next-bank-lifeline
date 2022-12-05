@@ -43,7 +43,7 @@ const Dialog = memo(({ transition, setTransition }) => {
 			<div className='container'>
 				<div className='dialog-content'>
 					<h1>測試完成!請輸入你的稱呼</h1>
-					<Input ref={ref} placeholder='名稱最長限定9字以內' type='text' maxLength={18} />
+					<Input ref={ref} placeholder='最長限定9字以內' type='text' maxLength={18} />
 					<div className='pt-5'>
 						<RegularButton center onClick={onClick}>
 							前往結果
