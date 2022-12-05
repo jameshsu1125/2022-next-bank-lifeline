@@ -7,7 +7,7 @@ import { validateEmail } from '../../settings/config';
 import { TRANSITION } from '../../settings/constant';
 
 const INPUT_PORPERTY = [
-	{ name: 'name', placeholder: '請輸入你的名字', type: 'text', maxLength: 999, modal: '名字' },
+	{ name: 'name', placeholder: '請輸入你的姓名', type: 'text', maxLength: 999, modal: '名字' },
 	{ name: 'tel', placeholder: '請輸入你的電話', type: 'tel', maxLength: 10, modal: '電話' },
 	{
 		name: 'email',

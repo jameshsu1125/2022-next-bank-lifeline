@@ -25,7 +25,7 @@ export const Text = memo(({ transition, delay }) => {
 		<p style={style}>
 			將將～你已符合抽獎資格
 			<br />
-			我們將於2023年2月28日
+			我們將於2023年2月28日前
 			<br />
 			於將來銀行網路投保專區公布抽獎名單！
 		</p>
