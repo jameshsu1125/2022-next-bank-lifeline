@@ -1,8 +1,7 @@
 /* eslint-disable implicit-arrow-linebreak */
-
+/* eslint-disable no-plusplus */
 import { base64 } from './image';
 
-/* eslint-disable no-plusplus */
 export const ACTION = {
 	page: '頁面',
 	transition: '動態',
